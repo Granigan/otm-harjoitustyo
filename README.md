@@ -14,4 +14,5 @@ Morjesta. Tässä elämänlaadun parannusehdotus opintojaan aloittaville:
 
 t. *en ole katkera mutta kuitenkin*
 
-
+P.S.
+*no olen joo oikeesti katkera*
