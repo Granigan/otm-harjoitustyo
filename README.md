@@ -4,7 +4,8 @@
 ## Ensimmäinen viikko
 
 ### Tehtävät
-[Gitlog.txt](https://github.com/Granigan/otm-harjoitustyo/blob/master/laskarit/viikko1/gitlog.txt)
+[gitlog.txt](https://github.com/Granigan/otm-harjoitustyo/blob/master/laskarit/viikko1/gitlog.txt)
+
 [komentorivi.txt](https://github.com/Granigan/otm-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
 
 ### Palaute & Idea
