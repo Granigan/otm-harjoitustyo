@@ -191,4 +191,18 @@ public class KassapaateTest {
         assertEquals(1005_00, kassa.kassassaRahaa());
     }
     
+    @Test
+    public void negatiivinenKorttilatausEiMuutaKortinSaldoa() {
+        Maksukortti kortti = new Maksukortti(2_00);
+        kassa.lataaRahaaKortille(kortti, -1_00);
+        assertEquals(2_00, kortti.saldo());
+    }
+    
+    @Test
+    public void negatiivinenKorttilatausEiMuutaKassanSaldoa() {
+        Maksukortti kortti = new Maksukortti(2_00);
+        kassa.lataaRahaaKortille(kortti, -1_00);
+        assertEquals(1000_00, kassa.kassassaRahaa());
+    }
+    
 }

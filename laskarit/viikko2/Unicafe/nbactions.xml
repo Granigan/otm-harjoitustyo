@@ -7,4 +7,11 @@
                 <goal>jacoco:report</goal>
             </goals>
         </action>
+        <action>
+            <actionName>CUSTOM-kattavuustestit</actionName>
+            <displayName>kattavuustestit</displayName>
+            <goals>
+                <goal>jacoco:report</goal>
+            </goals>
+        </action>
     </actions>
