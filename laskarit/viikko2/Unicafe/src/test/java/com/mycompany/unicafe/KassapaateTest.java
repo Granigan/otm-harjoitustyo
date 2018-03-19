@@ -177,6 +177,18 @@ public class KassapaateTest {
     
     // RAHANLATAUS KASSAN KAUTTA
     
-    
+    @Test
+    public void kortinSaldoKasvaa() {
+        Maksukortti kortti = new Maksukortti(2_00);
+        kassa.lataaRahaaKortille(kortti, 5_00);
+        assertEquals(7_00, kortti.saldo());
+    }
+
+    @Test
+    public void kassanSaldoKasvaa() {
+        Maksukortti kortti = new Maksukortti(2_00);
+        kassa.lataaRahaaKortille(kortti, 5_00);
+        assertEquals(1005_00, kassa.kassassaRahaa());
+    }
     
 }
