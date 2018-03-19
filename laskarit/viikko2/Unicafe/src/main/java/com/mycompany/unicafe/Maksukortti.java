@@ -4,7 +4,7 @@ package com.mycompany.unicafe;
 public class Maksukortti {
  
     private int saldo;
- 
+    
     public Maksukortti(int saldo) {
         this.saldo = saldo;
     }
