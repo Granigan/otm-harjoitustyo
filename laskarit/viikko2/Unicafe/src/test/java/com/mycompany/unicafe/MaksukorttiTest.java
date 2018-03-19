@@ -36,7 +36,7 @@ public class MaksukorttiTest {
     }
     
     @Test
-    public void kortinSaldoVaheneeOikein() { // ei vähene!
+    public void kortinSaldoVaheneeOikein() {
         kortti.otaRahaa(8);
         assertEquals("saldo: 0.02", kortti.toString());
     }
