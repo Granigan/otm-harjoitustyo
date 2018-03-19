@@ -177,4 +177,6 @@ public class KassapaateTest {
     
     // RAHANLATAUS KASSAN KAUTTA
     
+    
+    
 }
