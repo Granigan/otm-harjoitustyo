@@ -1,21 +1,28 @@
 
 # OTM-Harjoitustyö
 
-## Ensimmäinen viikko
+## Project Podship - Part 1
+[Requirements specification/Vaativuusmäärittely](https://github.com/Granigan/otm-harjoitustyo/blob/master/dokumentaatio/vaativuusmaarittely.md)
 
-### Tehtävät
-[gitlog.txt](https://github.com/Granigan/otm-harjoitustyo/blob/master/laskarit/viikko1/gitlog.txt)
+[Working diary/Tuntikirjanpito](https://github.com/Granigan/otm-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
 
-[komentorivi.txt](https://github.com/Granigan/otm-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
 
-### Palaute & Idea
-Morjesta. Tässä elämänlaadun parannusehdotus opintojaan aloittaville:
-**Voisko Lapion matskun korvata tällä ohjeistuksella?**
+## Viikkotehtävät
 
-t. *en ole katkera mutta kuitenkin*
-
-## Toinen viikko
+### Toinen viikko
 [Maksukortin commitit](https://github.com/Granigan/otm-harjoitustyo/commits?author=Granigan)
 
 [Unicafen commitit](https://github.com/Granigan/otm-harjoitustyo/commits?author=Granigan)
 
+![Jacocon testiraportti](https://github.com/Granigan/otm-harjoitustyo/blob/master/laskarit/viikko2/Jacoco_test_coverage_report.png)
+
+### Ensimmäinen viikko
+[gitlog.txt](https://github.com/Granigan/otm-harjoitustyo/blob/master/laskarit/viikko1/gitlog.txt)
+
+[komentorivi.txt](https://github.com/Granigan/otm-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
+
+##### Palaute & Idea
+Morjesta. Tässä elämänlaadun parannusehdotus opintojaan aloittaville:
+**Voisko Lapion matskun korvata tällä ohjeistuksella?**
+
+t. *en ole katkera mutta kuitenkin*
