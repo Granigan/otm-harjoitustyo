@@ -2,4 +2,5 @@
 
 | date | h | task |
 | :----: | :----: | :----: |
-| 21.3 | 1 | set up this table and worked on defining the specifics for the project |
+| 21.3 | 1 | Set up this table and worked on defining the specifics for the project. |
+| 25.3 | 1 | Added info to requirement specifics and sorted features into categories of importance. Also created the project basics with Java.|
