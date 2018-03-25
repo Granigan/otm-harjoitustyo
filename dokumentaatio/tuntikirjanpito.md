@@ -3,4 +3,4 @@
 | date | h | task |
 | :----: | :----: | :----: |
 | 21.3 | 1 | Set up this table and worked on defining the specifics for the project. |
-| 25.3 | 2 | Added info to requirement specifics and sorted features into categories of importance. Also created the project basics with Java.|
+| 25.3 | 3 | Added info to requirement specifics and sorted features into categories of importance. Also set up the project in NB, including support and dependencies for jacoco, javadoc, etc. Finally, some maintenance and design progress on Trello.|
