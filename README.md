@@ -1,5 +1,5 @@
 
-# OTM-Harjoitustyö
+# OTM-Harjoitustyöt
 
 ## Project Podship - Part 1
 [Requirements specification/Vaativuusmäärittely](https://github.com/Granigan/otm-harjoitustyo/blob/master/dokumentaatio/vaativuusmaarittely.md)
@@ -10,6 +10,16 @@
 
 
 ## Viikkotehtävät
+
+### Kolmas viikko
+[Monopolin yksinkertainen luokkakaavio](https://github.com/Granigan/otm-harjoitustyo/blob/master/laskarit/viikko3/otm3.1_monopoly1.jpg)
+
+[Monopolin yksityiskohtaisempi luokkakaavio](https://github.com/Granigan/otm-harjoitustyo/blob/master/laskarit/viikko3/otm3.2_monopoly2.jpg)
+
+[Moottorin sekvenssikaavio](https://github.com/Granigan/otm-harjoitustyo/blob/master/laskarit/viikko3/otm3.3_sequence_diagram1.png)
+
+[HSL-järjestelmän sekvenssikaavio](https://github.com/Granigan/otm-harjoitustyo/blob/master/laskarit/viikko3/otm3.4_sequence_diagram2.png)
+
 
 ### Toinen viikko
 [Maksukortin commitit](https://github.com/Granigan/otm-harjoitustyo/commits?author=Granigan)
