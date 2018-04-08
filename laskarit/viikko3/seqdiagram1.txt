@@ -1,0 +1,16 @@
+title OTM task 3.1
+
+main->*kone: new Machine()
+kone->*tank: new FuelTank()
+kone->tank: fill(40)
+kone->*engine: new Engine(tank)
+main->kone: drive()
+kone->engine: start()
+engine->tank: consume(5)
+main->+engine: isRunning()
+engine->+tank: contentsLeft()
+tank-->-engine: 35
+engine-->-main: TRUE
+main->engine: useEnergy()
+engine->tank: consume(10)
+
