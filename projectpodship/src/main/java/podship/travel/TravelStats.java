@@ -13,13 +13,14 @@ public class TravelStats {
     }
 
     public TravelStats(int[] stats) {
-        for (int i : this.stats) {
+        this.stats = new int[7];
+        for (int i = 0; i < this.stats.length; i++) {
             this.stats[i] = stats[i];
         }
     }
 
     public boolean hasEnoughResources(int[] requirements) {
-        for (int i : stats) {
+        for (int i = 0; i < stats.length; i++) {
             if (requirements[i] > stats[i]) {
                 return false;
             }

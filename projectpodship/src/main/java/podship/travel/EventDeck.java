@@ -20,4 +20,8 @@ public class EventDeck {
         Random r = new Random();
         return availableEvents.remove(r.nextInt(availableEvents.size()));
     }
+    
+    public int getDeckSize() {
+        return availableEvents.size();
+    }
 }
