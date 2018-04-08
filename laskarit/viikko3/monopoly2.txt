@@ -33,4 +33,6 @@
 [Kortti]<-.-[Yhteismaaruutu]
 [Kortti]<-.-[Sattumaruutu]
 [Kortti]1-1[Toiminto]
-[Pelaaja]1-*[Katuruutu]
+[Pelaaja]0..1-*[Katuruutu]
+[Pelaaja]1-*[Vuoro]
+[Vuoro]1-1[Ruutu]
