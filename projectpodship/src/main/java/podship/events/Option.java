@@ -14,7 +14,6 @@ public class Option {
         this.desc = desc;
         statAdjustments = new int[7];
         for(int i = 0; i < statAdjustments.length; i++) {
-            System.out.println(stats[i]);
             statAdjustments[i] = stats[i];
         }
     }
