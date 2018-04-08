@@ -16,9 +16,9 @@
 
 [Monopolin yksityiskohtaisempi luokkakaavio](https://github.com/Granigan/otm-harjoitustyo/blob/master/laskarit/viikko3/otm3.2_monopoly2.jpg)
 
-[Moottorin sekvenssikaavio](https://github.com/Granigan/otm-harjoitustyo/blob/master/laskarit/viikko3/otm3.3_sequence_diagram1.png)
+[Moottorin sekvenssikaavio](https://github.com/Granigan/otm-harjoitustyo/blob/master/laskarit/viikko3/otm3.3_sequence_diagram.png)
 
-[HSL-järjestelmän sekvenssikaavio](https://github.com/Granigan/otm-harjoitustyo/blob/master/laskarit/viikko3/otm3.4_sequence_diagram2.png)
+[HSL-järjestelmän sekvenssikaavio](https://github.com/Granigan/otm-harjoitustyo/blob/master/laskarit/viikko3/otm3.4_sequence_diagram.png)
 
 
 ### Toinen viikko
