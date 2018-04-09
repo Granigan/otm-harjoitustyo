@@ -30,7 +30,6 @@ public class TravelStats {
 
     public void adjustResources(int[] adjustment) {
         for (int i = 0; i < stats.length; i++) {
-            System.out.println("adjusting stat " + i + " by " + adjustment[i]);
             stats[i] += adjustment[i];
         }
     }
