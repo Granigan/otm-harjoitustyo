@@ -9,7 +9,7 @@ import podship.travel.TravelStats;
 public class Main {
 
     public static void main(String[] args) {
-        
+
         int turnCount = 1; // only one event available atm
         Scanner input = new Scanner(System.in);
         String name = "";
@@ -32,9 +32,7 @@ public class Main {
                 + "I'm sure you understand the enormity of the task. But you must succeed.\n"
                 + "Good luck, director " + name + ".\n\n");
 
-        
         // DEBUG-INIT
-
         Option pickAIonly = new Option("AI alone", new int[]{0, -2, 2, 0, -2, 0, 0});
         Option pickCivvy = new Option("Elected civilian captain with AI support", new int[]{0, -1, 1, 0, 0, 0, 0});
         Option pickMilitary = new Option("Highest ranking military officer, with AI", new int[]{0, -1, 0, 0, 1, 0, 0});
@@ -42,38 +40,38 @@ public class Main {
         capOptions.add(pickAIonly);
         capOptions.add(pickCivvy);
         capOptions.add(pickMilitary);
-        
+
         Event pickCaptain = new Event("Decide how will the ship choose its captain.", capOptions);
-        
+
         EventDeck eventDeck = new EventDeck();
-        
+
         eventDeck.addEvent(pickCaptain);
-        
+
         TravelStats stats = new TravelStats();
         // DEBUG
-        
+
         while (true) {
             System.out.println("It's time to make a decision, director " + name + ".\n");
-            
+
             Event e = eventDeck.getNextEvent();
             System.out.println(e.getEventText());
             System.out.println("\nYour options are:\n");
             Option[] options = new Option[e.getOptions().size()];
             int i = 0;
-            for(Option o : e.getOptions()) {
+            for (Option o : e.getOptions()) {
                 options[i] = o;
                 i++;
                 System.out.println(i + ") " + o.getDesc());
             }
             System.out.println("\nPlease make your selection by typing in the number.");
-            
+
             int selection = Integer.parseInt(input.nextLine());
-            
-            System.out.println("You have selected option " + selection +
-                    ", " + options[selection-1].getDesc() + ". Order confirmed.\n\n");
-            
-            stats.adjustResources(options[selection-1].getStatAdjustments());
-            
+
+            System.out.println("You have selected option " + selection
+                    + ", " + options[selection - 1].getDesc() + ". Order confirmed.\n\n");
+
+            stats.adjustResources(options[selection - 1].getStatAdjustments());
+
             turnCount--;
             if (turnCount > 0) {
                 System.out.println("You have time for " + turnCount + " more decision(s).");
@@ -91,7 +89,7 @@ public class Main {
                         + "have " + turnCount + " turns left before the mandatory launch date.");
             }
         }
-        
+
         System.out.println("Congratulations, the ship is now launched.\n");
         System.out.println(stats.toString());
         System.out.println("Now we can but wait.");

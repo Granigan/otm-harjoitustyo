@@ -7,7 +7,7 @@ public class Event {
 
     private String eventText;
     private List<Option> options;
-    
+
     public Event() {
         eventText = "";
         options = new ArrayList<>();
@@ -29,11 +29,9 @@ public class Event {
     public void addOption(Option o) {
         options.add(o);
     }
-    
+
     public List<Option> getOptions() {
         return options;
     }
-    
-    
 
 }
