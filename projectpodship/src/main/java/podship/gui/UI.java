@@ -1,4 +1,4 @@
-package podship.ui;
+package podship.gui;
 
 import javafx.application.Application;
 import static javafx.application.Application.STYLESHEET_CASPIAN;
