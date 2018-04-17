@@ -9,17 +9,34 @@ import podship.travel.TravelStats;
 
 public class Main {
 
-    public static void main(String[] args) {
+    // INIT from mockDAO, later from DB
+    static EventDeck eventDeck;
+    static EventDao eventDao;
+    static TravelStats stats;
+    static int turnCount;
+    static String name;
+    static Scanner input;
 
-        int turnCount;
-        Scanner input = new Scanner(System.in);
-        String name = "";
+    public static void init() {
+        eventDeck = new EventDeck();
+        eventDao = new EventDao();
+        for (Event e : eventDao.getBuildEventsDB()) {
+            eventDeck.addEvent(e);
+        }
+        turnCount = eventDeck.getDeckSize();
+        stats = new TravelStats();
+        name = "";
+        input = new Scanner(System.in);
+    }
+
+    public static void main(String[] args) {
+        init();
 
         System.out.println("Welcome to Podship, director. What is your name?");
         name = input.nextLine();
-        System.out.println("Very good. Let's get started then, director " + name + ".\n\n");
+        System.out.println("Very good. Let's get started then, director " + name + ".\n");
 
-        System.out.println("You've been tasked with overseeing the Project Podship.\n"
+        System.out.println("You've been tasked with overseeing the Project Podship.\n\n"
                 + "In short, Earth is facing an existential crisis, and no one knows for sure if "
                 + "we'll survive. To ensure humanity will not perish with the planet, we'll need to "
                 + "colonise elsewhere. Unfortunately, our colonies in Mars and Ganymede "
@@ -33,59 +50,66 @@ public class Main {
                 + "I'm sure you understand the enormity of the task. But you must succeed.\n\n"
                 + "Good luck, director " + name + ".\n\n");
 
-        // INIT from mockDAO, later from DB
-        EventDeck eventDeck = new EventDeck();
-        EventDao eventDao = new EventDao();
+        turnLogic();
 
-        for (Event e : eventDao.getBuildEventsDB()) {
-            eventDeck.addEvent(e);
-        }
+    }
 
-        turnCount = eventDeck.getDeckSize();
-
-        TravelStats stats = new TravelStats();
-        // INIT
-
+    public static void turnLogic() {
         while (true) {
-            System.out.println("It's time to make a decision, director " + name + ".\n");
-
-            Event e = eventDeck.getNextEvent();
-            System.out.println(e.getEventText());
-            System.out.println("\nYour options are:\n");
-            Option[] options = new Option[e.getOptions().size()];
-            int i = 0;
-            for (Option o : e.getOptions()) {
-                options[i] = o;
-                i++;
-                System.out.println(i + ") " + o.getDesc());
-            }
-            System.out.println("\nPlease make your selection by typing in the number.");
-
-            int selection = Integer.parseInt(input.nextLine());
-
-            System.out.println("You have selected option " + selection
-                    + ", " + options[selection - 1].getDesc() + ". Order confirmed.\n\n");
-
-            stats.adjustResources(options[selection - 1].getStatAdjustments());
-
+            makeADecision();
             turnCount--;
-            if (turnCount > 0) {
-                System.out.println("You have time for " + turnCount + " more decision(s).");
-            } else {
-                System.out.println("Time has come to an end. We must launch now.");
+            if (checkForLaunch()) {
+                launchShip();
                 break;
-            }
-
-            System.out.println("Is the ship ready for launch?\n(y)es or (n)o");
-            String launch = input.nextLine();
-            if (launch.equals("y")) {
-                break;
-            } else if (launch.equals("n")) {
-                System.out.println("We'll continue the construction and recruitment process. You "
-                        + "have " + turnCount + " turns left before the mandatory launch date.");
             }
         }
 
+    }
+
+    public static boolean checkForLaunch() {
+        if (turnCount > 0) {
+            System.out.println("You have time for " + turnCount + " more decision(s).");
+        } else {
+            System.out.println("Time has come to an end. We must launch now.");
+            return true;
+        }
+
+        System.out.println("Is the ship ready for launch?\n(y)es or (n)o");
+        String launch = input.nextLine();
+        if (launch.equals("y")) {
+            launchShip();
+            return true;
+        } else if (launch.equals("n")) {
+            System.out.println("We'll continue the construction and recruitment process. You "
+                    + "have " + turnCount + " turns left before the mandatory launch date.");
+            return false;
+        }
+        return false;
+    }
+
+    public static void makeADecision() {
+        System.out.println("It's time to make a decision, director " + name + ".\n");
+        Event e = eventDeck.getNextEvent();
+        System.out.println(e.getEventText());
+        System.out.println("\nYour options are:\n");
+        Option[] options = new Option[e.getOptions().size()];
+        int i = 0;
+        for (Option o : e.getOptions()) {
+            options[i] = o;
+            i++;
+            System.out.println(i + ") " + o.getDesc());
+        }
+        System.out.println("\nPlease make your selection by typing in the number.");
+
+        int selection = Integer.parseInt(input.nextLine());
+
+        System.out.println("You have selected option " + selection
+                + ", " + options[selection - 1].getDesc() + ". Order confirmed.\n\n");
+
+        stats.adjustResources(options[selection - 1].getStatAdjustments());
+    }
+
+    public static void launchShip() {
         System.out.println("Congratulations, the ship is now launched.\n");
         System.out.println(stats.toString());
         System.out.println("Now we can but wait.");
