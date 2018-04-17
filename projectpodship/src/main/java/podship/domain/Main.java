@@ -1,6 +1,6 @@
 package podship.domain;
 
-import DAOs.EventDao;
+import podship.daos.EventDao;
 import java.util.*;
 import podship.events.Event;
 import podship.events.Option;

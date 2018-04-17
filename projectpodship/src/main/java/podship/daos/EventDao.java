@@ -1,4 +1,4 @@
-package DAOs;
+package podship.daos;
 
 import java.util.ArrayList;
 import java.util.List;
