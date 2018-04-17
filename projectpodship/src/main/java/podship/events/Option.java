@@ -1,13 +1,18 @@
 package podship.events;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Option {
 
     private String desc;
     private int[] statAdjustments;
+    private List<Integer> unlocks;
 
     public Option() {
         desc = "";
         statAdjustments = new int[]{0, 0, 0, 0, 0, 0, 0};
+        unlocks = new ArrayList<>();
     }
 
     public Option(String desc, int[] stats) {
@@ -24,6 +29,14 @@ public class Option {
 
     public int[] getStatAdjustments() {
         return statAdjustments;
+    }
+
+    public void addUnlock(int id) {
+        unlocks.add(id);
+    }
+
+    public List<Integer> getUnlocks() {
+        return unlocks;
     }
 
 }

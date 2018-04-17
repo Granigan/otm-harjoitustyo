@@ -21,7 +21,7 @@ public class TurnLogic {
         for (Event e : eventDao.getBuildEventsDB()) {
             eventDeck.addEvent(e);
         }
-        turnCount = eventDeck.getDeckSize(); // during debug, turns == events
+        turnCount = eventDeck.getDeckSize() - 3; // during debug, turns == events
         stats = new TravelStats();
         name = "";
         input = new Scanner(System.in);

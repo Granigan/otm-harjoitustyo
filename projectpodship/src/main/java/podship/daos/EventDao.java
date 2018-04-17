@@ -2,6 +2,7 @@ package podship.daos;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import podship.events.Event;
 import podship.events.Option;
 
@@ -14,6 +15,9 @@ public class EventDao {
         buildEventsDB = new ArrayList<>();
         captainEvent();
         popEvent();
+        for (int i = 0; i < 10; i++) {
+            debugEvent();
+        }
     }
 
     private void captainEvent() {
@@ -41,8 +45,21 @@ public class EventDao {
                 new int[]{0, 0, 2, 0, 1, 0, 0}));
         pickPop.addOption(new Option("A Cross Section of society: include every "
                 + "level of society in the same scale.",
-                 new int[]{0, 0, 0, 0, 1, 0, 0}));
+                new int[]{0, 0, 0, 0, 1, 0, 0}));
         buildEventsDB.add(pickPop);
+    }
+
+    // DEBUG
+    private void debugEvent() {
+        Random r = new Random();
+        Event debug = new Event();
+        debug.setEventText("DEBUG-event");
+        debug.addOption(new Option("first option", new int[]{5, 5, 5, 5, 5, 5, 5}));
+        debug.addOption(new Option("second option", new int[]{-5, -5, -5, -5, -5, -5, -5}));
+        debug.addOption(new Option("third option",
+                new int[]{r.nextInt(10) - 5, r.nextInt(10) - 5, r.nextInt(10) - 5, r.nextInt(10) - 5,
+                    r.nextInt(10) - 5, r.nextInt(10) - 5, r.nextInt(10) - 5}));
+        buildEventsDB.add(debug);
     }
 
     public List<Event> getBuildEventsDB() {
