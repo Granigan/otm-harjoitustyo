@@ -2,6 +2,8 @@
 # OTM-Harjoitustyö
 
 ## Project Podship
+[Class diagram](https://github.com/Granigan/otm-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
+
 [Requirements specification/Vaativuusmäärittely](https://github.com/Granigan/otm-harjoitustyo/blob/master/dokumentaatio/vaativuusmaarittely.md)
 
 [Working diary/Tuntikirjanpito](https://github.com/Granigan/otm-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
@@ -13,16 +15,26 @@
 Execute these under otm-harjoitustyo/projectpodship/
 
 #### Compile & Run
+```
 mvn compile exec:java -Dexec.mainClass=podship.domain.Main
+```
 
 #### Run Jacoco tests and build a report
+```
 mvn test jacoco:report
+```
 
 #### See Jacoco test report
+```
 xdg-open target/site/jacoco/index.html
+```
 
 #### Run Checkstyle tests and build a report
+```
 mvn jxr:jxr checkstyle:checkstyle
+```
 
 #### See Checkstyle report
+```
 xdg-open target/site/checkstyle.html
+```
