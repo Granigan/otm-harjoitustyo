@@ -15,8 +15,14 @@ Execute these under otm-harjoitustyo/projectpodship/
 #### Compile & Run
 mvn compile exec:java -Dexec.mainClass=podship.domain.Main
 
-#### Run tests and build a report
+#### Run Jacoco tests and build a report
 mvn test jacoco:report
 
-#### See report
+#### See Jacoco test report
 xdg-open target/site/jacoco/index.html
+
+#### Run Checkstyle tests and build a report
+mvn jxr:jxr checkstyle:checkstyle
+
+#### See Checkstyle report
+xdg-open target/site/checkstyle.html
