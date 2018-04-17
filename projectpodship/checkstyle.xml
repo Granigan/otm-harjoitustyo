@@ -5,12 +5,15 @@
     <!-- asetetaan kieliasetukset englanniksi. -->
     <property name="localeCountry" value="EN"/>
     <property name="localeLanguage" value="en"/>
+    
+        
+
 
     <module name='TreeWalker'>
 
         <property name='tabWidth' value='4' />
         
-	<!-- JavaDoc-Checkstyle> -->
+	<!-- JavaDoc-Checkstyle> 
 
     <module name="JavadocMethod">
     	<property name="scope" value="public"/>
@@ -21,11 +24,11 @@
 	<property name="allowThrowsTagsForSubclasses" value="true"/>
     </module>
         
-    <module name="JavadocStyle">
-	<property name="scope" value="public"/>
-	<property name="checkEmptyJavadoc" value="true"/>
-    </module>
-
+            <module name="JavadocStyle">
+                <property name="scope" value="public"/>
+                <property name="checkEmptyJavadoc" value="true"/>
+            </module>
+        -->
         <!-- Block Checks -->
 
         <module name='EmptyBlock' />
@@ -44,6 +47,11 @@
         <!-- Miscellaneous -->
         <module name='Indentation' />
         <module name="OneStatementPerLine"/>
+        <module name="MethodLength">
+            <property name="tokens" value="METHOD_DEF"/>
+            <property name="max" value="20"/>
+            <property name="countEmpty" value="false"/>
+        </module>
 
         <!--- Naming Conventions -->
 
@@ -91,7 +99,7 @@
     </module>
 
     <module name="SuppressionFilter">
-	<property name="file" value="skipped_files.xml" />
+        <property name="file" value="skipped_files.xml" />
     </module>
 
     <!-- File Length -->
