@@ -1,6 +1,6 @@
 # Working diary for project Podship
 
-### Total hours spent: 12
+### Total hours spent: 16
 
 | date | h | task |
 | :----: | :----: | :----: |
@@ -9,3 +9,4 @@
 | 26.3 | 1 | Started work on text-based UI. |
 | 8.4 | 6 | Several classes added, with base functionality for offering player an event with options to choose from. Choosing an option also affects the stats of the travel. Finally, added tests for TravelStats and EventDeck classes. |
 | 16.4 | 0 | First Checkstyle-edits |
+| 17.4 | 4 | TurnLogic created and separated from Main, Checkstyle config added, event logic separated from Main and a  new event added, mock EventDao added. |
