@@ -1,11 +1,9 @@
 package podship.logic;
 
 import java.util.Scanner;
-import podship.daos.EventDao;
-import podship.events.Event;
-import podship.events.Option;
-import podship.travel.EventDeck;
-import podship.travel.TravelStats;
+import podship.daos.*;
+import podship.events.*;
+import podship.travel.*;
 
 public class TurnLogic {
 
@@ -49,7 +47,7 @@ public class TurnLogic {
                 + "while it travels.\n\n"
                 + "I'm sure you understand the enormity of the task. But you must succeed.\n\n"
                 + "Good luck, director " + name + ".\n\n");
-        
+
         turnSteps();
 
     }
@@ -75,7 +73,7 @@ public class TurnLogic {
         }
 
         System.out.println("Is the ship ready for launch?\n(y)es or (n)o");
-        String launch = input.nextLine(); 
+        String launch = input.nextLine();
         // add input check here
         if (launch.equals("y")) {
             return true;
