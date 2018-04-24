@@ -1,0 +1,15 @@
+title Podship initialization - turnLogic constructor loads events from DB to the eventDeck
+
+main->*turnLogic: new TurnLogic()
+
+turnLogic->*eventDeck: new EventDeck()
+turnLogic->*eventDao: new EventDao()
+turnLogic->+eventDao: getTurnEventsDB()
+eventDao->+DB: SELECT * FROM buildevents
+DB-->-eventDao: buildevents
+eventDao-->-turnLogic: turnEventsDB
+turnLogic->eventDeck: addEvent(for each event in turnEventsDB)
+
+turnLogic->*stats: new TravelStats()
+turnLogic->*input: new Scanner(System.in)
+
