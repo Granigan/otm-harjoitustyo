@@ -4,7 +4,7 @@
 ## Project Podship
 [Get release 0.5 alpha](https://github.com/Granigan/otm-harjoitustyo/releases/tag/alpha)
 
-[Class diagram](https://github.com/Granigan/otm-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
+[Architecture and diagrams](https://github.com/Granigan/otm-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
 
 [Requirements specification/Vaativuusmäärittely](https://github.com/Granigan/otm-harjoitustyo/blob/master/dokumentaatio/vaativuusmaarittely.md)
 
