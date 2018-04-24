@@ -14,6 +14,16 @@
 ### CLI commands
 Execute these under otm-harjoitustyo/projectpodship/
 
+#### Create .jar package
+```
+mvn package
+```
+
+#### Run .jar package
+```
+java -jar target/projectpodship-1.0-SNAPSHOT.jar
+```
+
 #### Compile & Run
 ```
 mvn compile exec:java -Dexec.mainClass=podship.domain.Main
