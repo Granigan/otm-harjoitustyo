@@ -1,6 +1,6 @@
 package podship.logic;
 
-import java.util.Scanner;
+import java.util.*;
 import podship.daos.*;
 import podship.events.*;
 import podship.travel.*;
@@ -13,15 +13,17 @@ public class TurnLogic {
     private int turnCount;
     private String name;
     private Scanner input;
+    private List<Integer> travelEventIDs;
 
     public TurnLogic() {
         eventDeck = new EventDeck();
         // INIT from mockDAO, later from DB
         eventDao = new EventDao();
-        for (Event e : eventDao.getBuildEventsDB()) {
+        travelEventIDs = new ArrayList<>();
+        for (Event e : eventDao.getTurnEventsDB()) {
             eventDeck.addEvent(e);
         }
-        turnCount = eventDeck.getDeckSize() - 3; // during debug, turns == events
+        turnCount = eventDeck.getDeckSize() - 3; // during debug, turns == events-3
         stats = new TravelStats();
         name = "";
         input = new Scanner(System.in);
@@ -49,7 +51,6 @@ public class TurnLogic {
                 + "Good luck, director " + name + ".\n\n");
 
         turnSteps();
-
     }
 
     public void turnSteps() {
@@ -57,7 +58,6 @@ public class TurnLogic {
             makeADecision();
             turnCount--;
             if (checkForLaunch()) {
-                launchShip();
                 break;
             }
         }
@@ -72,17 +72,17 @@ public class TurnLogic {
             return true;
         }
 
-        System.out.println("Is the ship ready for launch?\n(y)es or (n)o");
+        System.out.println("Is the ship ready for launch?\n(Y)es for launch, otherwise "
+                + "continue the process.");
         String launch = input.nextLine();
         // add input check here
-        if (launch.equals("y")) {
+        if (launch.equals("y") || launch.equals("Y")) {
             return true;
-        } else if (launch.equals("n")) {
+        } else {
             System.out.println("We'll continue the construction and recruitment process. You "
                     + "have " + turnCount + " turns left before the mandatory launch date.");
             return false;
         }
-        return false;
     }
 
     public void makeADecision() {
@@ -105,12 +105,14 @@ public class TurnLogic {
                 + ", " + options[selection - 1].getDesc() + ". Order confirmed.\n\n");
 
         stats.adjustResources(options[selection - 1].getStatAdjustments());
+        travelEventIDs.addAll(options[selection - 1].getUnlocks());
     }
 
-    public void launchShip() {
+    public TravelLogic launchShip() {
         System.out.println("Congratulations, the ship is now launched.\n");
         System.out.println(stats.toString());
         System.out.println("Now we can but wait.");
+        return new TravelLogic(stats, travelEventIDs);
     }
 
 }

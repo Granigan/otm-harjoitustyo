@@ -9,18 +9,21 @@ import podship.events.Option;
 public class EventDao {
 
     // all the events to be placed into db later
-    private List<Event> buildEventsDB;
-
     public EventDao() {
-        buildEventsDB = new ArrayList<>();
-        captainEvent();
-        popEvent();
-        for (int i = 0; i < 10; i++) {
-            debugEvent();
-        }
     }
 
-    private void captainEvent() {
+    public List<Event> getTurnEventsDB() {
+        List<Event> turnEventsDB = new ArrayList<>();
+        turnEventsDB.add(captainEvent());
+        turnEventsDB.add(popEvent());
+        for (int i = 0; i < 10; i++) {
+            turnEventsDB.add(debugEvent());
+        }
+        return turnEventsDB;
+    }
+
+    // These from DB in final
+    private Event captainEvent() {
         Option pickAIonly = new Option("AI alone", new int[]{0, -2, 2, 0, -2, 0, 0});
         Option pickCivvy = new Option("Elected civilian captain with AI support", new int[]{0, -1, 1, 0, 0, 0, 0});
         Option pickMilitary = new Option("Highest ranking military officer, with AI", new int[]{0, -1, 0, 0, 1, 0, 0});
@@ -31,10 +34,10 @@ public class EventDao {
 
         Event pickCaptain = new Event("Decide how will the ship choose its captain.", capOptions);
 
-        buildEventsDB.add(pickCaptain);
+        return pickCaptain;
     }
 
-    private void popEvent() {
+    private Event popEvent() {
         Event pickPop = new Event();
         pickPop.setEventText("How should we form the population for the ship?");
         pickPop.addOption(new Option("The Elite: The brightest are pressured to go, "
@@ -46,11 +49,11 @@ public class EventDao {
         pickPop.addOption(new Option("A Cross Section of society: include every "
                 + "level of society in the same scale.",
                 new int[]{0, 0, 0, 0, 1, 0, 0}));
-        buildEventsDB.add(pickPop);
+        return pickPop;
     }
 
     // DEBUG
-    private void debugEvent() {
+    private Event debugEvent() {
         Random r = new Random();
         Event debug = new Event();
         debug.setEventText("DEBUG-event");
@@ -59,11 +62,7 @@ public class EventDao {
         debug.addOption(new Option("third option",
                 new int[]{r.nextInt(10) - 5, r.nextInt(10) - 5, r.nextInt(10) - 5, r.nextInt(10) - 5,
                     r.nextInt(10) - 5, r.nextInt(10) - 5, r.nextInt(10) - 5}));
-        buildEventsDB.add(debug);
-    }
-
-    public List<Event> getBuildEventsDB() {
-        return buildEventsDB;
+        return debug;
     }
 
 }

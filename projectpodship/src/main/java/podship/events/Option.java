@@ -21,6 +21,7 @@ public class Option {
         for (int i = 0; i < statAdjustments.length; i++) {
             statAdjustments[i] = stats[i];
         }
+        unlocks = new ArrayList<>();
     }
 
     public String getDesc() {
