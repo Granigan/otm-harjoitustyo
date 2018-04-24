@@ -28,6 +28,15 @@ public class TravelStats {
         return true;
     }
 
+    public boolean hasAllResources() {
+        for (int i = 0; i < stats.length; i++) {
+            if (stats[i] < 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     public void adjustResources(int[] adjustment) {
         for (int i = 0; i < stats.length; i++) {
             stats[i] += adjustment[i];

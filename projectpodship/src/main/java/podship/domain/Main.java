@@ -9,5 +9,6 @@ public class Main {
         TurnLogic turnLogic = new TurnLogic();
         turnLogic.newGame();
         TravelLogic travelLogic = turnLogic.launchShip();
+        travelLogic.travel();
     }
 }
