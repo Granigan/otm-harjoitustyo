@@ -36,7 +36,7 @@
                 <version>0.8.0</version>
                 <configuration>
                     <excludes>
-                        <exclude>podship/ui/*</exclude>
+                        <exclude>podship/gui/*</exclude>
                     </excludes>
                 </configuration>
                 <executions>
