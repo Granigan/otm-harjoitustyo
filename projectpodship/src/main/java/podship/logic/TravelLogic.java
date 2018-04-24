@@ -2,7 +2,6 @@ package podship.logic;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 import podship.travel.EventDeck;
 import podship.travel.TravelStats;
 
@@ -47,7 +46,7 @@ public class TravelLogic {
 
     }
 
-    private void proceedJourney() {
+    public void proceedJourney() {
         distance--;
         System.out.println("Journey continues peacefully. "
                 + distance + " turns until arrival.");
@@ -56,16 +55,24 @@ public class TravelLogic {
         System.out.println("\n\n");
     }
 
-    private void arrival() {
+    public void arrival() {
         System.out.println("Congratulations, the ship arrived and the trek is complete!\n\n"
                 + "Humanity has expanded its existence Gliese 832!\n\n\n"
                 + "Game over.\n");
     }
 
-    private void failure() {
+    public void failure() {
         System.out.println("The ship ran out of critical resources and the mission was a failure.\n\n"
                 + "Let's hope that likely catastrophe didn't wipe us all out back in Sol...\n\n\n"
                 + "Game over.\n");
+    }
+
+    public void setDistance(int distance) {
+        this.distance = distance;
+    }
+
+    public int getDistance() {
+        return distance;
     }
 
 }

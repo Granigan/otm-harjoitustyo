@@ -115,4 +115,7 @@ public class TurnLogic {
         return new TravelLogic(stats, travelEventIDs);
     }
 
+    public void setTurnCount(int turnCount) {
+        this.turnCount = turnCount;
+    }
 }

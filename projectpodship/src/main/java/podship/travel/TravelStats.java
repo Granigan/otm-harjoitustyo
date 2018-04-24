@@ -30,7 +30,7 @@ public class TravelStats {
 
     public boolean hasAllResources() {
         for (int i = 0; i < stats.length; i++) {
-            if (stats[i] < 0) {
+            if (stats[i] <= 0) {
                 return false;
             }
         }

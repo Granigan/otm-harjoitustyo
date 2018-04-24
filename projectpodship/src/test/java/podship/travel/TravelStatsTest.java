@@ -76,6 +76,24 @@ public class TravelStatsTest {
     }
     
     @Test
+    public void resourcesAreAboveZeroCheck() {
+        TravelStats stats = new TravelStats(new int[]{1, 5, 15, 10, 3007, 77, 20});
+        assertTrue(stats.hasAllResources());
+    }
+    
+    @Test
+    public void aResourceIsBelowOneCheck() {
+        TravelStats stats = new TravelStats(new int[]{1, 5, 15, 10, 3007, 0, 20});
+        assertFalse(stats.hasAllResources());
+    }
+    
+    @Test
+    public void aResourceIsBelowZeroCheck() {
+        TravelStats stats = new TravelStats(new int[]{1, 5, 15, 10, 3007, -42, 20});
+        assertFalse(stats.hasAllResources());
+    }
+    
+    @Test
     public void adjustmentWorksCorrectly() {
         TravelStats stats = new TravelStats();
         stats.adjustResources(new int[]{5, 5, -5, 10, 0, 77, 20});
