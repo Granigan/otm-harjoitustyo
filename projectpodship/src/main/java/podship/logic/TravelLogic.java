@@ -41,6 +41,10 @@ public class TravelLogic {
         this.eventIDs = eventIDs;
         this.stats = stats;
         distance = 6; // debug value
+
+        for (int i = 0; i < distance + 1; i++) {
+            this.eventDeck.addEvent(new TravelEvent());
+        }
     }
 
     /**
@@ -53,30 +57,39 @@ public class TravelLogic {
                 arrival();
                 break;
             }
+            if (!stats.hasAllResources()) {
+                failure();
+            }
             try {
                 Thread.sleep(3000);
             } catch (InterruptedException e) {
                 System.out.println(e);
             }
         }
-        if (!stats.hasAllResources()) {
-            failure();
-        }
 
     }
 
     /**
-     * Debug/default travel event. Reduces consumable stats (air, energy, food,
-     * water) by 1.
+     * Executes one travel turn. Event occurs if ship has enough resources for
+     * it, otherwise peaceful travel continues.
      */
     public void proceedJourney() {
         distance--;
-//        TravelEvent e = (TravelEvent) eventDeck.getNextEvent();
-        System.out.println("Journey continues peacefully. "
-                + distance + " turns until arrival.");
+        TravelEvent e = (TravelEvent) eventDeck.getNextEvent();
+
+        if (stats.hasEnoughResources(e.getStatRequirements())) {
+            System.out.println(e.getDesc() + "\n" + distance + " turns until arrival.\n");
+            stats.adjustResources(e.getStatAdjustments());
+        } else {
+            System.out.println("Journey continues peacefully. "
+                    + distance + " turns until arrival.");
+        }
+        
+        // Standard travel adjustment/cost
         stats.adjustResources(new int[]{-1, 0, 0, -1, -1, 0, -1});
+
         System.out.println(stats.toString());
-        System.out.println("\n\n");
+        System.out.println("\n");
     }
 
     /**

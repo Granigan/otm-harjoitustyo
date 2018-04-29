@@ -12,7 +12,6 @@ public class TravelEvent extends Event{
     
     private int[] statAdjustments;
     private int[] statRequirements;
-    private String desc;
 
     /**
      * Constructor for creating random events, for convenience's sake.
@@ -23,7 +22,7 @@ public class TravelEvent extends Event{
         statAdjustments = new int[]{r.nextInt(2)-1, r.nextInt(2)-1, r.nextInt(2)-1,
             r.nextInt(2)-1, r.nextInt(2)-1, r.nextInt(2)-1, r.nextInt(2)-1};
         statRequirements = new int[]{0, 0, 0, 0, 0, 0, 0};
-        desc = "A random encounter in space!";
+        super.setDesc("A random encounter in space!");
     }
 
     /**
@@ -35,7 +34,7 @@ public class TravelEvent extends Event{
     public TravelEvent(int[] statAdjustments, int[] statRequirements, String desc) {
         this.statAdjustments = statAdjustments;
         this.statRequirements = statRequirements;
-        this.desc = desc;
+        super.setDesc(desc);
     }
 
     public int[] getStatAdjustments() {
