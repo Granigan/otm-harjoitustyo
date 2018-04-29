@@ -7,10 +7,10 @@ In Podship, player oversees a program to construct a podship - ship that travels
 
 Gameplay consists of player first making choices for the ships population, governance, tech decisions etc. After the launch, player sees the log entries to see how the voyage succeeded. Currently text-UI onl, GUI to come.
 
-Java for logic and UI
-(TBA: Google Docs to hold event etc data)
-(TBA: JavaFX for GUI)
-(TBA: more build and travel events, final score)
+- Java for logic and UI
+- (TBA: Google Docs to hold event etc data)
+- (TBA: JavaFX for GUI)
+- (TBA: more build and travel events, final score)
 
 ### Links
 [Get release 0.5 alpha](https://github.com/Granigan/otm-harjoitustyo/releases/tag/alpha)
