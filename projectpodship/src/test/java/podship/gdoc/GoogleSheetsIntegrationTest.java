@@ -3,58 +3,58 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package podship.gdoc;
-
-import com.google.api.services.sheets.v4.Sheets;
-import com.google.api.services.sheets.v4.model.AppendValuesResponse;
-import com.google.api.services.sheets.v4.model.BatchGetValuesResponse;
-import com.google.api.services.sheets.v4.model.BatchUpdateValuesRequest;
-import com.google.api.services.sheets.v4.model.BatchUpdateValuesResponse;
-import com.google.api.services.sheets.v4.model.UpdateValuesResponse;
-import com.google.api.services.sheets.v4.model.ValueRange;
-import java.io.IOException;
-import java.security.GeneralSecurityException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import org.junit.After;
-import org.junit.AfterClass;
-import static org.junit.Assert.*;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
+//package podship.gdoc;
+//
+//import com.google.api.services.sheets.v4.Sheets;
+//import com.google.api.services.sheets.v4.model.AppendValuesResponse;
+//import com.google.api.services.sheets.v4.model.BatchGetValuesResponse;
+//import com.google.api.services.sheets.v4.model.BatchUpdateValuesRequest;
+//import com.google.api.services.sheets.v4.model.BatchUpdateValuesResponse;
+//import com.google.api.services.sheets.v4.model.UpdateValuesResponse;
+//import com.google.api.services.sheets.v4.model.ValueRange;
+//import java.io.IOException;
+//import java.security.GeneralSecurityException;
+//import java.util.ArrayList;
+//import java.util.Arrays;
+//import java.util.List;
+//import org.junit.After;
+//import org.junit.AfterClass;
+//import static org.junit.Assert.*;
+//import org.junit.Before;
+//import org.junit.BeforeClass;
+//import org.junit.Test;
 
 /**
  *
  * 1gBWrpfxHi1p9UgAsOKxJddWZBXWZ_1QDAGWOT2WRed0
  */
-public class GoogleSheetsIntegrationTest {
-
-    private static Sheets sheetsService;
-    private static String SPREADSHEET_ID = "1gBWrpfxHi1p9UgAsOKxJddWZBXWZ_1QDAGWOT2WRed0";
-
-    public GoogleSheetsIntegrationTest() {
-    }
-
-    @BeforeClass
-    public static void setup() throws GeneralSecurityException, IOException {
-        sheetsService = SheetsServiceUtil.getSheetsService();
-    }
-
-    @AfterClass
-    public static void tearDownClass() {
-    }
-
-    @Before
-    public void setUp() {
-    }
-
-    @After
-    public void tearDown() {
-    }
-
-    @Test
-    public void whenWriteSheet_thenReadSheetOk() throws IOException {
+//public class GoogleSheetsIntegrationTest {
+//
+//    private static Sheets sheetsService;
+//    private static String SPREADSHEET_ID = "1gBWrpfxHi1p9UgAsOKxJddWZBXWZ_1QDAGWOT2WRed0";
+//
+//    public GoogleSheetsIntegrationTest() {
+//    }
+//
+//    @BeforeClass
+//    public static void setup() throws GeneralSecurityException, IOException {
+//        sheetsService = SheetsServiceUtil.getSheetsService();
+//    }
+//
+//    @AfterClass
+//    public static void tearDownClass() {
+//    }
+//
+//    @Before
+//    public void setUp() {
+//    }
+//
+//    @After
+//    public void tearDown() {
+//    }
+//
+//    @Test
+//    public void whenWriteSheet_thenReadSheetOk() throws IOException {
 //        ValueRange body = new ValueRange()
 //                .setValues(Arrays.asList(
 //                        Arrays.asList("Expenses January"),
@@ -99,17 +99,17 @@ public class GoogleSheetsIntegrationTest {
 //        ValueRange total = appendResult.getUpdates().getUpdatedData();
 //        assertEquals(total.getValues().get(0).get(1), "65");
 //
-        List<String> ranges = Arrays.asList("E1", "E4");
-        BatchGetValuesResponse readResult = sheetsService.spreadsheets().values()
-                .batchGet(SPREADSHEET_ID)
-                .setRanges(ranges)
-                .execute();
-
-        ValueRange januaryTotal = readResult.getValueRanges().get(0);
-        assertEquals("40", januaryTotal.getValues().get(0).get(0));
-
-        ValueRange febTotal = readResult.getValueRanges().get(1);
-        assertEquals("25", febTotal.getValues().get(0).get(0));
-    }
-
-}
+//        List<String> ranges = Arrays.asList("E1", "E4");
+//        BatchGetValuesResponse readResult = sheetsService.spreadsheets().values()
+//                .batchGet(SPREADSHEET_ID)
+//                .setRanges(ranges)
+//                .execute();
+//
+//        ValueRange januaryTotal = readResult.getValueRanges().get(0);
+//        assertEquals("40", januaryTotal.getValues().get(0).get(0));
+//
+//        ValueRange febTotal = readResult.getValueRanges().get(1);
+//        assertEquals("25", febTotal.getValues().get(0).get(0));
+//    }
+//
+//}

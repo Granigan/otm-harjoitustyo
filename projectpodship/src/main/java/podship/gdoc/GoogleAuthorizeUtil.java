@@ -21,30 +21,31 @@ import com.google.api.services.sheets.v4.SheetsScopes;
  * GoogleAuthorizeUtil gets credentials to access Google Sheets
  */
 public class GoogleAuthorizeUtil {
-    
+
     /**
      * Obtain credentials for Google Sheets access.
+     *
      * @return Credentials object used to access Google Sheets.
      * @throws IOException Required in case of trouble.
      * @throws GeneralSecurityException Required in case of problems.
      */
     public static Credential authorize() throws IOException, GeneralSecurityException {
-        
+
         // build GoogleClientSecrets from JSON file
         InputStream in = GoogleAuthorizeUtil.class.getResourceAsStream("/client_secret.json");
         GoogleClientSecrets clientSecrets = GoogleClientSecrets.load(
                 JacksonFactory.getDefaultInstance(), new InputStreamReader(in));
-        
+
         List<String> scopes = Arrays.asList(SheetsScopes.SPREADSHEETS);
-        
+
         // build Credential object
-         GoogleAuthorizationCodeFlow flow = new GoogleAuthorizationCodeFlow.Builder(
-                 GoogleNetHttpTransport.newTrustedTransport(), JacksonFactory.getDefaultInstance(), 
-                 clientSecrets, scopes).setDataStoreFactory(new MemoryDataStoreFactory())
+        GoogleAuthorizationCodeFlow flow = new GoogleAuthorizationCodeFlow.Builder(
+                GoogleNetHttpTransport.newTrustedTransport(), JacksonFactory.getDefaultInstance(),
+                clientSecrets, scopes).setDataStoreFactory(new MemoryDataStoreFactory())
                 .setAccessType("offline").build();
-        Credential credential = new AuthorizationCodeInstalledApp(flow, 
+        Credential credential = new AuthorizationCodeInstalledApp(flow,
                 new LocalServerReceiver()).authorize("user");
-        
+
         return credential;
     }
 }

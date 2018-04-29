@@ -75,16 +75,19 @@ public class TravelLogic {
      */
     public void proceedJourney() {
         distance--;
-        TravelEvent e = (TravelEvent) eventDeck.getNextEvent();
+        TravelEvent e = null;
+        if (eventDeck.getDeckSize() > 0) {
+            e = (TravelEvent) eventDeck.getNextEvent();
+        }
 
-        if (stats.hasEnoughResources(e.getStatRequirements())) {
+        if (e!= null && stats.hasEnoughResources(e.getStatRequirements())) {
             System.out.println(e.getDesc() + "\n" + distance + " turns until arrival.\n");
             stats.adjustResources(e.getStatAdjustments());
         } else {
             System.out.println("Journey continues peacefully. "
                     + distance + " turns until arrival.");
         }
-        
+
         // Standard travel adjustment/cost
         stats.adjustResources(new int[]{-1, 0, 0, -1, -1, 0, -1});
 
