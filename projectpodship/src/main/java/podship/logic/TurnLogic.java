@@ -28,7 +28,7 @@ public class TurnLogic {
         // INIT from mockDAO, later from DB
         eventDao = new EventDao();
         travelEventIDs = new ArrayList<>();
-        for (Event e : eventDao.getTurnEventsDB()) {
+        for (BuildEvent e : eventDao.getTurnEventsDB()) {
             eventDeck.addEvent(e);
         }
         turnCount = eventDeck.getDeckSize() - 3; // during debug, turns == events-3
@@ -131,8 +131,8 @@ public class TurnLogic {
      */
     public void makeADecision() {
         System.out.println("It's time to make a decision, director " + name + ".\n");
-        Event e = eventDeck.getNextEvent();
-        System.out.println(e.getEventText());
+        BuildEvent e = (BuildEvent) eventDeck.getNextEvent();
+        System.out.println(e.getDesc());
         System.out.println("\nYour options are:\n");
         Option[] options = new Option[e.getOptions().size()];
         int i = 0;

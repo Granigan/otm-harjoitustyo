@@ -2,6 +2,7 @@ package podship.logic;
 
 import java.util.ArrayList;
 import java.util.List;
+import podship.events.TravelEvent;
 import podship.travel.EventDeck;
 import podship.travel.TravelStats;
 
@@ -70,6 +71,7 @@ public class TravelLogic {
      */
     public void proceedJourney() {
         distance--;
+//        TravelEvent e = (TravelEvent) eventDeck.getNextEvent();
         System.out.println("Journey continues peacefully. "
                 + distance + " turns until arrival.");
         stats.adjustResources(new int[]{-1, 0, 0, -1, -1, 0, -1});

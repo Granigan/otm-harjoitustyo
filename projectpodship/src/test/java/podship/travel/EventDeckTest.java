@@ -7,7 +7,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import podship.events.Event;
+import podship.events.BuildEvent;
 import podship.travel.EventDeck;
 
 public class EventDeckTest {
@@ -48,14 +48,14 @@ public class EventDeckTest {
     @Test
     public void eventsCanBeAdded() {
         EventDeck deck = new EventDeck();
-        deck.addEvent(new Event());
+        deck.addEvent(new BuildEvent());
         assertEquals(1, deck.getDeckSize());
     }
     
     @Test
     public void drawnEventIsRemoved() {
         EventDeck deck = new EventDeck();
-        deck.addEvent(new Event());
+        deck.addEvent(new BuildEvent());
         deck.getNextEvent();
         assertEquals(0, deck.getDeckSize());
     }
@@ -63,13 +63,13 @@ public class EventDeckTest {
     @Test
     public void deckCanHoldMultipleEvents() {
         EventDeck deck = new EventDeck();
-        deck.addEvent(new Event());
-        deck.addEvent(new Event());
-        deck.addEvent(new Event());
-        deck.addEvent(new Event());
-        deck.addEvent(new Event());
-        deck.addEvent(new Event());
-        deck.addEvent(new Event());
+        deck.addEvent(new BuildEvent());
+        deck.addEvent(new BuildEvent());
+        deck.addEvent(new BuildEvent());
+        deck.addEvent(new BuildEvent());
+        deck.addEvent(new BuildEvent());
+        deck.addEvent(new BuildEvent());
+        deck.addEvent(new BuildEvent());
         deck.getNextEvent();
         assertEquals(6, deck.getDeckSize());
     }
@@ -77,7 +77,7 @@ public class EventDeckTest {
     @Test
     public void sameObjectIsReturned() {
         EventDeck deck = new EventDeck();
-        deck.addEvent(new Event("specific", new ArrayList<>()));
+        deck.addEvent(new BuildEvent("specific", new ArrayList<>()));
         assertEquals("specific", deck.getNextEvent().getEventText());
     }
     
@@ -86,7 +86,7 @@ public class EventDeckTest {
         // 1/10000 chance this test is a false negative!
         EventDeck deck = new EventDeck();
         for(int i = 0; i < 10000; i++) {
-            deck.addEvent(new Event("#" + i, new ArrayList<>()));
+            deck.addEvent(new BuildEvent("#" + i, new ArrayList<>()));
         }
         assertNotSame("#0", deck.getNextEvent().getEventText());
     }

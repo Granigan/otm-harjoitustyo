@@ -3,10 +3,11 @@ package podship.travel;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import podship.events.BuildEvent;
 import podship.events.Event;
 
 /**
- * EventDeck is the pool of available Event objects. New events can be added,
+ * EventDeck is the pool of available BuildEvent objects. New events can be added,
  * and a random event be chosen.
  *
  * @author tgtapio

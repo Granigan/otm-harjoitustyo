@@ -3,7 +3,7 @@ package podship.daos;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import podship.events.Event;
+import podship.events.BuildEvent;
 import podship.events.Option;
 
 public class EventDao {
@@ -12,8 +12,8 @@ public class EventDao {
     public EventDao() {
     }
 
-    public List<Event> getTurnEventsDB() {
-        List<Event> turnEventsDB = new ArrayList<>();
+    public List<BuildEvent> getTurnEventsDB() {
+        List<BuildEvent> turnEventsDB = new ArrayList<>();
         turnEventsDB.add(captainEvent());
         turnEventsDB.add(popEvent());
         for (int i = 0; i < 10; i++) {
@@ -23,7 +23,7 @@ public class EventDao {
     }
 
     // These from DB in final
-    private Event captainEvent() {
+    private BuildEvent captainEvent() {
         Option pickAIonly = new Option("AI alone", new int[]{0, -2, 2, 0, -2, 0, 0}, new ArrayList<Integer>());
         Option pickCivvy = new Option("Elected civilian captain with AI support", new int[]{0, -1, 1, 0, 0, 0, 0}, new ArrayList<Integer>());
         Option pickMilitary = new Option("Highest ranking military officer, with AI", new int[]{0, -1, 0, 0, 1, 0, 0}, new ArrayList<Integer>());
@@ -32,14 +32,14 @@ public class EventDao {
         capOptions.add(pickCivvy);
         capOptions.add(pickMilitary);
 
-        Event pickCaptain = new Event("Decide how will the ship choose its captain.", capOptions);
+        BuildEvent pickCaptain = new BuildEvent("Decide how will the ship choose its captain.", capOptions);
 
         return pickCaptain;
     }
 
-    private Event popEvent() {
-        Event pickPop = new Event();
-        pickPop.setEventText("How should we form the population for the ship?");
+    private BuildEvent popEvent() {
+        BuildEvent pickPop = new BuildEvent();
+        pickPop.setDesc("How should we form the population for the ship?");
         pickPop.addOption(new Option("The Elite: The brightest are pressured to go, "
                 + "the richest buy their way in.",
                 new int[]{0, -2, -1, -1, 1, 0, -1}, new ArrayList<Integer>()));
@@ -53,10 +53,10 @@ public class EventDao {
     }
 
     // DEBUG
-    private Event debugEvent() {
+    private BuildEvent debugEvent() {
         Random r = new Random();
-        Event debug = new Event();
-        debug.setEventText("DEBUG-event");
+        BuildEvent debug = new BuildEvent();
+        debug.setDesc("DEBUG-event");
         debug.addOption(new Option("first option", new int[]{5, 5, 5, 5, 5, 5, 5}, new ArrayList<Integer>()));
         debug.addOption(new Option("second option", new int[]{-5, -5, -5, -5, -5, -5, -5}, new ArrayList<Integer>()));
         debug.addOption(new Option("third option",

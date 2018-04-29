@@ -9,7 +9,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class EventTest {
-    Event e = new Event();
+    BuildEvent e = new BuildEvent();
     
     public EventTest() {
     }
@@ -44,8 +44,8 @@ public class EventTest {
     
     @Test
     public void textCanBeSet() {
-        e.setEventText("testink");
-        assertEquals("testink", e.getEventText());
+        e.setDesc("testink");
+        assertEquals("testink", e.getDesc());
     }
     
     
