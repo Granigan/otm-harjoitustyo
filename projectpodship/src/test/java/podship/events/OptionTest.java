@@ -5,6 +5,7 @@
  */
 package podship.events;
 
+import java.util.ArrayList;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -71,7 +72,7 @@ public class OptionTest {
     
     @Test
     public void parametersWorksWithConstructor () {
-        Option o = new Option("testink", new int[]{3, 3, 3, 3, 3, 3, 3});
+        Option o = new Option("testink", new int[]{3, 3, 3, 3, 3, 3, 3}, new ArrayList<>());
         assertArrayEquals(new int[]{3, 3, 3, 3, 3, 3, 3}, o.getStatAdjustments());
         assertEquals("testink", o.getDesc());
     }
