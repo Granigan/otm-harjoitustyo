@@ -25,35 +25,25 @@
             <version>2.5</version>
             <type>maven-plugin</type>
         </dependency>
+        <dependency>
+            <groupId>com.google.api-client</groupId>
+            <artifactId>google-api-client</artifactId>
+            <version>1.23.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.oauth-client</groupId>
+            <artifactId>google-oauth-client-jetty</artifactId>
+            <version>1.23.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.apis</groupId>
+            <artifactId>google-api-services-sheets</artifactId>
+            <version>v4-rev493-1.23.0</version>
+        </dependency>
     </dependencies>
     
     <build>
         <plugins>
-    
-            <plugin>
-                <groupId>org.fortasoft</groupId>
-                <artifactId>gradle-maven-plugin</artifactId>
-                <version>1.0.8</version>
-                <configuration>
-                    <tasks>
-                        <!-- this would effectively call "gradle doSomething"
-                        <task>doSomething</task>
-                        -->
-                    </tasks>
-                </configuration>
-                <executions>
-                    <execution>
-                        <!-- You can bind this to any phase you like
-                        <phase>compile</phase>
-                        <goals>
-                            goal must be "invoke"
-                            <goal>invoke</goal>
-                        </goals>
-                        -->
-                    </execution>
-                </executions>
-            </plugin>
-        
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
