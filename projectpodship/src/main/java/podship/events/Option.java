@@ -4,9 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Option class contains the description of the option, stat adjustment array, 
+ * Option class contains the description of the option, stat adjustment array,
  * and IDs of events it unlocks. Options are (to be) populated from the database
  * and are always linked to an event.
+ *
  * @author tgtapio
  */
 public class Option {
@@ -26,6 +27,7 @@ public class Option {
 
     /**
      * Default constructor for an option.
+     *
      * @param desc String of option description.
      * @param stats Choosing this option causes these stat modifiers.
      * @param unlocks This option unlocks travel events with these IDs.
@@ -41,6 +43,7 @@ public class Option {
 
     /**
      * Getter for the description.
+     *
      * @return Describes the option.
      */
     public String getDesc() {
@@ -49,6 +52,7 @@ public class Option {
 
     /**
      * Getter for stat adjustments array.
+     *
      * @return Array of modifiers for the stats.
      */
     public int[] getStatAdjustments() {
@@ -57,6 +61,7 @@ public class Option {
 
     /**
      * Used to add event unlock ID to an Option.
+     *
      * @param id Choosing this option unlocks event with this ID.
      */
     public void addUnlock(int id) {
@@ -65,6 +70,7 @@ public class Option {
 
     /**
      * Getter for unlock list.
+     *
      * @return This option unlocks all these events for the voyage.
      */
     public List<Integer> getUnlocks() {

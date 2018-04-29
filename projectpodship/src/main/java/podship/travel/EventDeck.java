@@ -6,11 +6,13 @@ import java.util.Random;
 import podship.events.Event;
 
 /**
- * EventDeck is the pool of available Event objects. New events can be added, 
+ * EventDeck is the pool of available Event objects. New events can be added,
  * and a random event be chosen.
+ *
  * @author tgtapio
  */
-public class EventDeck {    
+public class EventDeck {
+
     private List<Event> availableEvents;
 
     /**
@@ -22,6 +24,7 @@ public class EventDeck {
 
     /**
      * Add an event to the deck.
+     *
      * @param e the event to be added to the pool of available events.
      */
     public void addEvent(Event e) {
@@ -30,6 +33,7 @@ public class EventDeck {
 
     /**
      * Call to get the next event out of the available ones.
+     *
      * @return Returns a randomly picked event from the unlocked events.
      */
     public Event getNextEvent() {
@@ -39,6 +43,7 @@ public class EventDeck {
 
     /**
      * Used for checking if there are events left.
+     *
      * @return Returns the number of events left in the deck.
      */
     public int getDeckSize() {

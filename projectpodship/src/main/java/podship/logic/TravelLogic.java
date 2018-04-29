@@ -7,6 +7,7 @@ import podship.travel.TravelStats;
 
 /**
  * Contains methods for the post-launch stage.
+ *
  * @author tgtapio
  */
 public class TravelLogic {
@@ -16,10 +17,9 @@ public class TravelLogic {
     private TravelStats stats;
     private int distance;
 
-
     /**
-     * This empty constructor is for testing use only. For the game, 
-     * use the constructor with parameters instead.
+     * This empty constructor is for testing use only. For the game, use the
+     * constructor with parameters instead.
      */
     public TravelLogic() {
         eventDeck = new EventDeck();
@@ -29,7 +29,9 @@ public class TravelLogic {
     }
 
     /**
-     * Constructor initialises the post-launch stage with the parameters received.
+     * Constructor initialises the post-launch stage with the parameters
+     * received.
+     *
      * @param stats holds the resources for this voyage.
      * @param eventIDs holds the IDs for unlocked events for this voyage.
      */
@@ -63,8 +65,8 @@ public class TravelLogic {
     }
 
     /**
-     * Debug/default travel event. Reduces consumable stats
-     * (air, energy, food, water) by 1.
+     * Debug/default travel event. Reduces consumable stats (air, energy, food,
+     * water) by 1.
      */
     public void proceedJourney() {
         distance--;
@@ -95,6 +97,7 @@ public class TravelLogic {
 
     /**
      * Setter for remaining int distance, i.e. how many turns before arrival.
+     *
      * @param distance new value for distance.
      */
     public void setDistance(int distance) {
@@ -103,6 +106,7 @@ public class TravelLogic {
 
     /**
      * Getter remaining int distance, i.e. how many turns before arrival.
+     *
      * @return value of int distance.
      */
     public int getDistance() {

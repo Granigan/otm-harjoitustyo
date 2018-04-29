@@ -56,22 +56,22 @@ public class OptionTest {
             assertEquals(0, i);
         }
     }
-    
+
     @Test
     public void defaultDescIsEmpty() {
         Option o = new Option();
         assertEquals("", o.getDesc());
     }
-    
+
     @Test
     public void unlocksCanBeAdded() {
         Option o = new Option();
         o.addUnlock(25);
         assertEquals(25, (int) o.getUnlocks().get(0));
     }
-    
+
     @Test
-    public void parametersWorksWithConstructor () {
+    public void parametersWorksWithConstructor() {
         Option o = new Option("testink", new int[]{3, 3, 3, 3, 3, 3, 3}, new ArrayList<>());
         assertArrayEquals(new int[]{3, 3, 3, 3, 3, 3, 3}, o.getStatAdjustments());
         assertEquals("testink", o.getDesc());

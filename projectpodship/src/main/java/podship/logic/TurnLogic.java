@@ -53,7 +53,7 @@ public class TurnLogic {
     public void getDirectorName() {
         System.out.println("Welcome to Podship, director. What is your name?");
         String dirName = input.nextLine();
-        while(dirName.equals("")) {
+        while (dirName.equals("")) {
             System.out.println("Please type in your name, director.");
             dirName = input.nextLine();
         }
@@ -61,36 +61,25 @@ public class TurnLogic {
         // add input check here
         System.out.println("Very good. Let's get started then, director " + name + ".\n");
     }
-    
+
     /**
      * Contains the intro text
+     *
      * @return Returns intro text as a string.
      */
     public String introText() {
         return "You've been tasked with overseeing the Project Podship.\n\n"
-                
-                
                 + "In short, Earth is facing an existential crisis, and no one knows for sure if "
                 + "we'll survive. To ensure humanity will not perish with the planet, we'll need to "
                 + "colonise elsewhere. Unfortunately, our colonies in Mars and Ganymede "
                 + "will still be reliant on Earth for decades to come, and thus, we must look elsewhere.\n\n"
-                
-                
-                +"You'll oversee the construction of Podship, destined for Gliese 832.\n\n"
-                
-                
+                + "You'll oversee the construction of Podship, destined for Gliese 832.\n\n"
                 + "That's 16.16 light years away.\n\n"
-                
-                
                 + "That means the population of the ship will "
                 + "not be passengers, but rather, they'll move to the ship to live and die there. "
                 + "Dozens of the next generations will be born and will die inside the ship, "
                 + "while it travels.\n\n"
-                
-                
                 + "I'm sure you understand the enormity of the task. But you must succeed.\n\n"
-                
-                
                 + "Good luck, director " + name + ".\n\n";
     }
 
@@ -109,7 +98,9 @@ public class TurnLogic {
     }
 
     /**
-     * Includes a check for turns remaining and asks the player if they want to launch.
+     * Includes a check for turns remaining and asks the player if they want to
+     * launch.
+     *
      * @return Returns true if player chooses to launch or if time runs out.
      * Otherwise returns false.
      */
@@ -135,7 +126,8 @@ public class TurnLogic {
     }
 
     /**
-     * Method presents the turn event and creates a list of options for player to choose.
+     * Method presents the turn event and creates a list of options for player
+     * to choose.
      */
     public void makeADecision() {
         System.out.println("It's time to make a decision, director " + name + ".\n");
@@ -163,6 +155,7 @@ public class TurnLogic {
     /**
      * Prints the launch confirmation and creates and returns TravelLogic to be
      * used in the second stage.
+     *
      * @return Prov
      */
     public TravelLogic launchShip() {
@@ -173,8 +166,9 @@ public class TurnLogic {
     }
 
     /**
-     * Setter for int turnCount, shows how many turns are left before 
-     * mandatory launch.
+     * Setter for int turnCount, shows how many turns are left before mandatory
+     * launch.
+     *
      * @param turnCount new value for turnCount
      */
     public void setTurnCount(int turnCount) {
@@ -183,6 +177,7 @@ public class TurnLogic {
 
     /**
      * Setter for string Name, i.e. captains name.
+     *
      * @param name new value for name
      */
     public void setName(String name) {
