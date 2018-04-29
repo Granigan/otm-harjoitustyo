@@ -61,3 +61,13 @@ mvn jxr:jxr checkstyle:checkstyle
 ```
 xdg-open target/site/checkstyle.html
 ```
+
+#### Update JavaDocs
+```
+mvn javadoc:javadoc
+```
+
+#### See JavaDocs in HTML
+```
+xdg-open target/site/apidocs/index.html
+```
