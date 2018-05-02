@@ -15,11 +15,11 @@ Gameplay consists of player first making choices for the ships population, gover
 ### Links
 [Get release 0.5 alpha](https://github.com/Granigan/otm-harjoitustyo/releases/tag/alpha)
 
-[Architecture and diagrams](https://github.com/Granigan/otm-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
+[Architecture and diagrams](https://github.com/Granigan/otm-harjoitustyo/blob/master/documentation/arkkitehtuuri.md)
 
-[Requirements specification/Vaativuusmäärittely](https://github.com/Granigan/otm-harjoitustyo/blob/master/dokumentaatio/vaativuusmaarittely.md)
+[Requirements specification/Vaativuusmäärittely](https://github.com/Granigan/otm-harjoitustyo/blob/master/documentation/vaativuusmaarittely.md)
 
-[Working diary/Tuntikirjanpito](https://github.com/Granigan/otm-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
+[Working diary/Tuntikirjanpito](https://github.com/Granigan/otm-harjoitustyo/blob/master/documentation/tuntikirjanpito.md)
 
 [Trello-board](https://trello.com/b/sjB2XI3j/podship)
 
