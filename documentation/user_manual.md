@@ -1,7 +1,7 @@
 # User's Manual - Podship
 
 ## Download the executable file for the game
-Download [podship.jar](https://github.com/Granigan/otm-harjoitustyo/releases/download/alpha/podshipv0.5.jar)
+Download [podship.jar](https://github.com/Granigan/otm-harjoitustyo/releases/download/alpha2/podship.jar)
 
 ## Run the game
 In the folder you downloaded podship.jar, run the command line command:
