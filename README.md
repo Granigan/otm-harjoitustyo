@@ -12,10 +12,14 @@ Gameplay consists of player first making choices for the ships population, gover
 - (TBA: JavaFX for GUI)
 - (TBA: more build and travel events, final score)
 
+### Releases
+[0.6 - Travelling Through Empty Space](https://github.com/Granigan/otm-harjoitustyo/releases/tag/alpha2)
+
+[0.5 - Working Logic](https://github.com/Granigan/otm-harjoitustyo/releases/tag/alpha)
+
+
 ### Links
 [User manual](https://github.com/Granigan/otm-harjoitustyo/blob/master/documentation/user_manual.md)
-
-[Get release 0.5 alpha](https://github.com/Granigan/otm-harjoitustyo/releases/tag/alpha)
 
 [Architecture and diagrams](https://github.com/Granigan/otm-harjoitustyo/blob/master/documentation/arkkitehtuuri.md)
 
