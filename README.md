@@ -13,6 +13,8 @@ Gameplay consists of player first making choices for the ships population, gover
 - (TBA: more build and travel events, final score)
 
 ### Links
+[User manual](https://github.com/Granigan/otm-harjoitustyo/blob/master/documentation/user_manual.md)
+
 [Get release 0.5 alpha](https://github.com/Granigan/otm-harjoitustyo/releases/tag/alpha)
 
 [Architecture and diagrams](https://github.com/Granigan/otm-harjoitustyo/blob/master/documentation/arkkitehtuuri.md)
