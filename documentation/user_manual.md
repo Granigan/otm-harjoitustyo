@@ -12,7 +12,7 @@ java -jar podship.jar
 
 ## Playing the game
 
-Playing is straightforward: once you run the command, you'll see some project information, and then you'll be playing the game.
+Playing is straightforward: once you run the command, you'll be playing the game right away in the terminal window.
 
 ### Construction Phase
 
