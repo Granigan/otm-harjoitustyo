@@ -23,7 +23,8 @@ Next, you'll get a brief introduction to the situation, and soon after you'll ge
 
 ![This is your task.](https://github.com/Granigan/otm-harjoitustyo/blob/master/documentation/intro_text.png)
 
-![One of many choices to make](https://github.com/Granigan/otm-harjoitustyo/blob/master/documentation/.png)
+![One of many choices to make](https://github.com/Granigan/otm-harjoitustyo/blob/master/documentation/population_choice.png)
+
 _Here you'll need to make a choice regarding the population of the podship._
 
 With the text UI, you'll make choices by typing in the choice number, or other prompted keyword or letter. With GUI, you'll be able to choose the options by mouse.
@@ -35,7 +36,8 @@ Once you're content with the state of the project, or if the time runs out, the 
 
 In the end, you'll learn the fate of the mission, and receive your score.
 
-![One of many choices to make](https://github.com/Granigan/otm-harjoitustyo/blob/master/documentation/population_choice.png)
+![One of many choices to make](https://github.com/Granigan/otm-harjoitustyo/blob/master/documentation/game_over.png)
+
 _Hopefully you can fare better..._
 
 ### Game Over
