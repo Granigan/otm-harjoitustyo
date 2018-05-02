@@ -51,6 +51,9 @@ public class TravelLogic {
      * Logic for the travel stage, runs until arrival or failure.
      */
     public void travel() {
+        if(!stats.hasAllResources()) {
+            failure();
+        }
         while (stats.hasAllResources()) {
             proceedJourney();
             if (distance < 1) {
