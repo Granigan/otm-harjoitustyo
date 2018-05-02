@@ -17,13 +17,13 @@ Playing is straightforward: once you run the command, you'll see some project in
 ### Construction Phase
 
 First you'll be asked for your name.
-![What is your name, director?](https://github.com/Granigan/otm-harjoitustyo/blob/master/documentation/name_request.png)
+![What is your name, director?](https://github.com/Granigan/otm-harjoitustyo/blob/master/documentation/images/name_request.png)
 
 Next, you'll get a brief introduction to the situation, and soon after you'll get to make first of your many choices.
 
-![This is your task.](https://github.com/Granigan/otm-harjoitustyo/blob/master/documentation/intro_text.png)
+![This is your task.](https://github.com/Granigan/otm-harjoitustyo/blob/master/documentation/images/intro_text.png)
 
-![One of many choices to make](https://github.com/Granigan/otm-harjoitustyo/blob/master/documentation/population_choice.png)
+![One of many choices to make](https://github.com/Granigan/otm-harjoitustyo/blob/master/documentation/images/population_choice.png)
 
 _Here you'll need to make a choice regarding the population of the podship._
 
@@ -36,7 +36,7 @@ Once you're content with the state of the project, or if the time runs out, the 
 
 In the end, you'll learn the fate of the mission, and receive your score.
 
-![One of many choices to make](https://github.com/Granigan/otm-harjoitustyo/blob/master/documentation/game_over.png)
+![One of many choices to make](https://github.com/Granigan/otm-harjoitustyo/blob/master/documentation/images/game_over.png)
 _Hopefully you can fare better..._
 
 ### Game Over
