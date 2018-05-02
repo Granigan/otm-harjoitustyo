@@ -2,7 +2,7 @@
 (Updated 2nd May 2018)
 
 ## Packaging
-![Packages](images/podship.packaging.png)
+![Packages](images/podship_packaging.png)
 
 The domain package initiates the game, with the gui package containing the interface elements, and the logic package containing the execution of the game. Persisting event package information is fetched through the daos package, and the travel package contains the information for the current game.
 
