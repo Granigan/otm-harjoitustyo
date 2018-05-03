@@ -1,6 +1,6 @@
 # Working diary for project Podship
 
-### Total hours spent: 34
+### Total hours spent: 38
 
 | date | h | task |
 | :----: | :----: | :----: |
