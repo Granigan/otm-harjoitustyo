@@ -15,6 +15,8 @@ public class TravelStats {
      * = water
      */
     private int[] stats;
+    private String directorName;
+    
 
     /**
      * Default constructor, all stats start at 0.
@@ -24,6 +26,7 @@ public class TravelStats {
         for (int i : stats) {
             stats[i] = 0;
         }
+        directorName = "Granigan";
     }
 
     /**
@@ -80,6 +83,11 @@ public class TravelStats {
         }
     }
 
+    /**
+     * Containts the score algorithm for the resource score.
+     * Edit the method to balance the scoring.
+     * @return score based on resources
+     */
     public int countScore() {
         int score = 0;
         score += sumOfBasicResources() * 5;
@@ -88,6 +96,10 @@ public class TravelStats {
         return score;
     }
 
+    /**
+     * Used mainly for score calculation.
+     * @return Sum of air, energy, food, and water resources.
+     */
     public int sumOfBasicResources() {
         int basicResources = 0;
         basicResources += stats[0];
@@ -113,4 +125,22 @@ public class TravelStats {
                 + stats[5] + " units of population\n"
                 + stats[6] + " units of water\n";
     }
+
+    /**
+     * Setter for player name
+     * @param directorName as a string
+     */
+    public void setDirectorName(String directorName) {
+        this.directorName = directorName;
+    }
+
+    /**
+     * Getter for player name
+     * @return directorName as a string
+     */
+    public String getDirectorName() {
+        return directorName;
+    }
+    
+    
 }
