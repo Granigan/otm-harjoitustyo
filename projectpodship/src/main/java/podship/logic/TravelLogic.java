@@ -1,6 +1,7 @@
 package podship.logic;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import podship.events.TravelEvent;
 import podship.travel.EventDeck;
@@ -51,7 +52,7 @@ public class TravelLogic {
      * Logic for the travel stage, runs until arrival or failure.
      */
     public void travel() {
-        if(!stats.hasAllResources()) {
+        if (!stats.hasAllResources()) {
             failure();
         }
         while (stats.hasAllResources()) {
@@ -83,7 +84,7 @@ public class TravelLogic {
             e = (TravelEvent) eventDeck.getNextEvent();
         }
 
-        if (e!= null && stats.hasEnoughResources(e.getStatRequirements())) {
+        if (e != null && stats.hasEnoughResources(e.getStatRequirements())) {
             System.out.println(e.getDesc() + "\n" + distance + " turns until arrival.\n");
             stats.adjustResources(e.getStatAdjustments());
         } else {
@@ -104,6 +105,7 @@ public class TravelLogic {
     public void arrival() {
         System.out.println("Congratulations, the ship arrived and the trek is complete!\n\n"
                 + "Humanity has expanded its existence Gliese 832!\n\n\n"
+                + "Your final score is " + (stats.countScore() + 100) + ".\n"
                 + "Game over.\n");
     }
 
@@ -113,6 +115,7 @@ public class TravelLogic {
     public void failure() {
         System.out.println("The ship ran out of critical resources and the mission was a failure.\n\n"
                 + "Let's hope that likely catastrophe didn't wipe us all out back in Sol...\n\n\n"
+                + "Your final score is " + stats.countScore() + ".\n"
                 + "Game over.\n");
     }
 

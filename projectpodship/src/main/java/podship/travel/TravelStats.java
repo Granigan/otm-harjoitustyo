@@ -80,6 +80,23 @@ public class TravelStats {
         }
     }
 
+    public int countScore() {
+        int score = 0;
+        score += sumOfBasicResources() * 5;
+        score += stats[5] * 10;
+        score += stats[4] - stats[2] * 10;
+        return score;
+    }
+
+    public int sumOfBasicResources() {
+        int basicResources = 0;
+        basicResources += stats[0];
+        basicResources += stats[1];
+        basicResources += stats[3];
+        basicResources += stats[6];
+        return basicResources;
+    }
+
     /**
      * Reports the current statistics/resources.
      *
