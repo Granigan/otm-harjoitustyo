@@ -13,3 +13,4 @@
 | 17.4 | 3 | Class diagram v0.1, new classes, debug-event, tests for Option added. |
 | 24.4 | 7 | Sequence diagram added, refactored old classes, added TravelLogic(), game can now be finished (but lacks content), added alpha release, added a bunch of tests. |
 | 29.4 | 8 | Spent a lot of time exploring Google Sheets as a db option, unsure if going to use it due to auth hassle. Added support for events in the TravelLogic. Split Event into superclass Event and two extensions TravelEvent and BuildEvent. Added a bunch of JavaDocs. Further minor changes here and there. |
+| 2.5 | 4 | Added lots of documentation, including images and User Manual. Minor bug fixes and changes. |
