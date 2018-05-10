@@ -1,6 +1,7 @@
 package podship.domain;
 
 //public class Main {
+import java.awt.Insets;
 import javafx.application.Application;
 import static javafx.application.Application.STYLESHEET_CASPIAN;
 import javafx.application.Platform;
@@ -10,6 +11,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.RowConstraints;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
@@ -37,19 +39,19 @@ public class Main extends Application {
     public void start(Stage window) throws Exception {
 
         // START SCENE
-        GridPane layout = new GridPane();
-        layout.setPrefSize(600, 400);
-        layout.getColumnConstraints().add(new ColumnConstraints(160));
-        layout.getColumnConstraints().add(new ColumnConstraints(280));
-        layout.getColumnConstraints().add(new ColumnConstraints(160));
-        layout.getRowConstraints().add(new RowConstraints(50));
-        layout.getRowConstraints().add(new RowConstraints(220));
-        layout.getRowConstraints().add(new RowConstraints(130));
+        GridPane startLayout = new GridPane();
+        startLayout.setPrefSize(600, 400);
+        startLayout.getColumnConstraints().add(new ColumnConstraints(160));
+        startLayout.getColumnConstraints().add(new ColumnConstraints(280));
+        startLayout.getColumnConstraints().add(new ColumnConstraints(160));
+        startLayout.getRowConstraints().add(new RowConstraints(50));
+        startLayout.getRowConstraints().add(new RowConstraints(220));
+        startLayout.getRowConstraints().add(new RowConstraints(130));
 
         Text title = new Text("Podship");
         title.setFont(Font.font(STYLESHEET_CASPIAN, 60));
 
-        layout.add(title, 1, 1);
+        startLayout.add(title, 1, 1);
 
         VBox debug = new VBox();
         debug.setPrefSize(200, 0);
@@ -76,25 +78,58 @@ public class Main extends Application {
         Text topScoresTitle = new Text("Top directors:");
         hiscore.getChildren().add(topScoresTitle);
 
-        layout.add(debug, 0, 2);
-        layout.add(gamestart, 1, 2);
-        layout.add(hiscore, 2, 2);
+        startLayout.add(debug, 0, 2);
+        startLayout.add(gamestart, 1, 2);
+        startLayout.add(hiscore, 2, 2);
 
-        Scene start = new Scene(layout);
+        Scene start = new Scene(startLayout);
 
-        launchButton.setOnAction(e -> {
-            GameLauncher launcher = new GameLauncher(nameField.getText(),
-                    new int[]{0, 0, 0, 0, 0, 0, 0});
-            window.setScene(start);
-            launcher.runGame();
-        });
-
-        quitButton.setOnAction(e -> Platform.exit());
 
         // END OF START SCENE
         
         
         // TURN SCENE
+        Pane turnLayout = new Pane();
+        turnLayout.setMinSize(600, 400);
+        
+        // Option buttons
+        Button chooseFirst = new Button("Choose first option");
+        Button chooseSecond = new Button("Choose second option");
+        Button chooseThird = new Button("Choose third option");
+        
+        Button[] optionButtons = new Button[3];
+                
+        chooseFirst.setPrefSize(133, 100);
+        chooseSecond.setPrefSize(133, 100);
+        chooseThird.setPrefSize(133, 100);
+        chooseFirst.setLayoutY(300);
+        chooseSecond.setLayoutY(300);
+        chooseThird.setLayoutY(300);
+        chooseFirst.wrapTextProperty().set(true);
+        chooseSecond.wrapTextProperty().set(true);
+        chooseThird.wrapTextProperty().set(true);
+                
+        chooseFirst.setLayoutX(201);
+        chooseSecond.setLayoutX(334);
+        chooseThird.setLayoutX(467);
+        
+        // Menu and Quit buttons
+        Button menu = new Button("Leave Game");
+        Button quit = new Button("Exit Program");
+        
+        menu.setLayoutX(0);
+        menu.setLayoutY(350);
+        menu.setPrefSize(100, 50);
+        
+        quit.setLayoutX(100);
+        quit.setLayoutY(350);
+        quit.setPrefSize(100, 50);
+        quit.wrapTextProperty().set(true);
+        
+        
+        // Finishing touches
+        turnLayout.getChildren().addAll(chooseFirst, chooseSecond, chooseThird, menu, quit);
+        Scene turn = new Scene(turnLayout);
         
         // END OF TURN SCENE
         
@@ -102,11 +137,31 @@ public class Main extends Application {
         // TRAVEL SCENE
         // END OF TRAVEL SCENE
         
+        launchButton.setOnAction(e -> {
+            GameLauncher launcher = new GameLauncher(nameField.getText(),
+                    new int[]{0, 0, 0, 0, 0, 0, 0});
+            window.setScene(turn);
+//            launcher.runGame();
+        });
+
+        quitButton.setOnAction(e -> Platform.exit());
+        
+        chooseFirst.setOnAction(e -> chooseThird.setText("LAUNCH SHIP"));
+        chooseThird.setOnAction(e -> window.setScene(start));
+        quit.setOnAction(e -> Platform.exit());
+        
+
         window.setScene(start);
         window.show();
 
         
     }
+    
+//    public turnOptionButtonConfig(Button b) {
+//        b.setPrefSize(133, 100);
+//        b.setLayoutY(300);
+//        b.wrapTextProperty().set(true);
+//    }
 
     public static void main(String[] args) {
         launch(Main.class);

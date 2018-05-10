@@ -53,20 +53,20 @@ public class TurnLogic {
         this.stats = stats;
         name = this.stats.getDirectorName();
         input = new Scanner(System.in);
-
     }
 
     /**
      * Runs the steps for the pre-launch-stage of the game.
      */
     public void newGame() {
-        getDirectorName();
+//        getDirectorName();
         System.out.println(introText());
         turnSteps();
     }
 
     /**
      * Makes sure name string is anything but "" and sets it as name variable.
+     * ONLY USED BY tUI
      */
     public void getDirectorName() {
         System.out.println("Welcome to Podship, director. What is your name?");
