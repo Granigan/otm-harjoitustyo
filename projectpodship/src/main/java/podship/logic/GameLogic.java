@@ -30,11 +30,29 @@ public class GameLogic {
         currentEvent = turnLogic.getFirstEvent();
     }
 
-    public void updateTexts() {
+    public void updateBuildEventTexts() {
         BuildEvent be = (BuildEvent) currentEvent;
         turnScene.setEventTexts(be.getOptions().get(0).getDesc(),
                 be.getOptions().get(1).getDesc(),
                 be.getOptions().get(2).getDesc(), be.getDesc());
+    }
+
+    public void selectionMade(int id) {
+        BuildEvent be = (BuildEvent) currentEvent;
+        stats.adjustResources(be.getOptions().get(id).getStatAdjustments());
+        turnLogic.setTurnCount(turnLogic.getTurnCount() - 1);
+        if (!turnLogic.checkForLaunch()) {
+            currentEvent = turnLogic.getNextEvent();
+            updateBuildEventTexts();
+        } else {
+            processLaunch();
+        }
+    }
+
+    public void processLaunch() {
+        currentEvent = (BuildEvent) turnLogic.getLaunchEvent();
+        updateBuildEventTexts();
+        turnScene.initiateLaunch();
     }
 
     public TravelStats getStats() {

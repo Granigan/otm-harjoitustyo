@@ -108,11 +108,24 @@ public class TurnLogic {
         options.add(new Option("Let's get started."));
         return options;
     }
-    
+
     public BuildEvent getFirstEvent() {
         return new BuildEvent(getIntroText(), getIntroOptions());
     }
-    
+
+    public BuildEvent getLaunchEvent() {
+        String launchText = "Time has ran out, director. We must launch the ship "
+                + "now and hope for the best.\n\n"
+                + "Say your prayers and complete any last rites, and when you're "
+                + "ready, launch the ship.\n\n"
+                + "Good luck to us all!";
+        ArrayList<Option> options = new ArrayList<>();
+        options.add(new Option("Launch the ship"));
+        options.add(new Option("IGNITE!"));
+        options.add(new Option("3... 2... 1... Lift-off!"));
+        return new BuildEvent(launchText, options);
+    }
+
     /**
      * Loops the turn logic until launched. tUI only.
      */
@@ -135,33 +148,33 @@ public class TurnLogic {
      * Otherwise returns false.
      */
     public boolean checkForLaunch() {
-        if (turnCount > 0) {
-            System.out.println("You have time for " + turnCount + " more decision(s).");
-        } else {
-            System.out.println("Time has come to an end. We must launch now.");
+        if (turnCount == 0) {
             return true;
         }
 
-        System.out.println("Is the ship ready for launch?\n(Y)es for launch, otherwise "
-                + "continue the process.");
-        String launch = input.nextLine();
-        // add input check here
-        if (launch.equals("y") || launch.equals("Y")) {
-            return true;
-        } else {
-            System.out.println("We'll continue the construction and recruitment process. You "
-                    + "have " + turnCount + " turns left before the mandatory launch date.");
-            return false;
-        }
+//        if (turnCount > 0) {
+//            System.out.println("You have time for " + turnCount + " more decision(s).");
+//        } else {
+//            System.out.println("Time has come to an end. We must launch now.");
+//            return true;
+//        }
+//
+//        System.out.println("Is the ship ready for launch?\n(Y)es for launch, otherwise "
+//                + "continue the process.");
+//        String launch = input.nextLine();
+//        // add input check here
+//        if (launch.equals("y") || launch.equals("Y")) {
+//            return true;
+//        } else {
+//            System.out.println("We'll continue the construction and recruitment process. You "
+//                    + "have " + turnCount + " turns left before the mandatory launch date.");
+        return false;
+//        }
     }
 
     public BuildEvent getNextEvent() {
         BuildEvent be = (BuildEvent) eventDeck.getNextEvent();
         return be;
-    }
-
-    public void selectionMade(int id) {
-        System.out.println("option " + id + " chosen");
     }
 
     /**
@@ -214,6 +227,10 @@ public class TurnLogic {
         this.turnCount = turnCount;
     }
 
+    public int getTurnCount() {
+        return turnCount;
+    }
+
     /**
      * Setter for string Name, i.e. captains name.
      *
@@ -222,5 +239,5 @@ public class TurnLogic {
     public void setName(String name) {
         this.name = name;
     }
-    
+
 }

@@ -38,9 +38,9 @@ public class TurnScene {
     }
 
     public void buildScene() {
-        chooseFirst = optionButtonSetup("I understand.", 201, "1");
-        chooseSecond = optionButtonSetup("Let's get started.", 334, "2");
-        chooseThird = optionButtonSetup("I will not fail!", 467, "3");
+        chooseFirst = optionButtonSetup("I understand.", 201, "0");
+        chooseSecond = optionButtonSetup("Let's get started.", 334, "1");
+        chooseThird = optionButtonSetup("I will not fail!", 467, "2");
 
         Button menuButton = new Button("Leave Game");
         Button exitButton = new Button("Exit");
@@ -82,7 +82,7 @@ public class TurnScene {
     }
 
     public void optionChosen(int id) {
-        logic.getTurnLogic().selectionMade(id);
+        logic.selectionMade(id);
     }
 
     public void setEventTexts(String firstOption, String secondOption,
@@ -91,6 +91,12 @@ public class TurnScene {
         chooseSecond.setText(secondOption);
         chooseThird.setText(thirdOption);
         eventScreen.setText(eventText);
+    }
+    
+    public void initiateLaunch() {
+        chooseFirst.setOnAction(e -> manager.setScene("travel"));
+        chooseSecond.setOnAction(e -> manager.setScene("travel"));
+        chooseThird.setOnAction(e -> manager.setScene("travel"));
     }
 
 }
