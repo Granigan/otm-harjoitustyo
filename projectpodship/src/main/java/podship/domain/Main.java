@@ -1,9 +1,9 @@
 package podship.domain;
 
 //public class Main {
-
 import javafx.application.Application;
 import static javafx.application.Application.STYLESHEET_CASPIAN;
+import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -24,18 +24,19 @@ import podship.logic.GameLauncher;
 //        
 //
 //
-        // RUN THE TEXT BASED WITH THESE
+// RUN THE TEXT BASED WITH THESE
 //        TurnLogic turnLogic = new TurnLogic();
 //        turnLogic.newGame();
 //        TravelLogic travelLogic = turnLogic.launchShip();
 //        travelLogic.travel();
 //    }
 //}
-
 public class Main extends Application {
 
     @Override
     public void start(Stage window) throws Exception {
+
+        // START SCENE
         GridPane layout = new GridPane();
         layout.setPrefSize(600, 400);
         layout.getColumnConstraints().add(new ColumnConstraints(160));
@@ -44,10 +45,9 @@ public class Main extends Application {
         layout.getRowConstraints().add(new RowConstraints(50));
         layout.getRowConstraints().add(new RowConstraints(220));
         layout.getRowConstraints().add(new RowConstraints(130));
-        
+
         Text title = new Text("Podship");
         title.setFont(Font.font(STYLESHEET_CASPIAN, 60));
-        
 
         layout.add(title, 1, 1);
 
@@ -60,13 +60,12 @@ public class Main extends Application {
         gamestart.setPrefSize(200, 0);
         Text nameRequestText = new Text("What is your name, Director?");
         TextField nameField = new TextField();
-        
+
         HBox buttons = new HBox();
         Button launchButton = new Button("LAUNCH");
         Button quitButton = new Button("QUIT");
         buttons.getChildren().add(launchButton);
         buttons.getChildren().add(quitButton);
-        
 
         gamestart.getChildren().add(nameRequestText);
         gamestart.getChildren().add(nameField);
@@ -83,17 +82,32 @@ public class Main extends Application {
 
         Scene start = new Scene(layout);
 
-        window.setScene(start);
-        window.show();
-        
-        launchButton.setOnAction(event -> {
-            GameLauncher launcher = new GameLauncher(nameField.getText(), 
+        launchButton.setOnAction(e -> {
+            GameLauncher launcher = new GameLauncher(nameField.getText(),
                     new int[]{0, 0, 0, 0, 0, 0, 0});
+            window.setScene(start);
             launcher.runGame();
         });
 
+        quitButton.setOnAction(e -> Platform.exit());
+
+        // END OF START SCENE
+        
+        
+        // TURN SCENE
+        
+        // END OF TURN SCENE
+        
+        
+        // TRAVEL SCENE
+        // END OF TRAVEL SCENE
+        
+        window.setScene(start);
+        window.show();
+
+        
     }
-    
+
     public static void main(String[] args) {
         launch(Main.class);
     }
