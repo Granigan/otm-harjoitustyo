@@ -25,9 +25,10 @@ public class TurnScene {
     }
 
     public Scene getScene() {
-        if (scene == null) {
-            buildScene();
-        }
+        scene = null;
+        layout = new Pane();
+        buildScene();
+
         return scene;
     }
 
@@ -64,6 +65,8 @@ public class TurnScene {
             chooseThird.setText("It's about time!");
             manager.setScene("travel");
         });
+        
+        menuButton.setOnAction(e -> manager.setScene("start"));
         exitButton.setOnAction(e -> Platform.exit());
 
     }
@@ -78,10 +81,9 @@ public class TurnScene {
         b.setOnAction(e -> optionChosen(Integer.parseInt(id)));
         return b;
     }
-    
+
     public void optionChosen(int id) {
         logic.getTurnLogic().selectionMade(id);
     }
-    
 
 }

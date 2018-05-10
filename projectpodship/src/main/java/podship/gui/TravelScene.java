@@ -24,9 +24,10 @@ public class TravelScene {
     }
 
     public Scene getScene() {
-        if (scene == null) {
-            buildScene();
-        }
+        layout = new Pane();
+        scene = null;
+        buildScene();
+
         return scene;
     }
 

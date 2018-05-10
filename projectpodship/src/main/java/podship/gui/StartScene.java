@@ -31,9 +31,9 @@ public class StartScene {
     }
 
     public Scene getScene() {
-        if (scene == null) {
-            buildScene();
-        }
+        layout = new GridPane();
+        scene = null;
+        buildScene();
         return scene;
     }
 
