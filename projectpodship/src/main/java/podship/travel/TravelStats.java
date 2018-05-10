@@ -30,7 +30,7 @@ public class TravelStats {
     }
 
     /**
-     * Constructor mainly for testing. Stats can be set with the parameter.
+     * Constructor for testing and cheating. Stats are set with the parameter.
      *
      * @param stats Sets the starting stats to this.
      */
@@ -39,6 +39,19 @@ public class TravelStats {
         for (int i = 0; i < this.stats.length; i++) {
             this.stats[i] = stats[i];
         }
+    }
+
+    /**
+     * Constructor for launching the game with GUI.
+     *
+     * @param stats Sets the starting stats to this.
+     */
+    public TravelStats(String name, int[] stats) {
+        this.stats = new int[7];
+        for (int i = 0; i < this.stats.length; i++) {
+            this.stats[i] = stats[i];
+        }
+        this.directorName = name;
     }
 
     /**

@@ -39,6 +39,24 @@ public class TurnLogic {
     }
 
     /**
+     * This default constructor initialises the pre-launch stage.
+     */
+    public TurnLogic(TravelStats stats) {
+        eventDeck = new EventDeck();
+        // INIT from mockDAO, later from DB
+        eventDao = new EventDao();
+        travelEventIDs = new ArrayList<>();
+        for (BuildEvent e : eventDao.getTurnEventsDB()) {
+            eventDeck.addEvent(e);
+        }
+        turnCount = eventDeck.getDeckSize() - 3; // during debug, turns == events-3
+        this.stats = stats;
+        name = this.stats.getDirectorName();
+        input = new Scanner(System.in);
+
+    }
+
+    /**
      * Runs the steps for the pre-launch-stage of the game.
      */
     public void newGame() {

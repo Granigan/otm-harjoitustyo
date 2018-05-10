@@ -1,8 +1,9 @@
 package podship.domain;
 
+//public class Main {
+
 import javafx.application.Application;
 import static javafx.application.Application.STYLESHEET_CASPIAN;
-import static javafx.application.Application.launch;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -14,19 +15,22 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import podship.logic.GameLauncher;
 
-
-//public class Main {
+//
+//    static final String API_KEY = "AIzaSyBQJlsAOCms7A0FAamp6nHOrPuWsVvIY_M";
 //
 //    public static void main(String[] args) {
-//        // RUN THE TEXT BASED WITH THESE
-////        TurnLogic turnLogic = new TurnLogic();
-////        turnLogic.newGame();
-////        TravelLogic travelLogic = turnLogic.launchShip();
-////        travelLogic.travel();
+//        
+//
+//
+        // RUN THE TEXT BASED WITH THESE
+//        TurnLogic turnLogic = new TurnLogic();
+//        turnLogic.newGame();
+//        TravelLogic travelLogic = turnLogic.launchShip();
+//        travelLogic.travel();
 //    }
 //}
-
 
 public class Main extends Application {
 
@@ -81,6 +85,12 @@ public class Main extends Application {
 
         window.setScene(start);
         window.show();
+        
+        launchButton.setOnAction(event -> {
+            GameLauncher launcher = new GameLauncher(nameField.getText(), 
+                    new int[]{0, 0, 0, 0, 0, 0, 0});
+            launcher.runGame();
+        });
 
     }
     
