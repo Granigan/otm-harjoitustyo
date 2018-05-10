@@ -1,6 +1,6 @@
 # Working diary for project Podship
 
-### Total hours spent: 38
+### Total hours spent: 51
 
 | date | h | task |
 | :----: | :----: | :----: |
@@ -15,3 +15,5 @@
 | 29.4 | 8 | Spent a lot of time exploring Google Sheets as a db option, unsure if going to use it due to auth hassle. Added support for events in the TravelLogic. Split Event into superclass Event and two extensions TravelEvent and BuildEvent. Added a bunch of JavaDocs. Further minor changes here and there. |
 | 2.5 | 4 | Added lots of documentation, including images and User Manual. Minor bug fixes and changes. |
 | 3.5 | 3 | Started working on the GUI. One of three layouts done, no functionality yet. |
+| 10.5 | 13 | Implemented GUI functionality. |
+
