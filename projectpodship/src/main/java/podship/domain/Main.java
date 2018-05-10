@@ -84,21 +84,18 @@ public class Main extends Application {
 
         Scene start = new Scene(startLayout);
 
-
         // END OF START SCENE
-        
-        
         // TURN SCENE
         Pane turnLayout = new Pane();
         turnLayout.setMinSize(600, 400);
-        
+
         // Option buttons
         Button chooseFirst = new Button("Choose first option");
         Button chooseSecond = new Button("Choose second option");
         Button chooseThird = new Button("Choose third option");
-        
+
         Button[] optionButtons = new Button[3];
-                
+
         chooseFirst.setPrefSize(133, 100);
         chooseSecond.setPrefSize(133, 100);
         chooseThird.setPrefSize(133, 100);
@@ -108,35 +105,47 @@ public class Main extends Application {
         chooseFirst.wrapTextProperty().set(true);
         chooseSecond.wrapTextProperty().set(true);
         chooseThird.wrapTextProperty().set(true);
-                
+
         chooseFirst.setLayoutX(201);
         chooseSecond.setLayoutX(334);
         chooseThird.setLayoutX(467);
-        
+
         // Menu and Quit buttons
         Button menu = new Button("Leave Game");
         Button quit = new Button("Exit Program");
-        
+
         menu.setLayoutX(0);
         menu.setLayoutY(350);
         menu.setPrefSize(100, 50);
-        
+
         quit.setLayoutX(100);
         quit.setLayoutY(350);
         quit.setPrefSize(100, 50);
         quit.wrapTextProperty().set(true);
-        
-        
+
         // Finishing touches
         turnLayout.getChildren().addAll(chooseFirst, chooseSecond, chooseThird, menu, quit);
         Scene turn = new Scene(turnLayout);
-        
+
         // END OF TURN SCENE
-        
-        
         // TRAVEL SCENE
+        Pane travelLayout = new Pane();
+        Button exitButton = new Button("Exit Program");
+        Button menuButton = new Button("Back to Menu");
+
+        menuButton.setPrefSize(350, 30);
+        exitButton.setPrefSize(50, 30);
+
+        menuButton.setLayoutX(90);
+        menuButton.setLayoutY(360);
+
+        exitButton.setLayoutX(500);
+        exitButton.setLayoutY(360);
+
+        travelLayout.getChildren().addAll(menuButton, exitButton);
+        Scene travel = new Scene(travelLayout);
         // END OF TRAVEL SCENE
-        
+
         launchButton.setOnAction(e -> {
             GameLauncher launcher = new GameLauncher(nameField.getText(),
                     new int[]{0, 0, 0, 0, 0, 0, 0});
@@ -145,24 +154,27 @@ public class Main extends Application {
         });
 
         quitButton.setOnAction(e -> Platform.exit());
-        
-        chooseFirst.setOnAction(e -> chooseThird.setText("LAUNCH SHIP"));
-        chooseThird.setOnAction(e -> window.setScene(start));
-        quit.setOnAction(e -> Platform.exit());
-        
 
-        window.setScene(start);
+        chooseFirst.setOnAction(e -> chooseThird.setText("LAUNCH SHIP"));
+        chooseThird.setOnAction(e -> {
+            chooseThird.setText("Choose third option");
+            window.setScene(travel);
+        });
+        quit.setOnAction(e -> Platform.exit());
+
+        menuButton.setOnAction(e -> window.setScene(start));
+        exitButton.setOnAction(e -> Platform.exit());
+
+        window.setScene(travel);
         window.show();
 
-        
     }
-    
+
 //    public turnOptionButtonConfig(Button b) {
 //        b.setPrefSize(133, 100);
 //        b.setLayoutY(300);
 //        b.wrapTextProperty().set(true);
 //    }
-
     public static void main(String[] args) {
         launch(Main.class);
     }
