@@ -8,7 +8,7 @@ import podship.logic.GameLogic;
  * Methods for initialisíng and switching scenes.
  */
 public class SceneManager {
-
+    
     private Stage window;
     private StartScene start;
     private TravelScene travel;
@@ -23,11 +23,13 @@ public class SceneManager {
      */
     public SceneManager(Stage window, GameLogic logic) {
         this.window = window;
+        this.window.setResizable(false);
+        this.window.setTitle("Podship");
         this.logic = logic;
         start = new StartScene(this, logic);
         travel = new TravelScene(this, logic);
         turn = new TurnScene(this, logic);
-
+        
     }
 
     /**
@@ -37,7 +39,7 @@ public class SceneManager {
      */
     public void setScene(String sceneName) {
         Scene nextScene;
-
+        
         switch (sceneName) {
             default:
                 nextScene = start.getScene();
@@ -46,6 +48,7 @@ public class SceneManager {
                 nextScene = start.getScene();
                 break;
             case "travel":
+                logic.setTravelScene(travel);
                 nextScene = travel.getScene();
                 break;
             case "turn":
@@ -53,9 +56,9 @@ public class SceneManager {
                 nextScene = turn.getScene();
                 break;
         }
-
+        
         window.setScene(nextScene);
         window.show();
     }
-
+    
 }

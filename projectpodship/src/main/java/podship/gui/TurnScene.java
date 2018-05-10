@@ -92,11 +92,16 @@ public class TurnScene {
         chooseThird.setText(thirdOption);
         eventScreen.setText(eventText);
     }
-    
+
     public void initiateLaunch() {
-        chooseFirst.setOnAction(e -> manager.setScene("travel"));
-        chooseSecond.setOnAction(e -> manager.setScene("travel"));
-        chooseThird.setOnAction(e -> manager.setScene("travel"));
+        chooseFirst.setOnAction(e -> launched());
+        chooseSecond.setOnAction(e -> launched());
+        chooseThird.setOnAction(e -> launched());
+    }
+
+    public void launched() {
+        manager.setScene("travel");
+        logic.beginVoyage();
     }
 
 }

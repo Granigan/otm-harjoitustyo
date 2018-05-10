@@ -7,8 +7,8 @@ import podship.events.BuildEvent;
 import podship.events.Event;
 
 /**
- * EventDeck is the pool of available BuildEvent objects. New events can be added,
- * and a random event be chosen.
+ * EventDeck is the pool of available BuildEvent objects. New events can be
+ * added, and a random event be chosen.
  *
  * @author tgtapio
  */

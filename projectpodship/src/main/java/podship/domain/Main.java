@@ -5,14 +5,6 @@ import javafx.stage.Stage;
 import podship.gui.SceneManager;
 import podship.logic.GameLogic;
 
-//    public static void main(String[] args) {
-//      // RUN THE TEXT BASED WITH THESE
-//        TurnLogic turnLogic = new TurnLogic();
-//        turnLogic.newGame();
-//        TravelLogic travelLogic = turnLogic.launchShip();
-//        travelLogic.travel();
-//    }
-//}
 /**
  * Launches the app via the SceneManager
  *

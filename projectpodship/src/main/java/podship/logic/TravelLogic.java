@@ -2,6 +2,7 @@ package podship.logic;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import podship.events.TravelEvent;
 import podship.travel.EventDeck;
 import podship.travel.TravelStats;
@@ -17,6 +18,7 @@ public class TravelLogic {
     private List<Integer> eventIDs;
     private TravelStats stats;
     private int distance;
+    private Random r;
 
     /**
      * This empty constructor is for testing use only. For the game, use the
@@ -27,6 +29,7 @@ public class TravelLogic {
         eventIDs = new ArrayList<>();
         stats = new TravelStats();
         distance = 6; // debug value
+        r = new Random();
     }
 
     /**
@@ -40,7 +43,8 @@ public class TravelLogic {
         this.eventDeck = new EventDeck();
         this.eventIDs = eventIDs;
         this.stats = stats;
-        distance = 6; // debug value
+        r = new Random();
+        distance = 4 + r.nextInt(4);
 
         for (int i = 0; i < distance + 1; i++) {
             this.eventDeck.addEvent(new TravelEvent());
@@ -52,16 +56,16 @@ public class TravelLogic {
      */
     public void travel() {
         if (!stats.hasAllResources()) {
-            failure();
+            getFailureText();
         }
         while (stats.hasAllResources()) {
             proceedJourney();
             if (distance < 1) {
-                arrival();
+                getArrivalText();
                 break;
             }
             if (!stats.hasAllResources()) {
-                failure();
+                getFailureText();
             }
             try {
                 Thread.sleep(3000);
@@ -76,7 +80,8 @@ public class TravelLogic {
      * Executes one travel turn. Event occurs if ship has enough resources for
      * it, otherwise peaceful travel continues.
      */
-    public void proceedJourney() {
+    public String proceedJourney() {
+        String entry = "";
         distance--;
         TravelEvent e = null;
         if (eventDeck.getDeckSize() > 0) {
@@ -84,7 +89,7 @@ public class TravelLogic {
         }
 
         if (e != null && stats.hasEnoughResources(e.getStatRequirements())) {
-            System.out.println(e.getDesc() + "\n" + distance + " turns until arrival.\n");
+            entry = e.getDesc();
             stats.adjustResources(e.getStatAdjustments());
         } else {
             System.out.println("Journey continues peacefully. "
@@ -94,28 +99,28 @@ public class TravelLogic {
         // Standard travel adjustment/cost
         stats.adjustResources(new int[]{-1, 0, 0, -1, -1, 0, -1});
 
-        System.out.println(stats.toString());
-        System.out.println("\n");
+//        System.out.println(stats.toString() + "\n\n");
+        return entry;
     }
 
     /**
      * Successful arrival logic.
      */
-    public void arrival() {
-        System.out.println("Congratulations, the ship arrived and the trek is complete!\n\n"
+    public String getArrivalText() {
+        return "Congratulations, the ship arrived and the trek is complete!\n\n"
                 + "Humanity has expanded its existence Gliese 832!\n\n\n"
                 + "Your final score is " + (stats.countScore() + 100) + ".\n"
-                + "Game over.\n");
+                + "Game over.\n";
     }
 
     /**
      * Voyage ends in failure.
      */
-    public void failure() {
-        System.out.println("The ship ran out of critical resources and the mission was a failure.\n\n"
+    public String getFailureText() {
+        return "The ship ran out of critical resources and the mission was a failure.\n\n"
                 + "Let's hope that likely catastrophe didn't wipe us all out back in Sol...\n\n\n"
                 + "Your final score is " + stats.countScore() + ".\n"
-                + "Game over.\n");
+                + "Game over.\n";
     }
 
     /**
@@ -134,6 +139,13 @@ public class TravelLogic {
      */
     public int getDistance() {
         return distance;
+    }
+
+    String getLaunchText() {
+        return "The launch was a success and the ship is on its way. "
+                + "You were too old and unwell to join the crew, but at "
+                + "the same time are certain that your work has saved "
+                + "humanity. Bon voyage, Podship!";
     }
 
 }

@@ -1,8 +1,10 @@
 package podship.gui;
 
+import javafx.animation.AnimationTimer;
 import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
 import javafx.scene.layout.Pane;
 import podship.logic.GameLogic;
 
@@ -15,6 +17,7 @@ public class TravelScene {
     private Scene scene;
     private SceneManager manager;
     private GameLogic logic;
+    private TextArea log;
 
     public TravelScene(SceneManager manager, GameLogic logic) {
         this.layout = new Pane();
@@ -44,11 +47,34 @@ public class TravelScene {
         exitButton.setLayoutX(500);
         exitButton.setLayoutY(360);
 
-        layout.getChildren().addAll(menuButton, exitButton);
+        log = new TextArea();
+        log.setPrefSize(600, 340);
+        log.setLayoutX(0);
+        log.wrapTextProperty().set(true);
+        
+        long prevNanos = 0;
+        AnimationTimer timer = new AnimationTimer() {
+            @Override
+            public void handle(long now) {
+                if (prevNanos == 0) {
+                    prevNanos = now;
+                    return;
+                }
+                long deltaNanos = now - prevNanos;
+                prevNanos = now;
+                
+            }
+        }
+
+        layout.getChildren().addAll(menuButton, exitButton, log);
         scene = new Scene(layout);
 
         menuButton.setOnAction(e -> manager.setScene("start"));
         exitButton.setOnAction(e -> Platform.exit());
 
+    }
+
+    public void addLogEntry(String entry) {
+        log.setText(log.getText() + entry);
     }
 }

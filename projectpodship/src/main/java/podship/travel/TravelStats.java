@@ -39,7 +39,6 @@ public class TravelStats {
             this.stats[i] = stats[i];
         }
     }
-    
 
     /**
      * Constructor for launching the game with GUI.
