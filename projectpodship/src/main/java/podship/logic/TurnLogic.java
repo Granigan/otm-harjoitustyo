@@ -39,7 +39,7 @@ public class TurnLogic {
     }
 
     /**
-     * Constructor initialises the pre-launch stage 
+     * Constructor initialises the pre-launch stage
      */
     public TurnLogic(TravelStats stats) {
         eventDeck = new EventDeck();
@@ -101,9 +101,20 @@ public class TurnLogic {
                 + "Good luck, director " + name;
     }
 
+    public ArrayList<Option> getIntroOptions() {
+        ArrayList<Option> options = new ArrayList<>();
+        options.add(new Option("I understand"));
+        options.add(new Option("I will not fail!"));
+        options.add(new Option("Let's get started."));
+        return options;
+    }
+    
+    public BuildEvent getFirstEvent() {
+        return new BuildEvent(getIntroText(), getIntroOptions());
+    }
+    
     /**
-     * Loops the turn logic until launched.
-     * tUI only.
+     * Loops the turn logic until launched. tUI only.
      */
     public void turnSteps() {
         while (true) {
@@ -116,9 +127,6 @@ public class TurnLogic {
 
     }
 
-    public void selectionMade(int id) {
-        System.out.println(id + " option picked");
-    }
     /**
      * Includes a check for turns remaining and asks the player if they want to
      * launch.
@@ -145,6 +153,15 @@ public class TurnLogic {
                     + "have " + turnCount + " turns left before the mandatory launch date.");
             return false;
         }
+    }
+
+    public BuildEvent getNextEvent() {
+        BuildEvent be = (BuildEvent) eventDeck.getNextEvent();
+        return be;
+    }
+
+    public void selectionMade(int id) {
+        System.out.println("option " + id + " chosen");
     }
 
     /**
@@ -205,5 +222,5 @@ public class TurnLogic {
     public void setName(String name) {
         this.name = name;
     }
-
+    
 }

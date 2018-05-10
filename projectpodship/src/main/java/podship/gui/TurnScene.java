@@ -17,6 +17,11 @@ public class TurnScene {
     private SceneManager manager;
     private GameLogic logic;
 
+    private Button chooseFirst;
+    private Button chooseSecond;
+    private Button chooseThird;
+    private TextArea eventScreen;
+
     public TurnScene(SceneManager manager, GameLogic logic) {
         this.layout = new Pane();
         this.logic = logic;
@@ -33,9 +38,9 @@ public class TurnScene {
     }
 
     public void buildScene() {
-        Button chooseFirst = optionButtonSetup("I understand.", 201, "1");
-        Button chooseSecond = optionButtonSetup("Let's get started.", 334, "2");
-        Button chooseThird = optionButtonSetup("I will not fail!", 467, "3");
+        chooseFirst = optionButtonSetup("I understand.", 201, "1");
+        chooseSecond = optionButtonSetup("Let's get started.", 334, "2");
+        chooseThird = optionButtonSetup("I will not fail!", 467, "3");
 
         Button menuButton = new Button("Leave Game");
         Button exitButton = new Button("Exit");
@@ -48,7 +53,7 @@ public class TurnScene {
         exitButton.setLayoutY(350);
         exitButton.setPrefSize(100, 50);
 
-        TextArea eventScreen = new TextArea();
+        eventScreen = new TextArea();
         eventScreen.setLayoutX(200);
         eventScreen.setLayoutY(0);
         eventScreen.setPrefSize(400, 300);
@@ -60,12 +65,6 @@ public class TurnScene {
                 eventScreen);
         scene = new Scene(layout);
 
-        chooseFirst.setOnAction(e -> chooseThird.setText("LAUNCH SHIP"));
-        chooseThird.setOnAction(e -> {
-            chooseThird.setText("It's about time!");
-            manager.setScene("travel");
-        });
-        
         menuButton.setOnAction(e -> manager.setScene("start"));
         exitButton.setOnAction(e -> Platform.exit());
 
@@ -84,6 +83,14 @@ public class TurnScene {
 
     public void optionChosen(int id) {
         logic.getTurnLogic().selectionMade(id);
+    }
+
+    public void setEventTexts(String firstOption, String secondOption,
+            String thirdOption, String eventText) {
+        chooseFirst.setText(firstOption);
+        chooseSecond.setText(secondOption);
+        chooseThird.setText(thirdOption);
+        eventScreen.setText(eventText);
     }
 
 }

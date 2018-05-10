@@ -1,5 +1,12 @@
 package podship.logic;
 
+import java.util.ArrayList;
+import podship.events.BuildEvent;
+import podship.events.Event;
+import podship.events.Option;
+import podship.gui.StartScene;
+import podship.gui.TravelScene;
+import podship.gui.TurnScene;
 import podship.travel.TravelStats;
 
 /**
@@ -9,6 +16,10 @@ public class GameLogic {
 
     private TravelStats stats;
     private TurnLogic turnLogic;
+    private Event currentEvent;
+    private TurnScene turnScene;
+    private TravelScene travelScene;
+    private StartScene startScene;
 
     public GameLogic() {
     }
@@ -16,6 +27,14 @@ public class GameLogic {
     public void newGame(String name, int[] stats) {
         this.stats = new TravelStats(name, stats);
         turnLogic = new TurnLogic(this.stats);
+        currentEvent = turnLogic.getFirstEvent();
+    }
+
+    public void updateTexts() {
+        BuildEvent be = (BuildEvent) currentEvent;
+        turnScene.setEventTexts(be.getOptions().get(0).getDesc(),
+                be.getOptions().get(1).getDesc(),
+                be.getOptions().get(2).getDesc(), be.getDesc());
     }
 
     public TravelStats getStats() {
@@ -25,13 +44,15 @@ public class GameLogic {
     public TurnLogic getTurnLogic() {
         return turnLogic;
     }
-    
-    
 
     public void runGame() {
         turnLogic.newGame();
         TravelLogic travelLogic = turnLogic.launchShip();
         travelLogic.travel();
+    }
+
+    public void setTurnScene(TurnScene turnScene) {
+        this.turnScene = turnScene;
     }
 
 }

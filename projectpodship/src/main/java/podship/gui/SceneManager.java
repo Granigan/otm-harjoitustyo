@@ -47,6 +47,7 @@ public class SceneManager {
                 nextScene = travel.getScene();
                 break;
             case "turn":
+                logic.setTurnScene(turn);
                 nextScene = turn.getScene();
                 break;
         }

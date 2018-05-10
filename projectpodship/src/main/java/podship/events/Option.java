@@ -25,6 +25,12 @@ public class Option {
         unlocks = new ArrayList<>();
     }
 
+    public Option(String desc) {
+        this.desc = desc;
+        statAdjustments = new int[]{0, 0, 0, 0, 0, 0, 0};
+        unlocks = new ArrayList<>();
+    }
+
     /**
      * Default constructor for an option.
      *
