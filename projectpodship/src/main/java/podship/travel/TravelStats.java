@@ -16,7 +16,6 @@ public class TravelStats {
      */
     private int[] stats;
     private String directorName;
-    
 
     /**
      * Default constructor, all stats start at 0.
@@ -97,8 +96,9 @@ public class TravelStats {
     }
 
     /**
-     * Containts the score algorithm for the resource score.
-     * Edit the method to balance the scoring.
+     * Containts the score algorithm for the resource score. Edit the method to
+     * balance the scoring.
+     *
      * @return score based on resources
      */
     public int countScore() {
@@ -111,6 +111,7 @@ public class TravelStats {
 
     /**
      * Used mainly for score calculation.
+     *
      * @return Sum of air, energy, food, and water resources.
      */
     public int sumOfBasicResources() {
@@ -141,6 +142,7 @@ public class TravelStats {
 
     /**
      * Setter for player name
+     *
      * @param directorName as a string
      */
     public void setDirectorName(String directorName) {
@@ -149,11 +151,11 @@ public class TravelStats {
 
     /**
      * Getter for player name
+     *
      * @return directorName as a string
      */
     public String getDirectorName() {
         return directorName;
     }
-    
-    
+
 }
