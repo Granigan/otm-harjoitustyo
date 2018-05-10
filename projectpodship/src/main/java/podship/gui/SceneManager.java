@@ -2,6 +2,7 @@ package podship.gui;
 
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import podship.logic.GameLogic;
 
 /**
  * Methods for initialisíng and switching scenes.
@@ -12,17 +13,19 @@ public class SceneManager {
     private StartScene start;
     private TravelScene travel;
     private TurnScene turn;
+    private GameLogic logic;
 
     /**
      * Constructor that initialises the three scenes and links Stage, SceneManager
      * and Scenes.
      * @param window 
      */
-    public SceneManager(Stage window) {
+    public SceneManager(Stage window, GameLogic logic) {
         this.window = window;
-        start = new StartScene(this);
-        travel = new TravelScene(this);
-        turn = new TurnScene(this);
+        this.logic = logic;
+        start = new StartScene(this, logic);
+        travel = new TravelScene(this, logic);
+        turn = new TurnScene(this, logic);
 
     }
 

@@ -16,7 +16,7 @@ public class EventDao {
         List<BuildEvent> turnEventsDB = new ArrayList<>();
         turnEventsDB.add(captainEvent());
         turnEventsDB.add(popEvent());
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 5; i++) {
             turnEventsDB.add(debugEvent());
         }
         return turnEventsDB;

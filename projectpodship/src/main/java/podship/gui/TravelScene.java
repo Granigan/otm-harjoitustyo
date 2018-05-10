@@ -4,6 +4,7 @@ import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
+import podship.logic.GameLogic;
 
 /**
  *
@@ -13,10 +14,13 @@ public class TravelScene {
     private Pane layout;
     private Scene scene;
     private SceneManager manager;
+    private GameLogic logic;
 
-    public TravelScene(SceneManager manager) {
+    public TravelScene(SceneManager manager, GameLogic logic) {
         this.layout = new Pane();
+        this.logic = logic;
         this.manager = manager;
+        this.logic = logic;
     }
 
     public Scene getScene() {

@@ -21,7 +21,7 @@ public class TurnLogic {
     private List<Integer> travelEventIDs;
 
     /**
-     * This default constructor initialises the pre-launch stage.
+     * Default constructor used for testing.
      */
     public TurnLogic() {
         eventDeck = new EventDeck();
@@ -39,7 +39,7 @@ public class TurnLogic {
     }
 
     /**
-     * This default constructor initialises the pre-launch stage.
+     * Constructor initialises the pre-launch stage 
      */
     public TurnLogic(TravelStats stats) {
         eventDeck = new EventDeck();
@@ -59,8 +59,7 @@ public class TurnLogic {
      * Runs the steps for the pre-launch-stage of the game.
      */
     public void newGame() {
-//        getDirectorName();
-        System.out.println(introText());
+        System.out.println(getIntroText());
         turnSteps();
     }
 
@@ -85,8 +84,9 @@ public class TurnLogic {
      *
      * @return Returns intro text as a string.
      */
-    public String introText() {
-        return "You've been tasked with overseeing the Project Podship.\n\n"
+    public String getIntroText() {
+        return "Welcome, director " + name + "."
+                + "You've been tasked with overseeing the Project Podship.\n\n"
                 + "In short, Earth is facing an existential crisis, and no one knows for sure if "
                 + "we'll survive. To ensure humanity will not perish with the planet, we'll need to "
                 + "colonise elsewhere. Unfortunately, our colonies in Mars and Ganymede "
@@ -98,11 +98,12 @@ public class TurnLogic {
                 + "Dozens of the next generations will be born and will die inside the ship, "
                 + "while it travels.\n\n"
                 + "I'm sure you understand the enormity of the task. But you must succeed.\n\n"
-                + "Good luck, director " + name + ".\n\n";
+                + "Good luck, director " + name;
     }
 
     /**
      * Loops the turn logic until launched.
+     * tUI only.
      */
     public void turnSteps() {
         while (true) {
@@ -115,6 +116,9 @@ public class TurnLogic {
 
     }
 
+    public void selectionMade(int id) {
+        System.out.println(id + " option picked");
+    }
     /**
      * Includes a check for turns remaining and asks the player if they want to
      * launch.

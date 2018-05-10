@@ -1,7 +1,6 @@
 package podship.logic;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import podship.events.TravelEvent;
 import podship.travel.EventDeck;

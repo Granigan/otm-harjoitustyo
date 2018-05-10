@@ -12,7 +12,7 @@ import javafx.scene.layout.RowConstraints;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
-import podship.logic.GameLauncher;
+import podship.logic.GameLogic;
 
 /**
  *
@@ -20,17 +20,18 @@ import podship.logic.GameLauncher;
 public class StartScene {
 
     private GridPane layout;
-    Scene scene;
+    private Scene scene;
     private SceneManager manager;
+    private GameLogic logic;
 
-    public StartScene(SceneManager manager) {
+    public StartScene(SceneManager manager, GameLogic logic) {
         this.manager = manager;
+        this.logic = logic;
         layout = new GridPane();
     }
 
     public Scene getScene() {
         if (scene == null) {
-            System.out.println("let's build start scene");
             buildScene();
         }
         return scene;
@@ -82,10 +83,9 @@ public class StartScene {
         scene = new Scene(layout);
 
         launchButton.setOnAction(e -> {
-//            GameLauncher launcher = new GameLauncher(nameField.getText(),
-//                    new int[]{0, 0, 0, 0, 0, 0, 0});
+            logic.newGame(nameField.getText(),
+                    new int[]{0, 0, 0, 0, 0, 0, 0});
             manager.setScene("turn");
-//            launcher.runGame();
         });
 
         quitButton.setOnAction(e -> Platform.exit());
