@@ -30,36 +30,28 @@ public class TurnScene {
         Button chooseFirst = new Button("Choose first option");
         Button chooseSecond = new Button("Choose second option");
         Button chooseThird = new Button("Choose third option");
-
-        Button[] optionButtons = new Button[3];
-
-        chooseFirst.setPrefSize(133, 100);
-        chooseSecond.setPrefSize(133, 100);
-        chooseThird.setPrefSize(133, 100);
-        chooseFirst.setLayoutY(300);
-        chooseSecond.setLayoutY(300);
-        chooseThird.setLayoutY(300);
-        chooseFirst.wrapTextProperty().set(true);
-        chooseSecond.wrapTextProperty().set(true);
-        chooseThird.wrapTextProperty().set(true);
-
+        
+        buttonSetup(chooseFirst);
+        buttonSetup(chooseSecond);
+        buttonSetup(chooseThird);
+        
         chooseFirst.setLayoutX(201);
         chooseSecond.setLayoutX(334);
         chooseThird.setLayoutX(467);
 
-        Button menu = new Button("Leave Game");
-        Button quit = new Button("Exit Program");
+        Button menuButton = new Button("Leave Game");
+        Button exitButton = new Button("Exit Program");
 
-        menu.setLayoutX(0);
-        menu.setLayoutY(350);
-        menu.setPrefSize(100, 50);
+        menuButton.setLayoutX(0);
+        menuButton.setLayoutY(350);
+        menuButton.setPrefSize(100, 50);
 
-        quit.setLayoutX(100);
-        quit.setLayoutY(350);
-        quit.setPrefSize(100, 50);
-        quit.wrapTextProperty().set(true);
+        exitButton.setLayoutX(100);
+        exitButton.setLayoutY(350);
+        exitButton.setPrefSize(100, 50);
+        exitButton.wrapTextProperty().set(true);
 
-        layout.getChildren().addAll(chooseFirst, chooseSecond, chooseThird, menu, quit);
+        layout.getChildren().addAll(chooseFirst, chooseSecond, chooseThird, menuButton, exitButton);
         scene = new Scene(layout);
 
         chooseFirst.setOnAction(e -> chooseThird.setText("LAUNCH SHIP"));
@@ -67,7 +59,13 @@ public class TurnScene {
             chooseThird.setText("Choose third option");
             manager.setScene("travel");
         });
-        quit.setOnAction(e -> Platform.exit());
+        exitButton.setOnAction(e -> Platform.exit());
 
+    }
+    
+    public void buttonSetup(Button b) {
+        b.setPrefSize(133, 100);
+        b.setLayoutY(300);
+        b.wrapTextProperty().set(true);
     }
 }

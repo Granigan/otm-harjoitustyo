@@ -4,7 +4,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 /**
- *
+ * Methods for initialisíng and switching scenes.
  */
 public class SceneManager {
 
@@ -13,6 +13,11 @@ public class SceneManager {
     private TravelScene travel;
     private TurnScene turn;
 
+    /**
+     * Constructor that initialises the three scenes and links Stage, SceneManager
+     * and Scenes.
+     * @param window 
+     */
     public SceneManager(Stage window) {
         this.window = window;
         start = new StartScene(this);
@@ -21,6 +26,10 @@ public class SceneManager {
 
     }
 
+    /**
+     * Switches the scene to the one defined by the parameter.
+     * @param sceneName accepts "start", "travel", or "turn" as string
+     */
     public void setScene(String sceneName) {
         Scene nextScene;
 

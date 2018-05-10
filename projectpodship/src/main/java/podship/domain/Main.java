@@ -4,8 +4,6 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 import podship.gui.SceneManager;
 
-//    static final String API_KEY = "AIzaSyBQJlsAOCms7A0FAamp6nHOrPuWsVvIY_M";
-//
 //    public static void main(String[] args) {
 //      // RUN THE TEXT BASED WITH THESE
 //        TurnLogic turnLogic = new TurnLogic();
@@ -14,6 +12,11 @@ import podship.gui.SceneManager;
 //        travelLogic.travel();
 //    }
 //}
+
+/**
+ * Launches the app via the SceneManager
+ * @author tgtapio
+ */
 public class Main extends Application {
 
     private SceneManager manager;
