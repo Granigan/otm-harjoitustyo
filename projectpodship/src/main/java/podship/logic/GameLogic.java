@@ -63,12 +63,6 @@ public class GameLogic {
         return turnLogic;
     }
 
-    public void runGame() {
-        turnLogic.newGame();
-        TravelLogic travelLogic = turnLogic.launchShip();
-        travelLogic.travel();
-    }
-
     public void setTurnScene(TurnScene turnScene) {
         this.turnScene = turnScene;
     }

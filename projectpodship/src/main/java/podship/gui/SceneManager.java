@@ -16,9 +16,10 @@ public class SceneManager {
     private GameLogic logic;
 
     /**
-     * Constructor that initialises the three scenes and links Stage, SceneManager
-     * and Scenes.
-     * @param window 
+     * Constructor that initialises the three scenes and links Stage,
+     * SceneManager and Scenes.
+     *
+     * @param window
      */
     public SceneManager(Stage window, GameLogic logic) {
         this.window = window;
@@ -31,6 +32,7 @@ public class SceneManager {
 
     /**
      * Switches the scene to the one defined by the parameter.
+     *
      * @param sceneName accepts "start", "travel", or "turn" as string
      */
     public void setScene(String sceneName) {

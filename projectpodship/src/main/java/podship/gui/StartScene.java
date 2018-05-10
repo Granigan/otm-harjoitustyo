@@ -84,7 +84,7 @@ public class StartScene {
 
         launchButton.setOnAction(e -> {
             logic.newGame(nameField.getText(),
-                    new int[]{0, 0, 0, 0, 0, 0, 0});
+                    new int[]{5, 5, 5, 5, 5, 5, 5});
             manager.setScene("turn");
         });
 
