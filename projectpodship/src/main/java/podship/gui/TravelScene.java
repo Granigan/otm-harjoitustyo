@@ -27,7 +27,7 @@ public class TravelScene {
     }
 
     public void buildScene() {
-        Button exitButton = new Button("Exit Program");
+        Button exitButton = new Button("Exit");
         Button menuButton = new Button("Back to Menu");
 
         menuButton.setPrefSize(350, 30);

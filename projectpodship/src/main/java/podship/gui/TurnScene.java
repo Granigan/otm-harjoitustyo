@@ -27,17 +27,9 @@ public class TurnScene {
     }
 
     public void buildScene() {
-        Button chooseFirst = new Button("Choose first option");
-        Button chooseSecond = new Button("Choose second option");
-        Button chooseThird = new Button("Choose third option");
-        
-        buttonSetup(chooseFirst);
-        buttonSetup(chooseSecond);
-        buttonSetup(chooseThird);
-        
-        chooseFirst.setLayoutX(201);
-        chooseSecond.setLayoutX(334);
-        chooseThird.setLayoutX(467);
+        Button chooseFirst = optionButtonSetup("Choose first option", 201);
+        Button chooseSecond = optionButtonSetup("Choose second option", 334);
+        Button chooseThird = optionButtonSetup("Choose Third option", 467);
 
         Button menuButton = new Button("Leave Game");
         Button exitButton = new Button("Exit Program");
@@ -63,9 +55,12 @@ public class TurnScene {
 
     }
     
-    public void buttonSetup(Button b) {
+    public Button optionButtonSetup(String text, int x) {
+        Button b = new Button(text);
         b.setPrefSize(133, 100);
+        b.setLayoutX(x);
         b.setLayoutY(300);
         b.wrapTextProperty().set(true);
+        return b;
     }
 }
