@@ -5,14 +5,16 @@
 ### Description
 In Podship, player oversees a program to construct a podship - ship that travels in deep space while hosting a tiny civilization within itself.
 
-Gameplay consists of player first making choices for the ships population, governance, tech decisions etc. After the launch, player sees the log entries to see how the voyage succeeded. Currently text-UI onl, GUI to come.
+Gameplay consists of player first making choices for the ships population, governance, tech decisions etc. After the launch, player sees the log entries to see how the voyage succeeded.
 
-- Java for logic and UI
+- Java for logic
+- JavaFX for GUI
 - (TBA: Google Docs to hold event etc data)
-- (TBA: JavaFX for GUI)
-- (TBA: more build and travel events, final score)
+- (TBA: actual build and travel events, not just test and debug events)
 
 ### Releases
+[0.7 - We Must Launch Now! (Final version for OTM-course)](https://github.com/Granigan/otm-harjoitustyo/releases/tag/beta1)
+
 [0.6 - Travelling Through Empty Space](https://github.com/Granigan/otm-harjoitustyo/releases/tag/alpha2)
 
 [0.5 - Working Logic](https://github.com/Granigan/otm-harjoitustyo/releases/tag/alpha)
@@ -23,7 +25,7 @@ Gameplay consists of player first making choices for the ships population, gover
 
 [Architecture and diagrams](https://github.com/Granigan/otm-harjoitustyo/blob/master/documentation/arkkitehtuuri.md)
 
-[Requirements specification/Vaativuusmäärittely](https://github.com/Granigan/otm-harjoitustyo/blob/master/documentation/vaativuusmaarittely.md)
+[Requirements specification/Vaativuusmäärittely](https://github.com/Granigan/otm-harjoitustyo/blob/master/documentation/software_requirements.md)
 
 [Working diary/Tuntikirjanpito](https://github.com/Granigan/otm-harjoitustyo/blob/master/documentation/tuntikirjanpito.md)
 
