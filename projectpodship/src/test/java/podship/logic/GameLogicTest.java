@@ -47,6 +47,22 @@ public class GameLogicTest {
         assertEquals("Granigan", logic.getStats().getDirectorName());
     }
 
+    @Test
+    public void formattingEntriesWorks() {
+        logic.newGame("Granigan", new int[]{10, 10, 10, 10, 10, 10, 10});
+        logic.setTravelLogic(new TravelLogic());
+        logic.getTravelLogic().setDistance(3);
+        String s = "asd";
+        assertEquals("2178: asd\n\n3 turns until arrival.\n\n\n", logic.formatEntry(s));
+    }
+
+    @Test
+    public void formattingFinalEntriesWorks() {
+        logic.newGame("Granigan", new int[]{10, 10, 10, 10, 10, 10, 10});
+        String s = "asd";
+        assertEquals("2178: asd", logic.formatFinalEntry(s));
+    }
+
 //    @Test
 //    public void selectionMadeModifiesStatsBasedOnCorrectOption() {
 //        logic.newGame("Granigan", new int[]{0, 0, 0, 0, 0, 0, 0});
@@ -61,5 +77,4 @@ public class GameLogicTest {
 //        System.out.println(logic.getStats().toString());
 //        assertTrue(logic.getStats().hasEnoughResources(new int[]{7,6,5,4,3,2,1}));
 //    }
-
 }

@@ -99,9 +99,6 @@ public class GameLogic {
         turnScene.initiateLaunch();
     }
 
-    /*
-    *                 TRAVEL PHASE BEGINS
-     */
     /**
      * Creates the TravelLogic with the TravelStats and unlockIDs list. Sends
      * the first log message (launch) to TravelLogic and begins the travel() -
@@ -126,7 +123,6 @@ public class GameLogic {
      */
     public void travel() {
         if (!stats.hasAllResources()) {
-            System.out.println("pre");
             hiScoreDao.newEntry(stats.getDirectorName(), stats.countScore());
             travelScene.addLogEntry(formatFinalEntry(travelLogic.getFailureText()), stats.toString());
         } else {
@@ -167,9 +163,6 @@ public class GameLogic {
         return "" + year + ": " + entry;
     }
 
-    /*
-    *                  getters, setters, etc
-     */
     public TravelStats getStats() {
         return stats;
     }
@@ -194,4 +187,12 @@ public class GameLogic {
         return hiScoreDao;
     }
 
+    public TravelLogic getTravelLogic() {
+        return travelLogic;
+    }
+
+    public void setTravelLogic(TravelLogic travelLogic) {
+        this.travelLogic = travelLogic;
+    }
+    
 }
