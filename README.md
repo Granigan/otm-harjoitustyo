@@ -27,7 +27,7 @@ Gameplay consists of player first making choices for the ships population, gover
 
 [Requirements specification/Vaativuusmäärittely](https://github.com/Granigan/otm-harjoitustyo/blob/master/documentation/software_requirements.md)
 
-[Working diary/Tuntikirjanpito](https://github.com/Granigan/otm-harjoitustyo/blob/master/documentation/tuntikirjanpito.md)
+[Working diary/Tuntikirjanpito](https://github.com/Granigan/otm-harjoitustyo/blob/master/documentation/working_diary.md)
 
 [Trello-board](https://trello.com/b/sjB2XI3j/podship)
 
