@@ -8,8 +8,10 @@ import javafx.scene.layout.Pane;
 import podship.logic.GameLogic;
 
 /**
- *
- *
+ * The main screen of the game. Describes the event and allows the player 
+ * to make choices by clicking buttons corresponding to Options. 
+ * Contains buttons for options, quit and go back to main menu, text field 
+ * for event description and another for backlog of choices (TBA).
  */
 public class TurnScene extends BaseScene {
 
@@ -55,6 +57,14 @@ public class TurnScene extends BaseScene {
 
     }
 
+    /**
+     * Formats an Option button.
+     * 
+     * @param text sets this as starting text
+     * @param x defines the x coordinate
+     * @param id gives button the id that's used with reporting user choice to logic
+     * @return returns the formatted Button
+     */
     public Button optionButtonSetup(String text, int x, String id) {
         Button b = new Button(text);
         b.setPrefSize(133, 100);
@@ -66,10 +76,25 @@ public class TurnScene extends BaseScene {
         return b;
     }
 
+    /**
+     * Option button event, reports to logic the id of the button, ie. which
+     * option was chosen.
+     * 
+     * @param id 
+     */
     public void optionChosen(int id) {
         logic.selectionMade(id);
     }
 
+    /**
+     * Used to epdate the texts on event description and option buttons
+     * after a choice has been made to show the new event and options.
+     * 
+     * @param firstOption is the text in the first option button
+     * @param secondOption is the text in the second option button
+     * @param thirdOption is the text in the third option button
+     * @param eventText is the event description
+     */
     public void setEventTexts(String firstOption, String secondOption,
             String thirdOption, String eventText) {
         chooseFirst.setText(firstOption);
@@ -78,12 +103,20 @@ public class TurnScene extends BaseScene {
         eventScreen.setText(eventText);
     }
 
+    /**
+     * Sets all the option button events to trigger a switch to travel phase
+     * 
+     */
     public void initiateLaunch() {
         chooseFirst.setOnAction(e -> launched());
         chooseSecond.setOnAction(e -> launched());
         chooseThird.setOnAction(e -> launched());
     }
 
+    /**
+     * Triggers the switch from build/turn phase to travel phase.
+     * 
+     */
     public void launched() {
         manager.setScene("travel");
         logic.beginVoyage();

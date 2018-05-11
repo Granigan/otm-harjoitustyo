@@ -74,6 +74,10 @@ public class TurnLogic {
                 + "Good luck, director " + name;
     }
 
+    /**
+     * Gives the mock options for the first/intro event.
+     * @return list of Options
+     */
     public ArrayList<Option> getIntroOptions() {
         ArrayList<Option> options = new ArrayList<>();
         options.add(new Option("I understand"));
@@ -82,10 +86,20 @@ public class TurnLogic {
         return options;
     }
 
+    /**
+     * Compiles the first/intro event, putting together the text and options
+     * 
+     * @return the first/intro event
+     */
     public BuildEvent getFirstEvent() {
         return new BuildEvent(getIntroText(), getIntroOptions());
     }
 
+    /**
+     * The final/launch event, telling player to launch the ship.
+     * 
+     * @return the final/launch Event
+     */
     public BuildEvent getLaunchEvent() {
         String launchText = "Time has ran out, director. We must launch the ship "
                 + "now and hope for the best.\n\n"
@@ -111,6 +125,11 @@ public class TurnLogic {
         return false;
     }
 
+    /**
+     * Fetches the next event from the EventDeck
+     * 
+     * @return the next Event given by EventDeck
+     */
     public BuildEvent getNextEvent() {
         BuildEvent be = (BuildEvent) eventDeck.getNextEvent();
         return be;

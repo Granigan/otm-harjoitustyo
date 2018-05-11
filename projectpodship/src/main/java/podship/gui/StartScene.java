@@ -16,7 +16,7 @@ import podship.logic.GameLogic;
 
 /**
  * The first screen a player sees. Contains a text field for the player name,
- * option to cheat (TBA), and high scores (TBA).
+ * option to cheat (TBA), high scores (TBA), buttons to start and quit.
  */
 public class StartScene extends BaseScene {
 

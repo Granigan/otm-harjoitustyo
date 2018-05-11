@@ -9,9 +9,10 @@ import javafx.scene.layout.Pane;
 import podship.logic.GameLogic;
 
 /**
- * The main interaction screen, for the turn phase. Allows player to see event
- * descriptions and make a choice by clicking the corresponding option button.
- * After each
+ * The final/travel phase. Displays player the log of the ship travelling
+ * through space, and finally the result of the journey.
+ * Contains the text area where the log is generated into, and buttons to quit
+ * and leave.
  */
 public class TravelScene extends BaseScene {
 
@@ -62,10 +63,21 @@ public class TravelScene extends BaseScene {
 
     }
 
+    /**
+     * Used to append a new event/log entry to the text area, describing the
+     * voyage.
+     *
+     * @param entry is the new log entry to be appended
+     */
     public void addLogEntry(String entry) {
         log.appendText(entry);
     }
 
+    /**
+     * Starts the animation timer to create a brief delay between the events.
+     * Once the timer finishes, it calls logic to get a new entry to the log.
+     *
+     */
     public void runTimer() {
         timer.start();
     }

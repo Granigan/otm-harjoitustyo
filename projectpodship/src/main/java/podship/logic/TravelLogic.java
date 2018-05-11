@@ -53,7 +53,9 @@ public class TravelLogic {
 
     /**
      * Executes one travel turn. Event occurs if ship has enough resources for
-     * it, otherwise peaceful travel continues.
+     * it, otherwise peaceful travel continues. If no events are left, peaceful
+     * travel ensues.
+     * 
      */
     public String proceedJourney() {
         String entry = "";
@@ -74,12 +76,12 @@ public class TravelLogic {
         // Standard travel adjustment/cost
         stats.adjustResources(new int[]{-1, 0, 0, -1, -1, 0, -1});
 
-//        System.out.println(stats.toString() + "\n\n");
         return entry;
     }
 
     /**
-     * Successful arrival logic.
+     * Description of a successful travel.
+     * @return String for successful arrival log entry.
      */
     public String getArrivalText() {
         return "Congratulations, the ship arrived and the trek is complete!\n\n"
@@ -89,7 +91,8 @@ public class TravelLogic {
     }
 
     /**
-     * Voyage ends in failure.
+     * Descriptin of a failed voyage.
+     * @return String for failed journey.
      */
     public String getFailureText() {
         return "The ship ran out of critical resources and the mission was a failure.\n\n"
@@ -116,6 +119,10 @@ public class TravelLogic {
         return distance;
     }
 
+    /**
+     * First log entry for the travel log.
+     * @return String for the first log entry.
+     */
     String getLaunchText() {
         return "The launch was a success and the ship is on its way. "
                 + "You were too old and unwell to join the crew, but at "

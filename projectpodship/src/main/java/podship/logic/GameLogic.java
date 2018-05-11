@@ -11,7 +11,7 @@ import podship.gui.TurnScene;
 import podship.travel.TravelStats;
 
 /**
- * Creates the classes for a new game and launches it
+ * Runs the game logic and connects GUI with other logic. Engine for the game.
  */
 public class GameLogic {
 
@@ -26,19 +26,38 @@ public class GameLogic {
     private int year;
     private Random r;
 
+    /**
+     * Default constructor run at the very start. Ran only once per app launch.
+     */
     public GameLogic() {
-        unlockIDs = new ArrayList<>();
-        year = 2178;
         r = new Random();
     }
 
-    // Build phase begins
+    /**
+     * Effective constructor, initialises a new game by resetting the year,
+     * unlockIDs, and creates new TurnLogic and TravelStats.
+     *
+     * @param name player/director name
+     * @param stats starting stats set in the start screen (support TBA)
+     */
     public void newGame(String name, int[] stats) {
+        unlockIDs = new ArrayList<>();
+        year = 2178;
         this.stats = new TravelStats(name, stats);
         turnLogic = new TurnLogic(this.stats);
         currentEvent = turnLogic.getFirstEvent();
     }
 
+    /**
+     * Processes the turn, ie. handles the chosen Option, reduces turn count,
+     * checks if ship must launch, and either sets up a new event, or calls the
+     * launch process.
+     *
+     * Effects of the chosen Option: modifies ship stats and adds possible
+     * unlock IDs to the unlockID list
+     *
+     * @param id tells which Option was chosen
+     */
     public void selectionMade(int id) {
         BuildEvent be = (BuildEvent) currentEvent;
         Option chosenOption = be.getOptions().get(id);
@@ -56,6 +75,11 @@ public class GameLogic {
         }
     }
 
+    /**
+     * Calls for the event and option texts in the TurnScene to be updated to
+     * match the currentEvent.
+     *
+     */
     public void updateBuildEventTexts() {
         BuildEvent be = (BuildEvent) currentEvent;
         turnScene.setEventTexts(be.getOptions().get(0).getDesc(),
@@ -63,6 +87,10 @@ public class GameLogic {
                 be.getOptions().get(2).getDesc(), be.getDesc());
     }
 
+    /**
+     * Gets the launch event and calls the TurnScene to update event and option
+     * texts with the launch event info, forcing the player to launch the ship.
+     */
     public void processLaunch() {
         currentEvent = (BuildEvent) turnLogic.getLaunchEvent();
         updateBuildEventTexts();
@@ -70,7 +98,18 @@ public class GameLogic {
 
     }
 
-    // Travel phase begins
+    /*
+    *
+    *
+    *                 TRAVEL PHASE BEGINS
+    *
+    *
+     */
+    /**
+     * Creates the TravelLogic with the TravelStats and unlockIDs list. Sends
+     * the first log message (launch) to TravelLogic and begins the travel() -
+     * runTimer() cycle.
+     */
     public void beginVoyage() {
         travelLogic = new TravelLogic(stats, unlockIDs);
         travelScene.addLogEntry(formatEntry(travelLogic.getLaunchText()));
@@ -78,6 +117,16 @@ public class GameLogic {
         travel();
     }
 
+    /**
+     * Half of the travel-timer cycle that runs the travel/final phase.
+     *
+     * Checks if ship has at least 1 of each resource before and after the
+     * travel event, adds years to the count, and sends an appropriate log entry
+     * to TurnScene.
+     *
+     * Finally, while travel continues, calls runTimer() in TurnScene, which in
+     * turn calls back travel after a brief delay.
+     */
     public void travel() {
         if (!stats.hasAllResources()) {
             travelScene.addLogEntry(formatFinalEntry(travelLogic.getFailureText()));
@@ -90,45 +139,38 @@ public class GameLogic {
                 travelScene.addLogEntry(formatFinalEntry(travelLogic.getFailureText()));
             } else {
                 travelScene.runTimer();
-
             }
         }
-
     }
 
-    //BACKUP BELOW
-//    public void travel() {
-//        if (!stats.hasAllResources()) {
-//            travelScene.addLogEntry(formatFinalEntry(travelLogic.getFailureText()));
-//        }
-//        while (stats.hasAllResources()) {
-//            year += 30 + r.nextInt(50);
-//            travelScene.addLogEntry(formatEntry(travelLogic.proceedJourney()));
-//            if (travelLogic.getDistance() < 1) {
-//                travelScene.addLogEntry(formatFinalEntry(travelLogic.getArrivalText()));
-//                break;
-//            }
-//            if (!stats.hasAllResources()) {
-//                travelScene.addLogEntry(formatFinalEntry(travelLogic.getFailureText()));
-//            }
-//            try {
-//                Thread.sleep(3000);
-//            } catch (InterruptedException e) {
-//                System.out.println(e);
-//            }
-//        }
-//
-//    }
+    /**
+     * Help method for formatting the log entry, adding year and number of
+     * remaining turns to it. Used with travel events.
+     *
+     * @param entry raw log entry
+     * @return year + entry + turns left
+     */
     public String formatEntry(String entry) {
         return "" + year + ": " + entry + "\n\n"
                 + travelLogic.getDistance() + " turns until arrival.\n\n\n";
     }
 
+    /**
+     * Help method for formatting the final log entry, whether it's a success or
+     * failure.
+     *
+     * @param entry raw log entry
+     * @return year + result
+     */
     public String formatFinalEntry(String entry) {
         return "" + year + ": " + entry;
     }
 
-    // getters, setters, etc
+    /*
+    *
+    *                  getters, setters, etc
+    *
+     */
     public TravelStats getStats() {
         return stats;
     }
