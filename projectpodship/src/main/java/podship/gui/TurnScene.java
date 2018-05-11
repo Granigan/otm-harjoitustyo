@@ -24,6 +24,9 @@ public class TurnScene extends BaseScene {
         super(manager, logic);
     }
 
+    /**
+     * Builds the scene's elements
+     */
     public void buildScene() {
         chooseFirst = optionButtonSetup("I understand.", 201, "0");
         chooseSecond = optionButtonSetup("Let's get started.", 334, "1");

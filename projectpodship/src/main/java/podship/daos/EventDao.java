@@ -8,10 +8,18 @@ import podship.events.Option;
 
 public class EventDao {
 
-    // all the events to be placed into db later
+    /**
+     * Mock DAO for handling Events for Turn and Travel Logic
+     */
     public EventDao() {
     }
 
+    /**
+     * Mock method for db access, instead calls local methods to add written
+     * events and fill in more random ones.
+     *
+     * @return
+     */
     public List<BuildEvent> getTurnEventsDB() {
         List<BuildEvent> turnEventsDB = new ArrayList<>();
         turnEventsDB.add(captainEvent());
@@ -22,7 +30,11 @@ public class EventDao {
         return turnEventsDB;
     }
 
-    // These from DB in final
+    /**
+     * Creates a pre-written captain event
+     *
+     * @return a proper event
+     */
     private BuildEvent captainEvent() {
         Option pickAIonly = new Option("AI alone",
                 new int[]{2, 0, 3, 1, -1, 1, 1}, new ArrayList<Integer>());
@@ -41,6 +53,11 @@ public class EventDao {
         return pickCaptain;
     }
 
+    /**
+     * Creates a pre-written population event
+     *
+     * @return a proper event
+     */
     private BuildEvent popEvent() {
         BuildEvent pickPop = new BuildEvent();
         pickPop.setDesc("How should we form the population for the ship?");
@@ -56,7 +73,11 @@ public class EventDao {
         return pickPop;
     }
 
-    // DEBUG
+    /**
+     * Creates a random/debug/testing/placeholder event
+     *
+     * @return a proper event
+     */
     private BuildEvent debugEvent() {
         Random r = new Random();
         BuildEvent debug = new BuildEvent();

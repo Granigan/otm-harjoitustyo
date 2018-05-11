@@ -21,10 +21,19 @@ public class TravelScene extends BaseScene {
     private AnimationTimer timer;
     private TextArea statScreen;
 
+    /**
+     * Constructor links the SceneManager and GameLogic to the scene via 
+     * abstract class.
+     * @param manager
+     * @param logic 
+     */
     public TravelScene(SceneManager manager, GameLogic logic) {
         super(manager, logic);
     }
 
+    /**
+     * Builds the scene
+     */
     public void buildScene() {
         Button exitButton = new Button("Exit");
         Button menuButton = new Button("Back to Menu");

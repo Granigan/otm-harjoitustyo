@@ -32,6 +32,13 @@ public class StartScene extends BaseScene {
     private TextField water;
     private int[] startingStats;
 
+/**
+ * Constructor links SceneManager and GameLogic via abstract class. Also
+ * initialises the various stat variables.
+ * 
+ * @param manager
+ * @param logic 
+ */
     public StartScene(SceneManager manager, GameLogic logic) {
         super(manager, logic);
         air = new TextField("0");
@@ -107,6 +114,12 @@ public class StartScene extends BaseScene {
 
     }
 
+    /**
+     * Gets the input from cheat/debug fields, calls to sanitise input, 
+     * and forms a statline.
+     * 
+     * @return statline to start the build phase with
+     */
     public int[] getStartingStats() {
         int[] stats = new int[]{checkInteger(air.getText()),
             checkInteger(energy.getText()),
@@ -118,6 +131,12 @@ public class StartScene extends BaseScene {
         return stats;
     }
 
+    /**
+     * Sanitising check to see if input is an integer. If not, returns 0.
+     * 
+     * @param s input as string, expected to be an integer
+     * @return s parsed to i, or 0
+     */
     public int checkInteger(String s) {
         int i;
         try {
@@ -128,6 +147,9 @@ public class StartScene extends BaseScene {
         return i;
     }
 
+    /**
+     * Creates the cheat menu for adding resources at start.
+     */
     public void statSelection() {
         HBox airLine = new HBox();
         airLine.getChildren().addAll(new Text("Air: \t\t\t"), formatInput(air));
@@ -154,6 +176,12 @@ public class StartScene extends BaseScene {
                 moraleLine, populationLine, waterLine);
     }
 
+    /**
+     * Formats the textfields for cheat menu.
+     * 
+     * @param tf textfield
+     * @return formatted textfield
+     */
     public TextField formatInput(TextField tf) {
         tf.setText("0");
         tf.setPrefWidth(25);
