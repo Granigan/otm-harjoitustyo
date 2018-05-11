@@ -125,21 +125,19 @@ public class GameLogic {
      * turn calls back travel after a brief delay.
      */
     public void travel() {
-        String s = stats.toString();
         if (!stats.hasAllResources()) {
             System.out.println("pre");
             hiScoreDao.newEntry(stats.getDirectorName(), stats.countScore());
-            travelScene.addLogEntry(formatFinalEntry(travelLogic.getFailureText()), s);
+            travelScene.addLogEntry(formatFinalEntry(travelLogic.getFailureText()), stats.toString());
         } else {
             year += 30 + r.nextInt(50);
             travelScene.addLogEntry(formatEntry(travelLogic.proceedJourney()), stats.toString());
-            s = stats.toString();
             if (travelLogic.getDistance() < 1) {
                 hiScoreDao.newEntry(stats.getDirectorName(), 100 + stats.countScore());
-                travelScene.addLogEntry(formatFinalEntry(travelLogic.getArrivalText()), s);
+                travelScene.addLogEntry(formatFinalEntry(travelLogic.getArrivalText()), stats.toString());
             } else if (!stats.hasAllResources()) {
                 hiScoreDao.newEntry(stats.getDirectorName(), stats.countScore());
-                travelScene.addLogEntry(formatFinalEntry(travelLogic.getFailureText()), s);
+                travelScene.addLogEntry(formatFinalEntry(travelLogic.getFailureText()), stats.toString());
             } else {
                 travelScene.runTimer();
             }
