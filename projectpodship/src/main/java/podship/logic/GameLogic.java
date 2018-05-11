@@ -100,9 +100,7 @@ public class GameLogic {
     }
 
     /*
-    *
     *                 TRAVEL PHASE BEGINS
-    *
      */
     /**
      * Creates the TravelLogic with the TravelStats and unlockIDs list. Sends
@@ -111,7 +109,7 @@ public class GameLogic {
      */
     public void beginVoyage() {
         travelLogic = new TravelLogic(stats, unlockIDs);
-        travelScene.addLogEntry(formatEntry(travelLogic.getLaunchText()));
+        travelScene.addLogEntry(formatEntry(travelLogic.getLaunchText()), stats.toString());
 
         travel();
     }
@@ -127,17 +125,18 @@ public class GameLogic {
      * turn calls back travel after a brief delay.
      */
     public void travel() {
+        String s = stats.toString();
         if (!stats.hasAllResources()) {
             hiScoreDao.newEntry(stats.getDirectorName(), stats.countScore());
-            travelScene.addLogEntry(formatFinalEntry(travelLogic.getFailureText()));
+            travelScene.addLogEntry(formatFinalEntry(travelLogic.getFailureText()), s);
         } else {
             year += 30 + r.nextInt(50);
-            travelScene.addLogEntry(formatEntry(travelLogic.proceedJourney()));
+            travelScene.addLogEntry(formatEntry(travelLogic.proceedJourney()), s);
             if (travelLogic.getDistance() < 1) {
-                travelScene.addLogEntry(formatFinalEntry(travelLogic.getArrivalText()));
+                travelScene.addLogEntry(formatFinalEntry(travelLogic.getArrivalText()), s);
                 hiScoreDao.newEntry(stats.getDirectorName(), 100 + stats.countScore());
             } else if (!stats.hasAllResources()) {
-                travelScene.addLogEntry(formatFinalEntry(travelLogic.getFailureText()));
+                travelScene.addLogEntry(formatFinalEntry(travelLogic.getFailureText()), s);
                 hiScoreDao.newEntry(stats.getDirectorName(), stats.countScore());
             } else {
                 travelScene.runTimer();
@@ -169,9 +168,7 @@ public class GameLogic {
     }
 
     /*
-    *
     *                  getters, setters, etc
-    *
      */
     public TravelStats getStats() {
         return stats;

@@ -19,6 +19,7 @@ public class TravelScene extends BaseScene {
     private int counter = 0;
     private int cap = 30; // set to ~200 in final
     private AnimationTimer timer;
+    private TextArea statScreen;
 
     public TravelScene(SceneManager manager, GameLogic logic) {
         super(manager, logic);
@@ -38,10 +39,15 @@ public class TravelScene extends BaseScene {
         exitButton.setLayoutY(360);
 
         log = new TextArea();
-        log.setPrefSize(600, 340);
-        log.setLayoutX(0);
+        log.setPrefSize(400, 340);
+        log.setLayoutX(200);
         log.wrapTextProperty().set(true);
 
+        statScreen = new TextArea("");
+        statScreen.setPrefSize(200, 300);
+        statScreen.setLayoutX(0);
+        statScreen.setLayoutY(0);
+        
         timer = new AnimationTimer() {
             @Override
             public void handle(long now) {
@@ -54,7 +60,7 @@ public class TravelScene extends BaseScene {
             }
         };
 
-        layout.getChildren().addAll(menuButton, exitButton, log);
+        layout.getChildren().addAll(menuButton, exitButton, log,statScreen);
         scene = new Scene(layout);
 
         menuButton.setOnAction(e -> manager.setScene("start"));
@@ -68,8 +74,9 @@ public class TravelScene extends BaseScene {
      *
      * @param entry is the new log entry to be appended
      */
-    public void addLogEntry(String entry) {
+    public void addLogEntry(String entry, String stats) {
         log.appendText(entry);
+        statScreen.setText(stats);
     }
 
     /**
