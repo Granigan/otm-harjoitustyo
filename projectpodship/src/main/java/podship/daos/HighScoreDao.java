@@ -33,7 +33,6 @@ public class HighScoreDao {
         newEntry("Qmppu", 303);
         newEntry("Granigan", 28);
         newEntry("Granigan", 140);
-        newEntry("Granigan", -4);
         newEntry("Juhq", 176);
         newEntry("Granigan", 178);
     }
