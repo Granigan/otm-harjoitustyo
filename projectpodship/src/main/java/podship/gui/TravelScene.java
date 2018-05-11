@@ -18,6 +18,9 @@ public class TravelScene {
     private SceneManager manager;
     private GameLogic logic;
     private TextArea log;
+    private int counter = 0;
+    private int cap = 30;
+    private AnimationTimer timer;
 
     public TravelScene(SceneManager manager, GameLogic logic) {
         this.layout = new Pane();
@@ -51,20 +54,18 @@ public class TravelScene {
         log.setPrefSize(600, 340);
         log.setLayoutX(0);
         log.wrapTextProperty().set(true);
-        
-        long prevNanos = 0;
-        AnimationTimer timer = new AnimationTimer() {
+
+        timer = new AnimationTimer() {
             @Override
             public void handle(long now) {
-                if (prevNanos == 0) {
-                    prevNanos = now;
-                    return;
+                counter++;
+                if (counter >= cap) {
+                    counter -= cap;
+                    timer.stop();
+                    logic.travel();
                 }
-                long deltaNanos = now - prevNanos;
-                prevNanos = now;
-                
             }
-        }
+        };
 
         layout.getChildren().addAll(menuButton, exitButton, log);
         scene = new Scene(layout);
@@ -75,6 +76,10 @@ public class TravelScene {
     }
 
     public void addLogEntry(String entry) {
-        log.setText(log.getText() + entry);
+        log.appendText(entry);
+    }
+
+    public void runTimer() {
+        timer.start();
     }
 }

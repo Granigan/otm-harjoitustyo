@@ -81,27 +81,21 @@ public class GameLogic {
     public void travel() {
         if (!stats.hasAllResources()) {
             travelScene.addLogEntry(formatFinalEntry(travelLogic.getFailureText()));
-        }
-        while (stats.hasAllResources()) {
+        } else {
             year += 30 + r.nextInt(50);
             travelScene.addLogEntry(formatEntry(travelLogic.proceedJourney()));
             if (travelLogic.getDistance() < 1) {
                 travelScene.addLogEntry(formatFinalEntry(travelLogic.getArrivalText()));
-                break;
-            }
-            if (!stats.hasAllResources()) {
+            } else if (!stats.hasAllResources()) {
                 travelScene.addLogEntry(formatFinalEntry(travelLogic.getFailureText()));
-                break;
-            }
-            try {
-                Thread.sleep(3000);
-            } catch (InterruptedException e) {
-                System.out.println(e);
+            } else {
+                travelScene.runTimer();
+
             }
         }
 
     }
-    
+
     //BACKUP BELOW
 //    public void travel() {
 //        if (!stats.hasAllResources()) {
@@ -125,7 +119,6 @@ public class GameLogic {
 //        }
 //
 //    }
-
     public String formatEntry(String entry) {
         return "" + year + ": " + entry + "\n\n"
                 + travelLogic.getDistance() + " turns until arrival.\n\n\n";
