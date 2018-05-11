@@ -130,14 +130,14 @@ public class TravelStats {
      */
     @Override
     public String toString() {
-        return "[DEBUG] Flight statistics are:\n"
-                + stats[0] + " units of air, "
-                + stats[1] + " units of energy, \n"
-                + stats[2] + " units of faith, "
-                + stats[3] + " units of food, \n"
-                + stats[4] + " units of morale, "
-                + stats[5] + " units of population, \n"
-                + stats[6] + " units of water.";
+        return "Flight statistics are:\n"
+                + stats[0] + " units of air\n"
+                + stats[1] + " units of energy\n"
+                + stats[2] + " units of faith\n"
+                + stats[3] + " units of food\n"
+                + stats[4] + " units of morale\n"
+                + stats[5] + " units of population\n"
+                + stats[6] + " units of water\n";
     }
 
     /**

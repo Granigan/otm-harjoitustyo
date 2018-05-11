@@ -86,7 +86,7 @@ public class GameLogic {
         BuildEvent be = (BuildEvent) currentEvent;
         turnScene.setEventTexts(be.getOptions().get(0).getDesc(),
                 be.getOptions().get(1).getDesc(), be.getOptions().get(2).getDesc(), 
-                be.getDesc() + "\n\n" + stats.toString());
+                be.getDesc());
     }
 
     /**

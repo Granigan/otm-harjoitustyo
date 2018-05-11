@@ -18,6 +18,7 @@ public class TurnScene extends BaseScene {
     private Button chooseSecond;
     private Button chooseThird;
     private TextArea eventScreen;
+    private TextArea statScreen;
 
     public TurnScene(SceneManager manager, GameLogic logic) {
         super(manager, logic);
@@ -45,10 +46,15 @@ public class TurnScene extends BaseScene {
         eventScreen.setPrefSize(400, 300);
         eventScreen.wrapTextProperty().set(true);
         eventScreen.setText(logic.getTurnLogic().getIntroText());
+        
+        statScreen = new TextArea(logic.getStats().toString());
+        statScreen.setPrefSize(200, 300);
+        statScreen.setLayoutX(0);
+        statScreen.setLayoutY(0);
 
         layout.getChildren().addAll(chooseFirst, chooseSecond, chooseThird,
                 menuButton, exitButton,
-                eventScreen);
+                eventScreen, statScreen);
         scene = new Scene(layout);
 
         menuButton.setOnAction(e -> manager.setScene("start"));
@@ -101,6 +107,7 @@ public class TurnScene extends BaseScene {
         chooseSecond.setText(secondOption);
         chooseThird.setText(thirdOption);
         eventScreen.setText(eventText);
+        statScreen.setText(logic.getStats().toString());
     }
 
     /**
