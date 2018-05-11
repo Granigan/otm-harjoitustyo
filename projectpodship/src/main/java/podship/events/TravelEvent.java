@@ -24,7 +24,7 @@ public class TravelEvent extends Event {
         statRequirements = new int[]{0, 0, 0, 0, 0, 0, 0};
         desc = "A random encounter in space!\n"
                 + "Stat modifiers:\n"
-                + "Air: \t\t\t\t" + statAdjustments[0] + "\n"
+                + "Air: \t\t\t" + statAdjustments[0] + "\n"
                 + "Energy: \t\t" + statAdjustments[1] + "\n"
                 + "Faith: \t\t" + statAdjustments[2] + "\n"
                 + "Food: \t\t" + statAdjustments[3] + "\n"
