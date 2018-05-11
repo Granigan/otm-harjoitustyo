@@ -75,9 +75,12 @@ public class TurnLogic {
      */
     public ArrayList<Option> getIntroOptions() {
         ArrayList<Option> options = new ArrayList<>();
-        options.add(new Option("I understand"));
-        options.add(new Option("I will not fail!"));
-        options.add(new Option("Let's get started."));
+        options.add(new Option("I understand", new int[]{3, 3, 3, 3, 3, 3, 3},
+                new ArrayList<Integer>()));
+        options.add(new Option("I will not fail!", new int[]{3, 3, 3, 3, 3, 3, 3},
+                new ArrayList<Integer>()));
+        options.add(new Option("Let's get started.", new int[]{3, 3, 3, 3, 3, 3, 3},
+                new ArrayList<Integer>()));
         return options;
     }
 

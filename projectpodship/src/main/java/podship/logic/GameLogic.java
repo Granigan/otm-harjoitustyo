@@ -85,7 +85,7 @@ public class GameLogic {
     public void updateBuildEventTexts() {
         BuildEvent be = (BuildEvent) currentEvent;
         turnScene.setEventTexts(be.getOptions().get(0).getDesc(),
-                be.getOptions().get(1).getDesc(), be.getOptions().get(2).getDesc(), 
+                be.getOptions().get(1).getDesc(), be.getOptions().get(2).getDesc(),
                 be.getDesc());
     }
 
@@ -127,17 +127,19 @@ public class GameLogic {
     public void travel() {
         String s = stats.toString();
         if (!stats.hasAllResources()) {
+            System.out.println("pre");
             hiScoreDao.newEntry(stats.getDirectorName(), stats.countScore());
             travelScene.addLogEntry(formatFinalEntry(travelLogic.getFailureText()), s);
         } else {
             year += 30 + r.nextInt(50);
-            travelScene.addLogEntry(formatEntry(travelLogic.proceedJourney()), s);
+            travelScene.addLogEntry(formatEntry(travelLogic.proceedJourney()), stats.toString());
+            s = stats.toString();
             if (travelLogic.getDistance() < 1) {
-                travelScene.addLogEntry(formatFinalEntry(travelLogic.getArrivalText()), s);
                 hiScoreDao.newEntry(stats.getDirectorName(), 100 + stats.countScore());
+                travelScene.addLogEntry(formatFinalEntry(travelLogic.getArrivalText()), s);
             } else if (!stats.hasAllResources()) {
-                travelScene.addLogEntry(formatFinalEntry(travelLogic.getFailureText()), s);
                 hiScoreDao.newEntry(stats.getDirectorName(), stats.countScore());
+                travelScene.addLogEntry(formatFinalEntry(travelLogic.getFailureText()), s);
             } else {
                 travelScene.runTimer();
             }

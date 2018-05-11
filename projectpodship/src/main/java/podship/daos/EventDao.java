@@ -24,15 +24,19 @@ public class EventDao {
 
     // These from DB in final
     private BuildEvent captainEvent() {
-        Option pickAIonly = new Option("AI alone", new int[]{0, -2, 2, 0, -2, 0, 0}, new ArrayList<Integer>());
-        Option pickCivvy = new Option("Elected civilian captain with AI support", new int[]{0, -1, 1, 0, 0, 0, 0}, new ArrayList<Integer>());
-        Option pickMilitary = new Option("Highest ranking military officer, with AI", new int[]{0, -1, 0, 0, 1, 0, 0}, new ArrayList<Integer>());
+        Option pickAIonly = new Option("AI alone",
+                new int[]{2, 0, 3, 1, -1, 1, 1}, new ArrayList<Integer>());
+        Option pickCivvy = new Option("Elected civilian captain with AI support",
+                new int[]{1, 0, 2, 1, 1, 1, 1}, new ArrayList<Integer>());
+        Option pickMilitary = new Option("Highest ranking military officer, with AI",
+                new int[]{1, 0, 1, 1, 1, 0, 0}, new ArrayList<Integer>());
         ArrayList<Option> capOptions = new ArrayList<>();
         capOptions.add(pickAIonly);
         capOptions.add(pickCivvy);
         capOptions.add(pickMilitary);
 
-        BuildEvent pickCaptain = new BuildEvent("Decide how will the ship choose its captain.", capOptions);
+        BuildEvent pickCaptain = new BuildEvent("Decide how will the ship "
+                + "choose its captain.", capOptions);
 
         return pickCaptain;
     }
@@ -56,12 +60,17 @@ public class EventDao {
     private BuildEvent debugEvent() {
         Random r = new Random();
         BuildEvent debug = new BuildEvent();
-        debug.setDesc("DEBUG-event");
-        debug.addOption(new Option("first option", new int[]{5, 5, 5, 5, 5, 5, 5}, new ArrayList<Integer>()));
-        debug.addOption(new Option("second option", new int[]{-5, -5, -5, -5, -5, -5, -5}, new ArrayList<Integer>()));
-        debug.addOption(new Option("third option",
-                new int[]{r.nextInt(10) - 5, r.nextInt(10) - 5, r.nextInt(10) - 5, r.nextInt(10) - 5,
-                    r.nextInt(10) - 5, r.nextInt(10) - 5, r.nextInt(10) - 5}, new ArrayList<Integer>()));
+        debug.setDesc("DEBUG/PLACEHOLDER-event\n");
+        debug.addOption(new Option("first option, minor positive effects",
+                new int[]{1, 1, 1, 1, 1, 1, 1}, new ArrayList<Integer>()));
+        debug.addOption(new Option("second option, minor random effects",
+                new int[]{r.nextInt(3) - 1, r.nextInt(3) - 1, r.nextInt(3) - 1,
+                    r.nextInt(3) - 1, r.nextInt(3) - 1, r.nextInt(3) - 1,
+                    r.nextInt(3) - 1}, new ArrayList<Integer>()));
+        debug.addOption(new Option("third option, major random effects",
+                new int[]{r.nextInt(6) - 2, r.nextInt(6) - 2, r.nextInt(6) - 2,
+                    r.nextInt(6) - 2, r.nextInt(6) - 2, r.nextInt(6) - 2,
+                    r.nextInt(6) - 2}, new ArrayList<Integer>()));
         return debug;
     }
 

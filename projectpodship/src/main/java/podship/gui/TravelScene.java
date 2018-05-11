@@ -17,7 +17,7 @@ public class TravelScene extends BaseScene {
 
     private TextArea log;
     private int counter = 0;
-    private int cap = 30; // set to ~200 in final
+    private int cap = 300; // set to ~200 in final
     private AnimationTimer timer;
     private TextArea statScreen;
 
