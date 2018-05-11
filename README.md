@@ -5,7 +5,7 @@
 ### Description
 In Podship, player oversees a program to construct a podship - ship that travels in deep space while hosting a tiny civilization within itself.
 
-Gameplay consists of player first making choices for the ships population, governance, tech decisions etc. After the launch, player sees the log entries to see how the voyage succeeded.
+Gameplay consists of player first making choices for the ship. After the launch, player sees the log entries to see how the voyage succeeded.
 
 - Java for logic
 - JavaFX for GUI
@@ -28,6 +28,8 @@ Gameplay consists of player first making choices for the ships population, gover
 [Requirements specification/Vaativuusmäärittely](https://github.com/Granigan/otm-harjoitustyo/blob/master/documentation/software_requirements.md)
 
 [Working diary/Tuntikirjanpito](https://github.com/Granigan/otm-harjoitustyo/blob/master/documentation/working_diary.md)
+
+[Testing document](https://github.com/Granigan/otm-harjoitustyo/blob/master/documentation/testing_document.md)
 
 [Trello-board](https://trello.com/b/sjB2XI3j/podship)
 
