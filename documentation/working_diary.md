@@ -1,6 +1,6 @@
 # Working diary for project Podship
 
-### Total hours spent: 51
+### Total hours spent: 67
 
 | date | h | task |
 | :----: | :----: | :----: |
@@ -16,4 +16,4 @@
 | 2.5 | 4 | Added lots of documentation, including images and User Manual. Minor bug fixes and changes. |
 | 3.5 | 3 | Started working on the GUI. One of three layouts done, no functionality yet. |
 | 10.5 | 13 | Implemented GUI functionality. |
-
+| 11.5 | 16 | Added JavaDocs, tests, minor extra functionalities, updated documentation, worked on Google Sheets API integration, created final version for OTM |
