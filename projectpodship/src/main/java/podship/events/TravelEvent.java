@@ -4,8 +4,8 @@ import java.util.Random;
 
 /**
  * TravelEvent includes the description of the event, and checks and adjustments
- * to TravelStats. Events are (to be) generated from the database, and picked
- * from EventDeck randomly.
+ * to TravelStats. Events are generated from the database, and picked from
+ * EventDeck randomly.
  *
  * @author tgtapio
  */
@@ -15,8 +15,7 @@ public class TravelEvent extends Event {
     private int[] statRequirements;
 
     /**
-     * Constructor for creating random events, for convenience's sake. (For
-     * testing and debug.)
+     * Constructor for creating random events, for testing, demoing, and debug.
      */
     public TravelEvent() {
         Random r = new Random();

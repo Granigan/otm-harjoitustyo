@@ -15,41 +15,34 @@ import javafx.scene.text.Text;
 import podship.logic.GameLogic;
 
 /**
- *
+ * The first screen a player sees. Contains a text field for the player name,
+ * option to cheat (TBA), and high scores (TBA).
  */
-public class StartScene {
-
-    private GridPane layout;
-    private Scene scene;
-    private SceneManager manager;
-    private GameLogic logic;
+public class StartScene extends BaseScene {
 
     public StartScene(SceneManager manager, GameLogic logic) {
-        this.manager = manager;
-        this.logic = logic;
-        layout = new GridPane();
+        super(manager, logic);
     }
 
-    public Scene getScene() {
-        layout = new GridPane();
-        scene = null;
-        buildScene();
-        return scene;
-    }
-
+    /**
+     * Creates the elements for the scene.
+     */
     public void buildScene() {
-        layout.setPrefSize(600, 400);
-        layout.getColumnConstraints().add(new ColumnConstraints(160));
-        layout.getColumnConstraints().add(new ColumnConstraints(280));
-        layout.getColumnConstraints().add(new ColumnConstraints(160));
-        layout.getRowConstraints().add(new RowConstraints(50));
-        layout.getRowConstraints().add(new RowConstraints(220));
-        layout.getRowConstraints().add(new RowConstraints(130));
+        layout = new GridPane();
+        GridPane gridLayout = (GridPane) layout;
+
+        gridLayout.setPrefSize(600, 400);
+        gridLayout.getColumnConstraints().add(new ColumnConstraints(160));
+        gridLayout.getColumnConstraints().add(new ColumnConstraints(280));
+        gridLayout.getColumnConstraints().add(new ColumnConstraints(160));
+        gridLayout.getRowConstraints().add(new RowConstraints(50));
+        gridLayout.getRowConstraints().add(new RowConstraints(220));
+        gridLayout.getRowConstraints().add(new RowConstraints(130));
 
         Text title = new Text("Podship");
         title.setFont(Font.font(STYLESHEET_CASPIAN, 60));
 
-        layout.add(title, 1, 1);
+        gridLayout.add(title, 1, 1);
 
         VBox debug = new VBox();
         debug.setPrefSize(200, 0);
@@ -76,11 +69,11 @@ public class StartScene {
         Text topScoresTitle = new Text("Top directors:");
         hiscore.getChildren().add(topScoresTitle);
 
-        layout.add(debug, 0, 2);
-        layout.add(gamestart, 1, 2);
-        layout.add(hiscore, 2, 2);
+        gridLayout.add(debug, 0, 2);
+        gridLayout.add(gamestart, 1, 2);
+        gridLayout.add(hiscore, 2, 2);
 
-        scene = new Scene(layout);
+        scene = new Scene(gridLayout);
 
         launchButton.setOnAction(e -> {
             logic.newGame(nameField.getText(),

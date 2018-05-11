@@ -5,7 +5,7 @@ package podship.events;
  *
  * @author tgtapio
  */
-public class Event {
+abstract public class Event {
 
     private String desc;
 

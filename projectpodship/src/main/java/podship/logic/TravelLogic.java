@@ -52,31 +52,6 @@ public class TravelLogic {
     }
 
     /**
-     * Logic for the travel stage, runs until arrival or failure.
-     */
-    public void travel() {
-        if (!stats.hasAllResources()) {
-            getFailureText();
-        }
-        while (stats.hasAllResources()) {
-            proceedJourney();
-            if (distance < 1) {
-                getArrivalText();
-                break;
-            }
-            if (!stats.hasAllResources()) {
-                getFailureText();
-            }
-            try {
-                Thread.sleep(3000);
-            } catch (InterruptedException e) {
-                System.out.println(e);
-            }
-        }
-
-    }
-
-    /**
      * Executes one travel turn. Event occurs if ship has enough resources for
      * it, otherwise peaceful travel continues.
      */

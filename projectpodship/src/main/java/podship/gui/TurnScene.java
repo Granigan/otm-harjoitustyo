@@ -9,13 +9,9 @@ import podship.logic.GameLogic;
 
 /**
  *
+ *
  */
-public class TurnScene {
-
-    private Pane layout;
-    private Scene scene;
-    private SceneManager manager;
-    private GameLogic logic;
+public class TurnScene extends BaseScene {
 
     private Button chooseFirst;
     private Button chooseSecond;
@@ -23,18 +19,7 @@ public class TurnScene {
     private TextArea eventScreen;
 
     public TurnScene(SceneManager manager, GameLogic logic) {
-        this.layout = new Pane();
-        this.logic = logic;
-        this.manager = manager;
-        this.logic = logic;
-    }
-
-    public Scene getScene() {
-        scene = null;
-        layout = new Pane();
-        buildScene();
-
-        return scene;
+        super(manager, logic);
     }
 
     public void buildScene() {

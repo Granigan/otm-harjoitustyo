@@ -17,7 +17,7 @@ public class Option {
     private List<Integer> unlocks;
 
     /**
-     * Empty constructor for an option. Mainly for testing.
+     * Empty constructor for Option. Mainly for testing.
      */
     public Option() {
         desc = "";
@@ -25,6 +25,12 @@ public class Option {
         unlocks = new ArrayList<>();
     }
 
+    /**
+     * Simplified constructor for Option, used to initialise building/turn
+     * phase.
+     *
+     * @param desc is shown in the GUI
+     */
     public Option(String desc) {
         this.desc = desc;
         statAdjustments = new int[]{0, 0, 0, 0, 0, 0, 0};
@@ -34,9 +40,9 @@ public class Option {
     /**
      * Default constructor for an option.
      *
-     * @param desc String of option description.
-     * @param stats Choosing this option causes these stat modifiers.
-     * @param unlocks This option unlocks travel events with these IDs.
+     * @param desc is shown in the GUI
+     * @param stats picking the Option causes these stat modifiers to the ship.
+     * @param unlocks picking the Option unlocks travel events with these IDs.
      */
     public Option(String desc, int[] stats, List<Integer> unlocks) {
         this.desc = desc;
@@ -50,14 +56,15 @@ public class Option {
     /**
      * Getter for the description.
      *
-     * @return Describes the option.
+     * @return Describes the option. Seen in the TurnScene GUI.
      */
     public String getDesc() {
         return desc;
     }
 
     /**
-     * Getter for stat adjustments array.
+     * Getter for stats adjustments array. Modifiers can be negative or
+     * positive.
      *
      * @return Array of modifiers for the stats.
      */
@@ -66,7 +73,8 @@ public class Option {
     }
 
     /**
-     * Used to add event unlock ID to an Option.
+     * Used to add event unlock ID to an Option. If the Option is picked it
+     * unlocks the events for the travel.
      *
      * @param id Choosing this option unlocks event with this ID.
      */

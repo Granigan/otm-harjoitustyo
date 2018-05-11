@@ -9,32 +9,19 @@ import javafx.scene.layout.Pane;
 import podship.logic.GameLogic;
 
 /**
- *
+ * The main interaction screen, for the turn phase. Allows player to see event
+ * descriptions and make a choice by clicking the corresponding option button.
+ * After each
  */
-public class TravelScene {
+public class TravelScene extends BaseScene {
 
-    private Pane layout;
-    private Scene scene;
-    private SceneManager manager;
-    private GameLogic logic;
     private TextArea log;
     private int counter = 0;
-    private int cap = 30;
+    private int cap = 30; // set to ~200 in final
     private AnimationTimer timer;
 
     public TravelScene(SceneManager manager, GameLogic logic) {
-        this.layout = new Pane();
-        this.logic = logic;
-        this.manager = manager;
-        this.logic = logic;
-    }
-
-    public Scene getScene() {
-        layout = new Pane();
-        scene = null;
-        buildScene();
-
-        return scene;
+        super(manager, logic);
     }
 
     public void buildScene() {
