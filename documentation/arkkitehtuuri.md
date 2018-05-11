@@ -1,5 +1,4 @@
 # Program Architecture
-(Updated 2nd May 2018)
 
 ## Packaging
 ![Packages](images/podship_packaging.png)
@@ -22,9 +21,10 @@ Logic and GUI relay information as needed from logic to gui to update the scene,
 ## Application logic
 
 ![Class diagram v0.1](images/class_diagram.jpg)
-_Initial class diagram._
 
-Main game runner is the GameLogic class, that connects to the different scenes and the corresponding logics, and runs the timing of the game. Each scene and logic talks to the GameLogic class.
+_Class diagram._
+
+Main game runner is the GameLogic class, that connects to the different scenes and the corresponding logics, and runs the timing of the game. Each scene and logic talks to the GameLogic class. Process begins from the Main class that initiates the GameLogic and SceneManager, rest is done in GameLogic and appropriate scenes.
 
 
 ## Database & Permanent data
@@ -48,4 +48,5 @@ If the ship does not have enough resources for the encounter, a basic travel eve
 
 ## Extras
 ![Class diagram concept](images/class_diagram_concept.jpg)
-_Class diagram concept image._
+
+_Class diagram concept image. Funny how things change, eh..._
