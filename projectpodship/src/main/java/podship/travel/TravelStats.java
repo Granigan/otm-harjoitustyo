@@ -11,7 +11,7 @@ public class TravelStats {
     /**
      * stats are:
      *
-     * 0 = air, 1 = energy, 2 = faith, 3 = 3food, 4 = morale, 5 = population, 6
+     * 0 = air, 1 = energy, 2 = faith, 3 = food, 4 = morale, 5 = population, 6
      * = water
      */
     private int[] stats;
