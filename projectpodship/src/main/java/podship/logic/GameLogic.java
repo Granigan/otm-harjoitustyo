@@ -101,9 +101,7 @@ public class GameLogic {
 
     /*
     *
-    *
     *                 TRAVEL PHASE BEGINS
-    *
     *
      */
     /**

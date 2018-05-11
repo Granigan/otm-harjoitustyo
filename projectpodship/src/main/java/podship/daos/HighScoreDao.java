@@ -18,11 +18,11 @@ public class HighScoreDao {
     }
 
     public void newEntry(String name, int score) {
-        while (hiscores.size() >= 5) {
-            hiscores.remove(hiscores.size() - 1);
-        }
         hiscores.add(new HighScore(name, score));
         Collections.sort(hiscores);
+        while (hiscores.size() > 5) {
+            hiscores.remove(hiscores.size() - 1);
+        }
     }
 
     public List<HighScore> getHiscores() {
