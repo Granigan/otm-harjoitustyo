@@ -69,8 +69,7 @@ public class TravelLogic {
             entry = e.getDesc();
             stats.adjustResources(e.getStatAdjustments());
         } else {
-            System.out.println("Journey continues peacefully. "
-                    + distance + " turns until arrival.");
+            entry = "Journey continues peacefully.";
         }
 
         // Standard travel adjustment/cost
@@ -97,6 +96,7 @@ public class TravelLogic {
      * @return String for failed journey.
      */
     public String getFailureText() {
+
         return "The ship ran out of critical resources and the mission was a failure.\n\n"
                 + "Let's hope that likely catastrophe didn't wipe us all out back in Sol...\n\n\n"
                 + "Your final score is " + stats.countScore() + ".\n"

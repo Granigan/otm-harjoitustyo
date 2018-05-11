@@ -30,6 +30,7 @@ public class StartScene extends BaseScene {
     private TextField morale;
     private TextField population;
     private TextField water;
+    private int[] startingStats;
 
     public StartScene(SceneManager manager, GameLogic logic) {
         super(manager, logic);
@@ -61,7 +62,6 @@ public class StartScene extends BaseScene {
         title.setFont(Font.font(STYLESHEET_CASPIAN, 60));
 
         gridLayout.add(title, 1, 1);
-        gridLayout.setGridLinesVisible(true);
 
         debug = new VBox();
         debug.setPrefSize(200, 0);
@@ -88,7 +88,9 @@ public class StartScene extends BaseScene {
         VBox hiscore = new VBox();
         hiscore.setPrefSize(200, 0);
         Text topScoresTitle = new Text("Top directors:");
-        hiscore.getChildren().add(topScoresTitle);
+        Text topScores = new Text(logic.getHiScoreDao().toString());
+
+        hiscore.getChildren().addAll(topScoresTitle, topScores);
 
         gridLayout.add(debug, 0, 1);
         gridLayout.add(gamestart, 1, 2);
@@ -97,15 +99,7 @@ public class StartScene extends BaseScene {
         scene = new Scene(gridLayout);
 
         launchButton.setOnAction(e -> {
-            logic.newGame(nameField.getText(),
-                    new int[]{Integer.parseInt(air.getText()),
-                        Integer.parseInt(energy.getText()),
-                        Integer.parseInt(faith.getText()),
-                        Integer.parseInt(food.getText()),
-                        Integer.parseInt(morale.getText()),
-                        Integer.parseInt(population.getText()),
-                        Integer.parseInt(water.getText()),
-                        });
+            logic.newGame(nameField.getText(), getStartingStats());
             manager.setScene("turn");
         });
 
@@ -113,27 +107,48 @@ public class StartScene extends BaseScene {
 
     }
 
+    public int[] getStartingStats() {
+        int[] stats = new int[]{checkInteger(air.getText()),
+            checkInteger(energy.getText()),
+            checkInteger(faith.getText()),
+            checkInteger(food.getText()),
+            checkInteger(morale.getText()),
+            checkInteger(population.getText()),
+            checkInteger(water.getText())};
+        return stats;
+    }
+
+    public int checkInteger(String s) {
+        int i;
+        try {
+            i = Integer.parseInt(s);
+        } catch (NumberFormatException e) {
+            i = 0;
+        }
+        return i;
+    }
+
     public void statSelection() {
         HBox airLine = new HBox();
-        airLine.getChildren().addAll(new Text("Air: "), formatInput(air));
+        airLine.getChildren().addAll(new Text("Air: \t\t\t"), formatInput(air));
 
         HBox energyLine = new HBox();
-        energyLine.getChildren().addAll(new Text("Energy: "), formatInput(energy));
+        energyLine.getChildren().addAll(new Text("Energy: \t\t"), formatInput(energy));
 
         HBox faithLine = new HBox();
-        faithLine.getChildren().addAll(new Text("Faith: "), formatInput(faith));
+        faithLine.getChildren().addAll(new Text("Faith: \t\t"), formatInput(faith));
 
         HBox foodLine = new HBox();
-        foodLine.getChildren().addAll(new Text("Food: "), formatInput(food));
+        foodLine.getChildren().addAll(new Text("Food: \t\t"), formatInput(food));
 
         HBox moraleLine = new HBox();
-        moraleLine.getChildren().addAll(new Text("Morale: "), formatInput(morale));
+        moraleLine.getChildren().addAll(new Text("Morale: \t\t"), formatInput(morale));
 
         HBox populationLine = new HBox();
-        populationLine.getChildren().addAll(new Text("Population: "), formatInput(population));
+        populationLine.getChildren().addAll(new Text("Population: \t"), formatInput(population));
 
         HBox waterLine = new HBox();
-        waterLine.getChildren().addAll(new Text("Water: "), formatInput(water));
+        waterLine.getChildren().addAll(new Text("Water: \t\t"), formatInput(water));
 
         debug.getChildren().addAll(airLine, energyLine, faithLine, foodLine,
                 moraleLine, populationLine, waterLine);

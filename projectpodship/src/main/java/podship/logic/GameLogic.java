@@ -2,6 +2,7 @@ package podship.logic;
 
 import java.util.ArrayList;
 import java.util.Random;
+import podship.daos.HighScoreDao;
 import podship.events.BuildEvent;
 import podship.events.Event;
 import podship.events.Option;
@@ -21,6 +22,7 @@ public class GameLogic {
     private TurnScene turnScene;
     private TravelScene travelScene;
     private ArrayList<Integer> unlockIDs;
+    private HighScoreDao hiScoreDao;
     private int year;
     private Random r;
 
@@ -29,6 +31,7 @@ public class GameLogic {
      */
     public GameLogic() {
         r = new Random();
+        hiScoreDao = new HighScoreDao();
     }
 
     /**
@@ -127,14 +130,17 @@ public class GameLogic {
      */
     public void travel() {
         if (!stats.hasAllResources()) {
+            hiScoreDao.newEntry(stats.getDirectorName(), stats.countScore());
             travelScene.addLogEntry(formatFinalEntry(travelLogic.getFailureText()));
         } else {
             year += 30 + r.nextInt(50);
             travelScene.addLogEntry(formatEntry(travelLogic.proceedJourney()));
             if (travelLogic.getDistance() < 1) {
                 travelScene.addLogEntry(formatFinalEntry(travelLogic.getArrivalText()));
+                hiScoreDao.newEntry(stats.getDirectorName(), 100 + stats.countScore());
             } else if (!stats.hasAllResources()) {
                 travelScene.addLogEntry(formatFinalEntry(travelLogic.getFailureText()));
+                hiScoreDao.newEntry(stats.getDirectorName(), stats.countScore());
             } else {
                 travelScene.runTimer();
             }
@@ -187,6 +193,10 @@ public class GameLogic {
 
     public void setCurrentEvent(Event currentEvent) {
         this.currentEvent = currentEvent;
+    }
+
+    public HighScoreDao getHiScoreDao() {
+        return hiScoreDao;
     }
 
 }
