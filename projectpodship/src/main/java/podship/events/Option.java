@@ -17,7 +17,8 @@ public class Option {
     private List<Integer> unlocks;
 
     /**
-     * Empty constructor for Option. Mainly for testing.
+     * Empty constructor for Option. Mainly for testing. Desc is "", adjustments
+     * all zero, empty list for unlocks.
      */
     public Option() {
         desc = "";
@@ -27,7 +28,7 @@ public class Option {
 
     /**
      * Simplified constructor for Option, used to initialise building/turn
-     * phase.
+     * phase. Modifiers are all zero, empty list for unlocks.
      *
      * @param desc is shown in the GUI
      */

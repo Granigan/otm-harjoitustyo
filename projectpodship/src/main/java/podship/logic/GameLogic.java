@@ -5,7 +5,6 @@ import java.util.Random;
 import podship.events.BuildEvent;
 import podship.events.Event;
 import podship.events.Option;
-import podship.gui.StartScene;
 import podship.gui.TravelScene;
 import podship.gui.TurnScene;
 import podship.travel.TravelStats;
@@ -21,7 +20,6 @@ public class GameLogic {
     private Event currentEvent;
     private TurnScene turnScene;
     private TravelScene travelScene;
-    private StartScene startScene;
     private ArrayList<Integer> unlockIDs;
     private int year;
     private Random r;
@@ -44,7 +42,7 @@ public class GameLogic {
         unlockIDs = new ArrayList<>();
         year = 2178;
         this.stats = new TravelStats(name, stats);
-        turnLogic = new TurnLogic(this.stats);
+        turnLogic = new TurnLogic(name);
         currentEvent = turnLogic.getFirstEvent();
     }
 
@@ -54,7 +52,8 @@ public class GameLogic {
      * launch process.
      *
      * Effects of the chosen Option: modifies ship stats and adds possible
-     * unlock IDs to the unlockID list
+     * unlock IDs to the unlockID listTests run: 3, Failures: 0, Errors: 1,
+     * Skipped: 0, Time elapsed: 0.027 sec <<< FAILURE!
      *
      * @param id tells which Option was chosen
      */
@@ -95,7 +94,6 @@ public class GameLogic {
         currentEvent = (BuildEvent) turnLogic.getLaunchEvent();
         updateBuildEventTexts();
         turnScene.initiateLaunch();
-
     }
 
     /*
@@ -185,6 +183,10 @@ public class GameLogic {
 
     public void setTravelScene(TravelScene travelScene) {
         this.travelScene = travelScene;
+    }
+
+    public void setCurrentEvent(Event currentEvent) {
+        this.currentEvent = currentEvent;
     }
 
 }

@@ -10,9 +10,8 @@ import podship.logic.GameLogic;
 
 /**
  * The final/travel phase. Displays player the log of the ship travelling
- * through space, and finally the result of the journey.
- * Contains the text area where the log is generated into, and buttons to quit
- * and leave.
+ * through space, and finally the result of the journey. Contains the text area
+ * where the log is generated into, and buttons to quit and leave.
  */
 public class TravelScene extends BaseScene {
 

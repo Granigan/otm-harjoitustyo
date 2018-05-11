@@ -14,10 +14,8 @@ public class TurnLogic {
 
     private EventDeck eventDeck;
     private EventDao eventDao;
-    private TravelStats stats;
     private int turnCount;
     private String name;
-    private List<Integer> travelEventIDs;
 
     /**
      * Default constructor used for testing.
@@ -26,12 +24,10 @@ public class TurnLogic {
         eventDeck = new EventDeck();
         // INIT from mockDAO, later from DB
         eventDao = new EventDao();
-        travelEventIDs = new ArrayList<>();
         for (BuildEvent e : eventDao.getTurnEventsDB()) {
             eventDeck.addEvent(e);
         }
         turnCount = eventDeck.getDeckSize() - 3; // during debug, turns == events-3
-        stats = new TravelStats();
         name = "";
 
     }
@@ -39,17 +35,15 @@ public class TurnLogic {
     /**
      * Constructor initialises the pre-launch stage
      */
-    public TurnLogic(TravelStats stats) {
+    public TurnLogic(String name) {
         eventDeck = new EventDeck();
         // INIT from mockDAO, later from DB
         eventDao = new EventDao();
-        travelEventIDs = new ArrayList<>();
         for (BuildEvent e : eventDao.getTurnEventsDB()) {
             eventDeck.addEvent(e);
         }
         turnCount = eventDeck.getDeckSize() - 3; // during debug, turns == events-3
-        this.stats = stats;
-        name = this.stats.getDirectorName();
+        this.name = name;
     }
 
     /**
@@ -76,6 +70,7 @@ public class TurnLogic {
 
     /**
      * Gives the mock options for the first/intro event.
+     *
      * @return list of Options
      */
     public ArrayList<Option> getIntroOptions() {
@@ -88,7 +83,7 @@ public class TurnLogic {
 
     /**
      * Compiles the first/intro event, putting together the text and options
-     * 
+     *
      * @return the first/intro event
      */
     public BuildEvent getFirstEvent() {
@@ -97,7 +92,7 @@ public class TurnLogic {
 
     /**
      * The final/launch event, telling player to launch the ship.
-     * 
+     *
      * @return the final/launch Event
      */
     public BuildEvent getLaunchEvent() {
@@ -107,7 +102,7 @@ public class TurnLogic {
                 + "ready, launch the ship.\n\n"
                 + "Good luck to us all!";
         ArrayList<Option> options = new ArrayList<>();
-        options.add(new Option("Launch the ship"));
+        options.add(new Option("Launch the ship."));
         options.add(new Option("IGNITE!"));
         options.add(new Option("3... 2... 1... Lift-off!"));
         return new BuildEvent(launchText, options);
@@ -127,7 +122,7 @@ public class TurnLogic {
 
     /**
      * Fetches the next event from the EventDeck
-     * 
+     *
      * @return the next Event given by EventDeck
      */
     public BuildEvent getNextEvent() {

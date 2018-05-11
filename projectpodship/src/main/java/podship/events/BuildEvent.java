@@ -15,7 +15,7 @@ public class BuildEvent extends Event {
     private List<Option> options;
 
     /**
-     * Empty event constructor.
+     * Empty event constructor. Desc is "" and Option list is empty.
      */
     public BuildEvent() {
         super.setDesc("");

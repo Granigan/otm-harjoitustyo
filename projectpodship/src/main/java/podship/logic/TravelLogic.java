@@ -55,7 +55,7 @@ public class TravelLogic {
      * Executes one travel turn. Event occurs if ship has enough resources for
      * it, otherwise peaceful travel continues. If no events are left, peaceful
      * travel ensues.
-     * 
+     *
      */
     public String proceedJourney() {
         String entry = "";
@@ -81,6 +81,7 @@ public class TravelLogic {
 
     /**
      * Description of a successful travel.
+     *
      * @return String for successful arrival log entry.
      */
     public String getArrivalText() {
@@ -92,6 +93,7 @@ public class TravelLogic {
 
     /**
      * Descriptin of a failed voyage.
+     *
      * @return String for failed journey.
      */
     public String getFailureText() {
@@ -121,6 +123,7 @@ public class TravelLogic {
 
     /**
      * First log entry for the travel log.
+     *
      * @return String for the first log entry.
      */
     String getLaunchText() {

@@ -17,8 +17,8 @@ public abstract class BaseScene {
     protected GameLogic logic;
 
     /**
-     * Constructor, links the scene with logic and scene manager.
-     * Initialises pane.
+     * Constructor, links the scene with logic and scene manager. Initialises
+     * pane.
      *
      * @param manager links the scene to other scenes.
      * @param logic links the scene with logic.
