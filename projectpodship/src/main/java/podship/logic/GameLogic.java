@@ -123,16 +123,16 @@ public class GameLogic {
      */
     public void travel() {
         if (!stats.hasAllResources()) {
-            hiScoreDao.newEntry(stats.getDirectorName(), stats.countScore());
+            hiScoreDao.addNewEntry(stats.getDirectorName(), stats.countScore());
             travelScene.addLogEntry(formatFinalEntry(travelLogic.getFailureText()), stats.toString());
         } else {
             year += 30 + r.nextInt(50);
             travelScene.addLogEntry(formatEntry(travelLogic.proceedJourney()), stats.toString());
             if (travelLogic.getDistance() < 1) {
-                hiScoreDao.newEntry(stats.getDirectorName(), 100 + stats.countScore());
+                hiScoreDao.addNewEntry(stats.getDirectorName(), 100 + stats.countScore());
                 travelScene.addLogEntry(formatFinalEntry(travelLogic.getArrivalText()), stats.toString());
             } else if (!stats.hasAllResources()) {
-                hiScoreDao.newEntry(stats.getDirectorName(), stats.countScore());
+                hiScoreDao.addNewEntry(stats.getDirectorName(), stats.countScore());
                 travelScene.addLogEntry(formatFinalEntry(travelLogic.getFailureText()), stats.toString());
             } else {
                 travelScene.runTimer();

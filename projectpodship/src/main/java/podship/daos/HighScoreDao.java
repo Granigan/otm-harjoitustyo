@@ -17,7 +17,7 @@ public class HighScoreDao {
         generateTopScores();
     }
 
-    public void newEntry(String name, int score) {
+    public void addNewEntry(String name, int score) {
         hiscores.add(new HighScore(name, score));
         Collections.sort(hiscores);
         while (hiscores.size() > 5) {
@@ -30,11 +30,12 @@ public class HighScoreDao {
     }
 
     public void generateTopScores() {
-        newEntry("Qmppu", 303);
-        newEntry("Granigan", 28);
-        newEntry("Granigan", 140);
-        newEntry("Juhq", 176);
-        newEntry("Granigan", 178);
+        addNewEntry("Qmppu", 303);
+        addNewEntry("Granigan", 28);
+        addNewEntry("Granigan", 140);
+        addNewEntry("Juhq", 176);
+        addNewEntry("Granigan", 178);
+        addNewEntry("Granigan", -20);
     }
 
     @Override
