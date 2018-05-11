@@ -11,23 +11,24 @@ Player is the only user of the game.
 Game will have three main views:
 - Start screen:
   - Choose your alias
-  - Customize starting resources and conditions (TBA)
+  - Customize starting resources
   - Launch game
   - Quit game
 - Main gameplay screen
-  - Shows the amount of resources (TBA)
+  - Shows the amount of resources
   - List of previous choices (TBA)
   - Choice screen
     - Description of the current event
     - Options to choose from
-  - Quit game and return to Start screen -button
+  - Quit game and return to Start Screen -button
 - Post-launch screen
   - Log of the events
-  - Quit review and returnto Start screen -button
+  - Current resources
+  - Quit review and return to Start Screen -button
   
 ## Basic functionality
 ### After application launch
-Player can customize the starting conditions and resources, choose their name, and start or quit the game.
+Player can customize the starting resources, choose their name, and start or quit the game.
 The screen shows the high score list of previous voyages.
 
 ### After game launch
@@ -40,10 +41,10 @@ Player sees the fate of the ship unfold on screen as news/ship log scrolls by as
 After this the voyage's score is presented, and added to high score list if warranted, and the player is taken back to the main screen.
 
 
-## Minimum features
-- Game can be created (basic UI)
-- Choices are offered and can be made (tracking of choices)
-- Spaceship can be launched (end gameplay, see results)
+## Basic features
+- Game can be compiled and ran
+- Choices are offered and can be made (tracking of choices and effects on resources)
+- Spaceship can be launched (end gameplay, see journey)
 - End result is reported (algoritm provides a result based on resources.)
 
 ## Important features
@@ -52,13 +53,13 @@ After this the voyage's score is presented, and added to high score list if warr
 - Log of the travel & Score calculation
   - What happened on the journey, and how far did the ship get before encountering a terminal event
   
-## Bonus features
+## Bonus features (not available)
+- ACTUAL CONTENT!
+- Getting event info from Google Sheets via API key
+- Persisting local high scores
+- Political events during construction
+  - Preparation time (i.e. how long until you must launch) is affected by political choices
 - Ship building:
   - Visual presentation of the ship
 - Multiple ship frames to choose from
-- More choices in each pool
-- New category: politics
-  - Preparation time (i.e. how long until you must launch) is affected by political choices
 - State of the ship (visual)
-- Persisting local high scores
-- Getting event info from Google Sheets via API key
