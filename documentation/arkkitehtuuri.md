@@ -4,10 +4,10 @@
 ## Packaging
 ![Packages](images/podship_packaging.png)
 
-The domain package initiates the game, with the gui package containing the interface elements, and the logic package containing the execution of the game. Persisting event package information is fetched through the daos package, and the travel package contains the information for the current game.
+The domain package initiates the game, with the gui package containing the interface elements, and the logic package containing the execution of the game. Persisting event package information is (to be) fetched through the daos package, and the travel package contains the information for the current game.
 
 ## UI
-Currently text UI only. GUI will include three screens:
+GUI includes three screens:
 - Start screen
 - Construction phase
 - Travel phase
@@ -15,17 +15,20 @@ Currently text UI only. GUI will include three screens:
 ![UI mockups](images/ui_mockups.jpg)
 _Mockups for the GUI screens._
 
-Each screen will be its own Scene object, and only one will be visible at a time on the program's Stage. GUI will be in the podship.gui package.
+Each screen will be its own Scene-like object, and only one will be visible at a time on the program's Stage, managed by the SceneManager. All of GUI files are in the podship.gui package.
+
+Logic and GUI relay information as needed from logic to gui to update the scene, and vice versa to transfer player input to logic classes.
 
 ## Application logic
 
 ![Class diagram v0.1](images/class_diagram.jpg)
 _Initial class diagram._
 
+Main game runner is the GameLogic class, that connects to the different scenes and the corresponding logics, and runs the timing of the game. Each scene and logic talks to the GameLogic class.
 
 
 ## Database & Permanent data
-Currently the events are coded into the mock DAOs. Hopefully they'll find their way to a Google Sheet later on. At that point, DAO will access the needed Event and Object data from the GSheet as needed. There's no need to write to the GSheet, unless the highscore list will be implemented.
+Currently the events are coded into the mock DAOs. Hopefully they'll find their way to a Google Sheet later on. At that point, DAO will access the needed Event and Object data from the GSheet as needed. There's no need or possibility to write to the Google Sheet as it will be accessed via API key instead of authentication. Potentially a local, permanent highscore list will be implemented as a local database later on.
 
 
 ## Main functionalities
@@ -34,7 +37,7 @@ Currently the events are coded into the mock DAOs. Hopefully they'll find their 
 ![Sequence diagram of TurnLogic constructor, i.e. game initialisation](images/sequence_diagram_turnLogic_constructor.png)
 
 ### Event creation
-Will be done via Daos from the to be created database (pref. Google Sheets.)
+Will later on be done via Daos from the to be created database (pref. Google Sheets.) Currently the few prewritten events are created in the event classes, as well as the debug/placeholder events that fill most of the current gameplay.
 
 ### Construction Turn
 Each Construction turn presents the player with one event description. Player will then make a choice out of three possibilities. These choices unlock events for the Travel phase, and affect statistics.
