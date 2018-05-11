@@ -47,7 +47,7 @@ public class TravelScene extends BaseScene {
         statScreen.setPrefSize(200, 300);
         statScreen.setLayoutX(0);
         statScreen.setLayoutY(0);
-        
+
         timer = new AnimationTimer() {
             @Override
             public void handle(long now) {
@@ -60,7 +60,7 @@ public class TravelScene extends BaseScene {
             }
         };
 
-        layout.getChildren().addAll(menuButton, exitButton, log,statScreen);
+        layout.getChildren().addAll(menuButton, exitButton, log, statScreen);
         scene = new Scene(layout);
 
         menuButton.setOnAction(e -> manager.setScene("start"));

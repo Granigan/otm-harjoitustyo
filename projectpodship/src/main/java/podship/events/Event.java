@@ -7,7 +7,7 @@ package podship.events;
  */
 abstract public class Event {
 
-    private String desc;
+    protected String desc;
 
     public String getDesc() {
         return desc;

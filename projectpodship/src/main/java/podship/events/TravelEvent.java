@@ -19,10 +19,18 @@ public class TravelEvent extends Event {
      */
     public TravelEvent() {
         Random r = new Random();
-        statAdjustments = new int[]{r.nextInt(2) - 1, r.nextInt(2) - 1, r.nextInt(2) - 1,
-            r.nextInt(2) - 1, r.nextInt(2) - 1, r.nextInt(2) - 1, r.nextInt(2) - 1};
+        statAdjustments = new int[]{r.nextInt(3) - 1, r.nextInt(3) - 1, r.nextInt(3) - 1,
+            r.nextInt(3) - 1, r.nextInt(3) - 1, r.nextInt(3) - 1, r.nextInt(3) - 1};
         statRequirements = new int[]{0, 0, 0, 0, 0, 0, 0};
-        super.setDesc("A random encounter in space!");
+        desc = "A random encounter in space!\n"
+                + "Stat modifiers:\n"
+                + "Air: \t\t\t\t" + statAdjustments[0] + "\n"
+                + "Energy: \t\t" + statAdjustments[1] + "\n"
+                + "Faith: \t\t" + statAdjustments[2] + "\n"
+                + "Food: \t\t" + statAdjustments[3] + "\n"
+                + "Morale: \t\t" + statAdjustments[4] + "\n"
+                + "Population: \t" + statAdjustments[5] + "\n"
+                + "Water: \t\t" + statAdjustments[6] + "\n";
     }
 
     /**

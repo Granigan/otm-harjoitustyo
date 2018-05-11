@@ -46,7 +46,7 @@ public class TurnScene extends BaseScene {
         eventScreen.setPrefSize(400, 300);
         eventScreen.wrapTextProperty().set(true);
         eventScreen.setText(logic.getTurnLogic().getIntroText());
-        
+
         statScreen = new TextArea(logic.getStats().toString());
         statScreen.setPrefSize(200, 300);
         statScreen.setLayoutX(0);
